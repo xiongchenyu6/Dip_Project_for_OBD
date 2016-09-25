@@ -1,0 +1,3 @@
+[submodule "Android-GoogleDirectionLibrary"]
+	path = Android-GoogleDirectionLibrary
+	url = ./Android-GoogleDirectionLibrary
