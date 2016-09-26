@@ -16,8 +16,6 @@
     string in this file.
     -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCGPmIqEbYuA_agLnx_k08Fxb_CzzXnIEg</string>
-    <!--<fragment>
-        tools:showIn="@layout/activity_maps
-    </fragment>-->
+
 </resources>
 
