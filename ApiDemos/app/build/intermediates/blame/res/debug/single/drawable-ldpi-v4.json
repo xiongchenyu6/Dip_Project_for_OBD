@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\common_ic_googleplayservices.png",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable-ldpi-v4\\common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\ic_android.png",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_android.png"
+    }
+]

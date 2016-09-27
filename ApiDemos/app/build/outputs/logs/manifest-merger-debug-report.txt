@@ -1,0 +1,345 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:17:1-168:12
+	package
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:18:5-34
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:17:11-69
+	android:versionCode
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:25:5-79
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:25:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:28:5-30:38
+	android:maxSdkVersion
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:30:9-35
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:29:9-65
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:31:5-33:38
+	android:maxSdkVersion
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:33:9-35
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:32:9-64
+application
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:35:5-166:19
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.0\AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-tasks:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.0\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:38:9-43
+	android:supportsRtl
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:39:9-35
+	android:allowBackup
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:36:9-35
+	android:icon
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:37:9-43
+	android:theme
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:40:9-40
+meta-data#com.google.android.geo.API_KEY
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:50:9-52:55
+	android:value
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:52:13-52
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:51:13-58
+activity#com.example.mapdemo.MainActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:54:9-59:20
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:54:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:55:13-58:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:56:17-68
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:56:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:57:17-76
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:57:27-74
+activity#com.example.mapdemo.LegalInfoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:60:9-62:49
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:62:13-47
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:61:13-46
+activity#com.example.mapdemo.BasicMapDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:63:9-65:59
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:65:13-57
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:64:13-49
+activity#com.example.mapdemo.CameraDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:66:9-68:56
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:68:13-54
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:67:13-47
+activity#com.example.mapdemo.CameraClampingDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:69:9-71:65
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:71:13-63
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:70:13-55
+activity#com.example.mapdemo.CircleDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:72:9-74:56
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:74:13-54
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:73:13-47
+activity#com.example.mapdemo.EventsDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:75:9-77:56
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:77:13-54
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:76:13-47
+activity#com.example.mapdemo.GroundOverlayDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:78:9-80:64
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:80:13-62
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:79:13-54
+activity#com.example.mapdemo.IndoorDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:81:9-83:56
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:83:13-54
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:82:13-47
+activity#com.example.mapdemo.LayersDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:84:9-86:56
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:86:13-54
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:85:13-47
+activity#com.example.mapdemo.LiteDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:87:9-89:54
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:89:13-52
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:88:13-45
+activity#com.example.mapdemo.LiteListDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:90:9-92:59
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:92:13-57
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:91:13-49
+activity#com.example.mapdemo.LocationSourceDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:93:9-95:65
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:95:13-63
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:94:13-55
+activity#com.example.mapdemo.MapInPagerDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:96:9-98:62
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:98:13-60
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:97:13-51
+activity#com.example.mapdemo.MarkerDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:99:9-101:56
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:101:13-54
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:100:13-47
+activity#com.example.mapdemo.MultiMapDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:102:9-104:59
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:104:13-57
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:103:13-49
+activity#com.example.mapdemo.MyLocationDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:105:9-107:61
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:107:13-59
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:106:13-51
+activity#com.example.mapdemo.OptionsDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:108:9-110:57
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:110:13-55
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:109:13-48
+activity#com.example.mapdemo.PolygonDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:111:9-113:57
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:113:13-55
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:112:13-48
+activity#com.example.mapdemo.PolylineDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:114:9-116:58
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:116:13-56
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:115:13-49
+activity#com.example.mapdemo.ProgrammaticDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:117:9-119:62
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:119:13-60
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:118:13-53
+activity#com.example.mapdemo.RawMapViewDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:120:9-122:62
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:122:13-60
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:121:13-51
+activity#com.example.mapdemo.RetainMapDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:123:9-125:60
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:125:13-58
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:124:13-50
+activity#com.example.mapdemo.SaveStateDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:126:9-128:60
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:128:13-58
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:127:13-50
+activity#com.example.mapdemo.SnapshotDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:129:9-131:58
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:131:13-56
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:130:13-49
+activity#com.example.mapdemo.SplitStreetViewPanoramaAndMapDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:132:9-134:84
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:134:13-82
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:133:13-70
+activity#com.example.mapdemo.StreetViewPanoramaBasicDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:135:9-137:76
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:137:13-74
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:136:13-64
+activity#com.example.mapdemo.StreetViewPanoramaEventsDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:138:9-140:77
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:140:13-75
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:139:13-65
+activity#com.example.mapdemo.StreetViewPanoramaNavigationDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:141:9-143:81
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:143:13-79
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:142:13-69
+activity#com.example.mapdemo.StreetViewPanoramaOptionsDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:144:9-146:78
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:146:13-76
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:145:13-66
+activity#com.example.mapdemo.StreetViewPanoramaViewDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:147:9-149:75
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:149:13-73
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:148:13-63
+activity#com.example.mapdemo.StyledMapDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:150:9-152:60
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:152:13-58
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:151:13-50
+activity#com.example.mapdemo.TileCoordinateDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:153:9-155:65
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:155:13-63
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:154:13-55
+activity#com.example.mapdemo.TileOverlayDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:156:9-158:62
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:158:13-60
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:157:13-52
+activity#com.example.mapdemo.UiSettingsDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:159:9-161:61
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:161:13-59
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:160:13-51
+activity#com.example.mapdemo.VisibleRegionDemoActivity
+ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:162:9-164:64
+	android:label
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:164:13-62
+	android:name
+		ADDED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml:163:13-54
+uses-sdk
+INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-base:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.0\AndroidManifest.xml:17:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.google.android.gms:play-services-tasks:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.0\AndroidManifest.xml:3:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:17:5-42
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\AndroidManifest.xml:21:5-23:54
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.4.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:19:22-76
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:20:22-64
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.0\AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.0\AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.0\AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.0\AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.0\AndroidManifest.xml:19:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:20:9-121
+MERGED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:20:9-121
+MERGED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:9.6.0] C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\ApiDemos\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.0\AndroidManifest.xml:20:20-65

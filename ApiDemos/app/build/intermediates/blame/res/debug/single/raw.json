@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\raw\\mapstyle_night.json",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\raw\\mapstyle_night.json"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\raw\\mapstyle_grayscale.json",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\raw\\mapstyle_grayscale.json"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\raw\\mapstyle_retro.json",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\raw\\mapstyle_retro.json"
+    }
+]

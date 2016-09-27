@@ -1,0 +1,302 @@
+[
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\legal_info.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\legal_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\styled_map_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\styled_map_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\my_location_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\my_location_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\multimap_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\multimap_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\basic_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\basic_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_info_window.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\custom_info_window.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\camera_clamping_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\camera_clamping_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\snapshot_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\snapshot_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\street_view_panorama_options_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\street_view_panorama_options_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\feature.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\feature.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\marker_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\marker_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\lite_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\lite_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\options_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\options_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\raw_mapview_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\raw_mapview_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ui_settings_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\ui_settings_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\text_fragment.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\text_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_info_contents.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\custom_info_contents.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\circle_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\circle_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\lite_list_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\lite_list_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ground_overlay_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\ground_overlay_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\split_street_view_panorama_and_map_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\split_street_view_panorama_and_map_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\camera_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\camera_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layers_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\layers_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\save_state_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\save_state_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\street_view_panorama_navigation_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\street_view_panorama_navigation_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\map_in_pager_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\map_in_pager_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tile_overlay_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\tile_overlay_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\polyline_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\polyline_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\street_view_panorama_basic_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\street_view_panorama_basic_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tile_coordinate_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\tile_coordinate_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\polygon_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\polygon_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\visible_region_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\visible_region_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\indoor_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\indoor_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\street_view_panorama_view_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\street_view_panorama_view_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\street_view_panorama_events_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\street_view_panorama_events_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\events_demo.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\events_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\build\\intermediates\\res\\merged\\debug\\layout\\lite_list_demo_row.xml",
+        "source": "C:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\ApiDemos\\app\\src\\main\\res\\layout\\lite_list_demo_row.xml"
+    }
+]

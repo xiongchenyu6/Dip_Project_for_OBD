@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mapdemo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="23" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- EXTERNAL_STORAGE permissions are optional for Android 6.0 onwards. -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="22" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="22" />
+
+    <!-- Include required permissions for Google Maps API to run. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/demo_title"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name="com.example.mapdemo.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.mapdemo.LegalInfoActivity"
+            android:label="@string/legal_info" />
+        <activity
+            android:name="com.example.mapdemo.BasicMapDemoActivity"
+            android:label="@string/basic_map_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.CameraDemoActivity"
+            android:label="@string/camera_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.CameraClampingDemoActivity"
+            android:label="@string/camera_clamping_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.CircleDemoActivity"
+            android:label="@string/circle_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.EventsDemoActivity"
+            android:label="@string/events_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.GroundOverlayDemoActivity"
+            android:label="@string/ground_overlay_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.IndoorDemoActivity"
+            android:label="@string/indoor_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.LayersDemoActivity"
+            android:label="@string/layers_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.LiteDemoActivity"
+            android:label="@string/lite_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.LiteListDemoActivity"
+            android:label="@string/lite_list_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.LocationSourceDemoActivity"
+            android:label="@string/location_source_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.MapInPagerDemoActivity"
+            android:label="@string/map_in_pager_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.MarkerDemoActivity"
+            android:label="@string/marker_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.MultiMapDemoActivity"
+            android:label="@string/multi_map_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.MyLocationDemoActivity"
+            android:label="@string/my_location_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.OptionsDemoActivity"
+            android:label="@string/options_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.PolygonDemoActivity"
+            android:label="@string/polygon_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.PolylineDemoActivity"
+            android:label="@string/polyline_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.ProgrammaticDemoActivity"
+            android:label="@string/programmatic_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.RawMapViewDemoActivity"
+            android:label="@string/raw_map_view_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.RetainMapDemoActivity"
+            android:label="@string/retain_map_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.SaveStateDemoActivity"
+            android:label="@string/save_state_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.SnapshotDemoActivity"
+            android:label="@string/snapshot_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.SplitStreetViewPanoramaAndMapDemoActivity"
+            android:label="@string/split_street_view_panorama_and_map_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.StreetViewPanoramaBasicDemoActivity"
+            android:label="@string/street_view_panorama_basic_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.StreetViewPanoramaEventsDemoActivity"
+            android:label="@string/street_view_panorama_events_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.StreetViewPanoramaNavigationDemoActivity"
+            android:label="@string/street_view_panorama_navigation_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.StreetViewPanoramaOptionsDemoActivity"
+            android:label="@string/street_view_panorama_options_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.StreetViewPanoramaViewDemoActivity"
+            android:label="@string/street_view_panorama_view_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.StyledMapDemoActivity"
+            android:label="@string/styled_map_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.TileCoordinateDemoActivity"
+            android:label="@string/tile_coordinate_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.TileOverlayDemoActivity"
+            android:label="@string/tile_overlay_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.UiSettingsDemoActivity"
+            android:label="@string/ui_settings_demo_label" />
+        <activity
+            android:name="com.example.mapdemo.VisibleRegionDemoActivity"
+            android:label="@string/visible_region_demo_label" />
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>
