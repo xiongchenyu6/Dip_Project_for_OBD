@@ -22,7 +22,8 @@
                 android:text="Navigate"
                 android:id="@+id/button"
                 android:layout_below="@+id/edTxtEnd"
-                android:layout_centerHorizontal="true"/>
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="39dp"/>
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -55,6 +56,15 @@
                 android:id="@+id/tvDistance"
                 android:layout_below="@+id/tvDuration"
                 android:layout_alignParentStart="true"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Map"
+                android:id="@+id/button2"
+                android:layout_below="@+id/edTxtEnd"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="41dp"/>
 
     </RelativeLayout>
 
