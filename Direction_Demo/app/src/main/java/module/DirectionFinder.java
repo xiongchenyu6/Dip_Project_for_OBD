@@ -106,6 +106,7 @@ public class DirectionFinder {
             JSONObject jsonStartLocation = jsonLeg.getJSONObject("start_location");
             JSONArray jsonSteps = jsonLeg.getJSONArray("steps");
 
+            //store html instruction into a list
             for (int t=0 ; t<jsonSteps.length() ; t++) {
                 String jsonStep = jsonSteps.getJSONObject(t).getString("html_instructions");
                 temp.add(htmlConverter(jsonStep));
