@@ -1,8 +1,10 @@
 package com.example.seanh.direction_demo;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,21 +14,29 @@ import module.DirectionFinder;
 import module.DirectionFinderListener;
 import module.Route;
 import android.app.ProgressDialog;
+import module.SmsReceiver;
 
 
+import java.io.Console;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
-public class MainActivity extends AppCompatActivity implements DirectionFinderListener {
+public class MainActivity extends AppCompatActivity implements DirectionFinderListener,SmsReceiver.OnSmsReceivedListener{
 
     private ProgressDialog progressDialog;
-    public List<Route> uniRoutes =new ArrayList<>();
+    String origin;
+    String end;
+    private SmsReceiver receiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        receiver= new SmsReceiver();
+        receiver.setSmsReceiver(this);
 
         Button btnNavigate=(Button) findViewById(R.id.button);
         Button btnShowMap=(Button) findViewById(R.id.button2);
@@ -41,20 +51,38 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         btnShowMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                EditText et1=(EditText) findViewById(R.id.edTxtStart);
+                EditText et2=(EditText) findViewById(R.id.edTxtEnd);
                 Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                intent.putExtra("VALUE_ORIGIN",et1.getText().toString());
+                intent.putExtra("VALUE_END",et2.getText().toString());
                 MainActivity.this.startActivity(intent);
             }
         });
 
+        IntentFilter intentFilter= new IntentFilter("android.provider.Telephony.SMS_RECEIVED");
+        this.registerReceiver(receiver,intentFilter);
     }
 
+    @Override
+    public void onPause(){
+        super.onPause();
+        this.unregisterReceiver(this.receiver);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        IntentFilter intentFilter= new IntentFilter("android.provider.Telephony.SMS_RECEIVED");
+        this.registerReceiver(this.receiver,intentFilter);
+    }
 
     private void sendRequest(){
         EditText et1=(EditText) findViewById(R.id.edTxtStart);
         EditText et2=(EditText) findViewById(R.id.edTxtEnd);
-
-        String origin=et1.getText().toString();
-        String end=et2.getText().toString();
+        origin=et1.getText().toString();
+        end=et2.getText().toString();
         if (origin.isEmpty()){
             Toast.makeText(this, "Please enter origin address!", Toast.LENGTH_SHORT).show();
             return;
@@ -80,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
     @Override
     public void onDirectionFinderSuccess(List<Route> routes) {
-        uniRoutes=routes;
         progressDialog.dismiss();
         String inst="";
 
@@ -93,9 +120,16 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
             }
 
+            inst=inst+route.polyline;
+
             ((TextView) findViewById(R.id.txtInst)).setText(inst);
 
         }
+    }
+
+    @Override
+    public void onSmsReceived(int msgNo) {
+        Toast.makeText(this, "New message No is " + msgNo, Toast.LENGTH_SHORT).show();
     }
 
 

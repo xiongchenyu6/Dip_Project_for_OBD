@@ -16,6 +16,7 @@ public class Route {
     public String startAddress;
     public LatLng startLocation;
     public List<String> instructions;
+    public String polyline;
 
     public List<LatLng> points;
 }
