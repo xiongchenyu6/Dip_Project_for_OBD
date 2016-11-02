@@ -3,6 +3,8 @@ package com.example.seanh.direction_demo;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
+import android.net.Uri;
+import android.os.StrictMode;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,10 +24,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-import java.io.Console;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.RunnableFuture;
 import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity implements DirectionFinderListener,SmsReceiver.OnSmsReceivedListener{
@@ -46,6 +51,10 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         receiver= new SmsReceiver();
         receiver.setSmsReceiver(this);
@@ -187,6 +196,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
+                sendData();
+                sendToServer(data_all);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -218,6 +229,84 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         return temp;
 
     }
+    private void sendToServer(JSONObject data){
+
+        class task implements Runnable{
+            JSONObject data;
+            task(JSONObject data){this.data=data;}
+            public void run() {
+        Uri uri = Uri.parse("http://192.168.42.94:4000/data?")
+                    .buildUpon()
+                    .appendQueryParameter("key",data.toString())
+                    .build();
+            Log.d("uri",uri.toString());
+        URL url = null;
+        try {
+            url = new URL(uri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        Log.d("url",url.toString());
+        HttpURLConnection urlConnection = null;
+        try {
+            urlConnection = (HttpURLConnection) url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Log.d("Start to send",data.toString());
+        try{
+
+            Log.d("Conneter",urlConnection.toString());
+            int code = urlConnection.getResponseCode();
+            Log.d("code",code+"");
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+
+
+        }catch (Exception e){
+            urlConnection.disconnect();
+            String msg = (e.getMessage()==null)?"Login failed!":e.getMessage();
+            Log.i("Login Error1",msg);
+        }
+            }
+        };
+        Thread newTread = new Thread(new task(data));
+        newTread.start();
+    }
+    public void sendData(){
+        Runnable a= new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String path = "http://www.baidu.com";
+                    // 1.声明访问的路径， url 网络资源 http ftp rtsp
+                    URL url = new URL(path);
+                    // 2.通过路径得到一个连接 http的连接
+                    HttpURLConnection conn = (HttpURLConnection) url
+                            .openConnection();
+                    // 3.判断服务器给我们返回的状态信息。
+                    // 200 成功 302 从定向 404资源没找到 5xx 服务器内部错误
+                    int code = conn.getResponseCode();
+                    if (code == 200) {
+                        // 4.利用链接成功的 conn 得到输入流
+                        InputStream is = conn.getInputStream();// png的图片
+
+                        // 5. ImageView设置Bitmap,用BitMap工厂解析输入流
+                        ;
+                    } else {
+                        // 请求失败
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+
+        };
+        Thread b= new Thread(a);
+        b.start();
+    }
+
 
 
 
