@@ -21,9 +21,8 @@
                 android:layout_height="wrap_content"
                 android:text="Navigate"
                 android:id="@+id/button"
-                android:layout_below="@+id/edTxtEnd"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="39dp"/>
+                android:layout_alignTop="@+id/button3"
+                android:layout_alignParentStart="true"/>
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,8 +62,15 @@
                 android:text="Show Map"
                 android:id="@+id/button2"
                 android:layout_below="@+id/edTxtEnd"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="41dp"/>
+                android:layout_alignParentEnd="true"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go"
+                android:id="@+id/button3"
+                android:layout_alignTop="@+id/button2"
+                android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 

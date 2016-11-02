@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lat">
+        <item>43.6533103</item>
+        <item>43.6557259</item>
+        <item>43.6562448</item>
+        <item>43.6635765</item>
+    </string-array>
+
+
+    <string-array name="lng">
+        <item>-79.3827675</item>
+        <item>-79.38373319999999</item>
+        <item>-79.37828979999999</item>
+        <item>-79.3554817</item>
+    </string-array>
+</resources>
