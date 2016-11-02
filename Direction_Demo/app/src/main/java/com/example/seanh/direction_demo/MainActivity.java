@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     public int go_smsNo;
     public int go_callNo;
     public int stepCounter=0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     @Override
     public void onDirectionFinderStart() {
         //progressDialog = ProgressDialog.show(this, "Please wait.",
-              //  "Finding direction..!", true);
+                //"Finding direction..!", true);
     }
 
     @Override
@@ -187,22 +186,18 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             }
 
             try {
-                data_all=packJSon();
+                data_all=packJSon();//data_all is the final data package to the rpi
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
+        Log.d("JSON info "+stepCounter, data_all.toString() );
+
             if (stepCounter<lat.length-1)
                 stepCounter++;
 
-        Log.d("JSON info "+stepCounter, data_all.toString() );
-
-
-
-
     }
-
-
 
     private JSONObject packJSon() throws JSONException{
         JSONObject data_map=new JSONObject();
