@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -196,7 +197,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
-                sendToServer(data_all);
+                //sendToServer(data_all);
+                new sendDataToServer().execute(data_all);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -235,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             JSONObject data;
             task(JSONObject data){this.data=data;}
             public void run() {
-        Uri uri = Uri.parse("http://192.168.42.94:4000/data?")
+        Uri uri = Uri.parse("http://192.168.44.97:4000/data?")
                     .buildUpon()
                     .appendQueryParameter("key",data.toString())
                     .build();
@@ -262,5 +264,39 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         Thread newTread = new Thread(new task(data));
         newTread.start();
     }
+
+
+    private class sendDataToServer extends AsyncTask<JSONObject, Void, Void>{
+
+        @Override
+        protected Void doInBackground(JSONObject... params) {
+            HttpURLConnection urlConnection = null;
+            JSONObject data=params[0];
+
+            try {
+                Uri uri = Uri.parse("http://192.168.44.97:4000/data?")
+                        .buildUpon()
+                        .appendQueryParameter("key",data.toString())
+                        .build();
+                URL url = new URL(uri.toString());
+                urlConnection = (HttpURLConnection) url.openConnection();
+
+                int code = urlConnection.getResponseCode();
+                //InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+            }catch (MalformedURLException e){
+                e.printStackTrace();
+            }catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+                urlConnection.disconnect();
+            }
+            return null;
+        }
+
+
+
+    }
+
 
 }
