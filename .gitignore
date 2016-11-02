@@ -1,6 +1,6 @@
-.gitignore
 node_modules
 node_modules/
+.gitignore
 # Logs
 logs
 *.log
