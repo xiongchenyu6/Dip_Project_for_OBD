@@ -3,6 +3,8 @@
  var express = require('express');
  var app = express();
  var router = express.Router();
+ var info;
+app.set("jsonp callback", true);
 
  app.use(express.static('public'));
 
@@ -11,10 +13,15 @@
      });
 
 app.get('/data',function (req,res) {
-    console.log(req.query);
-    res.send('Got it');
-})
+    info=req.query;
+    console.log(info);
 
+    res.send('Got it');
+});
+
+app.get('/info',function (req,res) {
+        res.jsonp(info);
+});
 app.listen(5000,function () {
         console.log('Listening on port 5000');
 });
