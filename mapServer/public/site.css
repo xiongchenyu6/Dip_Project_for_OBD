@@ -1,8 +1,8 @@
-/* some css */
-/* put this under /public/* */
-body {
-        font-family: 'Helvetica';
-            color: red;
-                font-size:24px;
-
-}
+   html, body {
+        height:100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+      	    height: 100%;
+      }
