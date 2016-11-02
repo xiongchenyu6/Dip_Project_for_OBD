@@ -196,7 +196,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
-                sendData();
                 sendToServer(data_all);
 
             } catch (JSONException e) {
@@ -229,6 +228,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         return temp;
 
     }
+
     private void sendToServer(JSONObject data){
 
         class task implements Runnable{
@@ -239,75 +239,28 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
                     .buildUpon()
                     .appendQueryParameter("key",data.toString())
                     .build();
-            Log.d("uri",uri.toString());
         URL url = null;
         try {
             url = new URL(uri.toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        Log.d("url",url.toString());
         HttpURLConnection urlConnection = null;
         try {
             urlConnection = (HttpURLConnection) url.openConnection();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.d("Start to send",data.toString());
         try{
-
-            Log.d("Conneter",urlConnection.toString());
             int code = urlConnection.getResponseCode();
-            Log.d("code",code+"");
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-
-
-
         }catch (Exception e){
             urlConnection.disconnect();
-            String msg = (e.getMessage()==null)?"Login failed!":e.getMessage();
-            Log.i("Login Error1",msg);
         }
             }
-        };
+        }
         Thread newTread = new Thread(new task(data));
         newTread.start();
     }
-    public void sendData(){
-        Runnable a= new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String path = "http://www.baidu.com";
-                    // 1.声明访问的路径， url 网络资源 http ftp rtsp
-                    URL url = new URL(path);
-                    // 2.通过路径得到一个连接 http的连接
-                    HttpURLConnection conn = (HttpURLConnection) url
-                            .openConnection();
-                    // 3.判断服务器给我们返回的状态信息。
-                    // 200 成功 302 从定向 404资源没找到 5xx 服务器内部错误
-                    int code = conn.getResponseCode();
-                    if (code == 200) {
-                        // 4.利用链接成功的 conn 得到输入流
-                        InputStream is = conn.getInputStream();// png的图片
-
-                        // 5. ImageView设置Bitmap,用BitMap工厂解析输入流
-                        ;
-                    } else {
-                        // 请求失败
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-
-        };
-        Thread b= new Thread(a);
-        b.start();
-    }
-
-
-
 
 }
