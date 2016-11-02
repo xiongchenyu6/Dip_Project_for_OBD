@@ -1,8 +1,13 @@
-   html, body {
-        height:100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-      	    height: 100%;
-      }
+
+    .bkg{
+        background-color:black;
+        color:green;   
+        height: 100%;
+    }
+
+    .h{
+       color: green;
+       font-family: bold arial;
+       font-size: 100%;
+       text-align: center;
+    }
