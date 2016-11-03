@@ -1,4 +1,4 @@
-     
+
    var polyline = {};
 window.Code = "";
 
@@ -47,73 +47,43 @@ window.Code = "";
           longitude_change,
           factor = Math.pow(10, precision || 5);
 
-      // Coordinates have variable length when encoded, so just keep
-      // track of whether we've hit the end of the string. In each
-      // loop iteration, a single coordinate is decoded.
-      while (index < str.length) {
+// Coordinates have variable length when encoded, so just keep
+// track of whether we've hit the end of the string. In each
+// loop iteration, a single coordinate is decoded.
+while (index < str.length) {
 
-          // Reset shift, result, and byte
-          byte = null;
-          shift = 0;
-          result = 0;
+    // Reset shift, result, and byte
+    byte = null;
+    shift = 0;
+    result = 0;
 
-          do {
-              byte = str.charCodeAt(index++) - 63;
-              result |= (byte & 0x1f) << shift;
-              shift += 5;
-          } while (byte >= 0x20);
+    do {
+        byte = str.charCodeAt(index++) - 63;
+        result |= (byte & 0x1f) << shift;
+        shift += 5;
+    } while (byte >= 0x20);
 
-          latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+    latitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
 
-          shift = result = 0;
+    shift = result = 0;
 
-          do {
-              byte = str.charCodeAt(index++) - 63;
-              result |= (byte & 0x1f) << shift;
-              shift += 5;
-          } while (byte >= 0x20);
+    do {
+        byte = str.charCodeAt(index++) - 63;
+        result |= (byte & 0x1f) << shift;
+        shift += 5;
+    } while (byte >= 0x20);
 
-          longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
+    longitude_change = ((result & 1) ? ~(result >> 1) : (result >> 1));
 
-          lat += latitude_change;
-          lng += longitude_change;
+    lat += latitude_change;
+    lng += longitude_change;
 
-          coordinates.push([lat / factor, lng / factor]);
-      }
+    coordinates.push([lat / factor, lng / factor]);
+}
 
-      return coordinates;
+return coordinates;
   };
 
-  /**
-   * Encodes the given [latitude, longitude] coordinates array.
-   *
-   * @param {Array.<Array.<Number>>} coordinates
-   * @param {Number} precision
-   * @returns {String}
-   */
-   /*
-  polyline.encode = function(coordinates, precision) {
-      if (!coordinates.length) { return ''; }
-
-      var factor = Math.pow(10, precision || 5),
-          output = encode(coordinates[0][0], 0, factor) + encode(coordinates[0][1], 0, factor);
-
-      for (var i = 1; i < coordinates.length; i++) {
-          var a = coordinates[i], b = coordinates[i - 1];
-          output += encode(a[0], b[0], factor);
-          output += encode(a[1], b[1], factor);
-      }
-
-      return output;
-  };
-
-  function flipped(coords) {
-      var flipped = [];
-      for (var i = 0; i < coords.length; i++) {
-          flipped.push(coords[i].slice().reverse());
-      }
-      return flipped;
-  }
 
   /**
    * Encodes a GeoJSON LineString feature/geometry.
@@ -123,38 +93,31 @@ window.Code = "";
    * @returns {String}
    */
    /*
-  polyline.fromGeoJSON = function(geojson, precision) {
-      if (geojson && geojson.type === 'Feature') {
-          geojson = geojson.geometry;
-      }
-      if (!geojson || geojson.type !== 'LineString') {
-          throw new Error('Input must be a GeoJSON LineString');
-      }
-      return polyline.encode(flipped(geojson.coordinates), precision);
-  };
-*/
-  /**
-   * Decodes to a GeoJSON LineString geometry.
-   *
-   * @param {String} str
-   * @param {Number} precision
-   * @returns {Object}
-   */
-   /*
-  polyline.toGeoJSON = function(str, precision) {
-      var coords = polyline.decode(str, precision);
-      return {
-          type: 'LineString',
-          coordinates: flipped(coords)
-      };
-  };
+=======
+function flipped(coords) {
+    var flipped = [];
+    for (var i = 0; i < coords.length; i++) {
+        flipped.push(coords[i].slice().reverse());
+    }
+    return flipped;
+}
 
-  if (typeof module === 'object' && module.exports) {
-      module.exports = polyline;
-  }
+/**
+ * Encodes a GeoJSON LineString feature/geometry.
+ *
+ * @param {Object} geojson
+ * @param {Number} precision
+ * @returns {String}
+ */
 
-*/
 
+/**
+ * Decodes to a GeoJSON LineString geometry.
+ *
+ * @param {String} str
+ * @param {Number} precision
+ * @returns {Object}
+ */
  
 
   function initialize() {
@@ -358,41 +321,53 @@ window.Code = "";
    
     var Route =polyline.decode(window.Code);
       
+
+//document.getElementById('mytxt').value = Route;
+
+
+
+    var code ='}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
+    var Route =polyline.decode(code);
+
+
     var myLines=new Array();
     var source = {lat: Route[0][0],lng: Route[0][1]};
     var destination = {lat: Route[Route.length-1][0],lng: Route[Route.length-1][1]};
 
     map = new google.maps.Map(document.getElementById('map'), {
-      center: source,
-      zoom:18,
-      styles: styleArray
-    });    
+
+        center: source,
+        zoom:18,
+        styles: styleArray
+    });
+
 
     for(var i =0;i<Route.length;i++)
     {
-       myLines.push(new google.maps.LatLng(Route[i][0],Route[i][1]));
+        myLines.push(new google.maps.LatLng(Route[i][0],Route[i][1]));
     }
-    
+
     var myPath=new google.maps.Polyline({
-    path:myLines,
-    strokeColor:"#FD0202",
-    strokeOpacity:0.8,
-    strokeWeight:10
+        path:myLines,
+        strokeColor:"#FD0202",
+        strokeOpacity:0.8,
+        strokeWeight:10
     });
 
     var marker = new google.maps.Marker({
-      position: source,
-      map: map,
-      animation: google.maps.Animation.BOUNCE
+        position: source,
+        map: map,
+        animation: google.maps.Animation.BOUNCE
     });
 
     var marker = new google.maps.Marker({
-      position: destination,
-      map: map,
-      animation: google.maps.Animation.BOUNCE
+        position: destination,
+        map: map,
+        animation: google.maps.Animation.BOUNCE
     });
     myPath.setMap(map); 
   };
+
 
 
 
@@ -404,7 +379,6 @@ window.Code = "";
     Displayspeed(Curret_Speed);
   
 
-
 var redraw = function(Code){
  var newCode = Code||'}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
  window.Code = newCode;
@@ -414,3 +388,34 @@ var redraw = function(Code){
  document.getElementsByTagName('head')[0].removeChild(googleScript);};
 
  redraw("ormiGhqncNq@iF[wBe@qDm@{Eo@{ECGEIEIGEII]QOMQMKMOQKQIOIQISESIWEUESCYAWA]?]D}@?GAKAMe@_Da@oCi@}DYsB[yB]aCCUYuB_@wC]qCa@wCa@wCYwBAKYmBe@aDWiBKy@WgBeAoH[{Bs@eFAKUmDWmD");
+/*var polygons = [
+        {lat: 1.352, lng: 103.672},
+        {lat: 1.332, lng: 103.682},
+        {lat: 1.342, lng: 103.692}
+        ];
+   var drawpolygons = new google.maps.Polygon({
+      paths: polygons,
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 3,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35
+    });
+  drawpolygons.setMap(map);
+   infoWindow = new google.maps.InfoWindow;
+   */
+
+
+function loop (data){
+    // it worked!
+    console.log(data);
+    //
+};
+
+function loopFunction() {
+    var script = document.createElement('script');
+    script.src = 'http://localhost:4000/info?callback=loop'
+    document.getElementsByTagName('head')[0].appendChild(script);
+    document.getElementsByTagName('head')[0].removeChild(script);
+}
+setInterval(loopFunction,3000);

@@ -1,16 +1,12 @@
 {
   "name": "gulp-expressjs-nodemon-browser-sync",
-  "version": "0.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "dip",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": {
-    "name": "Hafiz Ismail",
-    "email": "hafiz@wehavefaces.net",
-    "url": "http://wehavefaces.net"
-  },
+  "author": "Hafiz Ismail <hafiz@wehavefaces.net> (http://wehavefaces.net)",
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0"
