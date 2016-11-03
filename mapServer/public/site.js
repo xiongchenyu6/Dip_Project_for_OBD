@@ -1,28 +1,6 @@
 
    var polyline = {};
-window.Code = "";
-
-   /*function py2_round(value) {
-      // Google's polyline algorithm uses the same rounding strategy as Python 2, which is different from JS for negative values
-      return Math.floor(Math.abs(value) + 0.5) * Math.sign(value);
-   }
-
-  function encode(current, previous, factor) {
-      current = py2_round(current * factor);
-      previous = py2_round(previous * factor);
-      var coordinate = current - previous;
-      coordinate <<= 1;
-      if (current - previous < 0) {
-          coordinate = ~coordinate;
-      }
-      var output = '';
-      while (coordinate >= 0x20) {
-          output += String.fromCharCode((0x20 | (coordinate & 0x1f)) + 63);
-          coordinate >>= 5;
-      }
-      output += String.fromCharCode(coordinate + 63);
-      return output;
-  }
+   window.Code = "";
 
   /**
    * Decodes to a [latitude, longitude] coordinates array.
@@ -144,10 +122,10 @@ var redraw = function(Code){
       {
         featureType: 'all',
         stylers: [
-          { saturation: -80 },
+          { saturation: 80 },
         ]
       },{
-        featureType: 'road.arterial',
+        featureType: '<road class="arter"></road>ial',
         elementType: 'geometry',
         stylers: [
           { hue: '#00ffee' },
@@ -173,6 +151,15 @@ var redraw = function(Code){
 
           ]
       },
+          {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
       {
           featureType: "all",
           elementType: "labels.text.stroke",
@@ -255,6 +242,7 @@ var redraw = function(Code){
               }
           ]
       },
+
       {
           featureType: "poi",
           elementType: "geometry",
@@ -308,7 +296,7 @@ var redraw = function(Code){
                   color: "#0b3d51"
               },
               {
-                  lightness: 16
+                  lightness: 16	
               }
           ]
       },
@@ -329,7 +317,40 @@ var redraw = function(Code){
                   color: "#66B6E4"
               }
           ]
-      }
+      }, 
+          {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            },
+            {
+            	visibility: "off"
+            }
+
+        ]
+    },
+              {
+        "featureType": "transit",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            },
+            {
+            	visibility: "off"
+            }
+
+        ]
+    },
+
 
     ]
 
