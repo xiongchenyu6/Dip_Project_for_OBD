@@ -1,28 +1,6 @@
 
    var polyline = {};
-window.Code = "";
-
-   /*function py2_round(value) {
-      // Google's polyline algorithm uses the same rounding strategy as Python 2, which is different from JS for negative values
-      return Math.floor(Math.abs(value) + 0.5) * Math.sign(value);
-   }
-
-  function encode(current, previous, factor) {
-      current = py2_round(current * factor);
-      previous = py2_round(previous * factor);
-      var coordinate = current - previous;
-      coordinate <<= 1;
-      if (current - previous < 0) {
-          coordinate = ~coordinate;
-      }
-      var output = '';
-      while (coordinate >= 0x20) {
-          output += String.fromCharCode((0x20 | (coordinate & 0x1f)) + 63);
-          coordinate >>= 5;
-      }
-      output += String.fromCharCode(coordinate + 63);
-      return output;
-  }
+   window.Code = "";
 
   /**
    * Decodes to a [latitude, longitude] coordinates array.
@@ -85,41 +63,6 @@ return coordinates;
   };
 
 
-  /**
-   * Encodes a GeoJSON LineString feature/geometry.
-   *
-   * @param {Object} geojson
-   * @param {Number} precision
-   * @returns {String}
-   */
-   /*
-=======
-function flipped(coords) {
-    var flipped = [];
-    for (var i = 0; i < coords.length; i++) {
-        flipped.push(coords[i].slice().reverse());
-    }
-    return flipped;
-}
-
-/**
- * Encodes a GeoJSON LineString feature/geometry.
- *
- * @param {Object} geojson
- * @param {Number} precision
- * @returns {String}
- */
-
-
-/**
- * Decodes to a GeoJSON LineString geometry.
- *
- * @param {String} str
- * @param {Number} precision
- * @returns {Object}
- */
- 
-
   function initialize() {
 
   	  var map;
@@ -127,10 +70,10 @@ function flipped(coords) {
       {
         featureType: 'all',
         stylers: [
-          { saturation: -80 },
+          { saturation: 80 },
         ]
       },{
-        featureType: 'road.arterial',
+        featureType: '<road class="arter"></road>ial',
         elementType: 'geometry',
         stylers: [
           { hue: '#00ffee' },
@@ -156,6 +99,15 @@ function flipped(coords) {
 
           ]
       },
+          {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
       {
           featureType: "all",
           elementType: "labels.text.stroke",
@@ -238,6 +190,7 @@ function flipped(coords) {
               }
           ]
       },
+
       {
           featureType: "poi",
           elementType: "geometry",
@@ -291,7 +244,7 @@ function flipped(coords) {
                   color: "#0b3d51"
               },
               {
-                  lightness: 16
+                  lightness: 16	
               }
           ]
       },
@@ -312,7 +265,40 @@ function flipped(coords) {
                   color: "#66B6E4"
               }
           ]
-      }
+      }, 
+          {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            },
+            {
+            	visibility: "off"
+            }
+
+        ]
+    },
+              {
+        "featureType": "transit",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            },
+            {
+            	visibility: "off"
+            }
+
+        ]
+    },
+
 
     ]
 
@@ -323,12 +309,6 @@ function flipped(coords) {
       
 
 //document.getElementById('mytxt').value = Route;
-
-
-
-    var code ='}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
-    var Route =polyline.decode(code);
-
 
     var myLines=new Array();
     var source = {lat: Route[0][0],lng: Route[0][1]};
@@ -369,8 +349,6 @@ function flipped(coords) {
   };
 
 
-
-
     function Displayspeed(Speed){
     document.getElementById('myTextarea').value = Speed + "km/h";
   }
@@ -387,23 +365,7 @@ var redraw = function(Code){
  document.getElementsByTagName('head')[0].appendChild(googleScript);
  document.getElementsByTagName('head')[0].removeChild(googleScript);};
 
- redraw("ormiGhqncNq@iF[wBe@qDm@{Eo@{ECGEIEIGEII]QOMQMKMOQKQIOIQISESIWEUESCYAWA]?]D}@?GAKAMe@_Da@oCi@}DYsB[yB]aCCUYuB_@wC]qCa@wCa@wCYwBAKYmBe@aDWiBKy@WgBeAoH[{Bs@eFAKUmDWmD");
-/*var polygons = [
-        {lat: 1.352, lng: 103.672},
-        {lat: 1.332, lng: 103.682},
-        {lat: 1.342, lng: 103.692}
-        ];
-   var drawpolygons = new google.maps.Polygon({
-      paths: polygons,
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.8,
-      strokeWeight: 3,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35
-    });
-  drawpolygons.setMap(map);
-   infoWindow = new google.maps.InfoWindow;
-   */
+ redraw(null);
 
 
 function loop (data){
