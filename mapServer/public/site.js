@@ -118,10 +118,27 @@ function flipped(coords) {
  * @param {Number} precision
  * @returns {Object}
  */
- 
+
 
   function initialize() {
 
+
+  };
+
+
+
+
+    function Displayspeed(Speed){
+    document.getElementById('myTextarea').value = Speed + "km/h";
+  }
+
+    var Curret_Speed = 30.2;
+    Displayspeed(Curret_Speed);
+
+
+var redraw = function(Code){
+ var newCode = Code||'}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
+ window.Code = newCode;
   	  var map;
       var styleArray = [
       {
@@ -142,7 +159,7 @@ function flipped(coords) {
         stylers: [
           { visibility: 'off' }
         ]
-      },  
+      },
       {
           featureType: "all",
           elementType: "labels.text.fill",
@@ -226,7 +243,7 @@ function flipped(coords) {
               {
                   color: "#08304b"
               }
-              
+
           ]
       },
       {
@@ -317,17 +334,13 @@ function flipped(coords) {
     ]
 
 
-	
-   
+
     var Route =polyline.decode(window.Code);
-      
+
 
 //document.getElementById('mytxt').value = Route;
 
 
-
-    var code ='}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
-    var Route =polyline.decode(code);
 
 
     var myLines=new Array();
@@ -365,29 +378,9 @@ function flipped(coords) {
         map: map,
         animation: google.maps.Animation.BOUNCE
     });
-    myPath.setMap(map); 
-  };
-
-
-
-
-    function Displayspeed(Speed){
-    document.getElementById('myTextarea').value = Speed + "km/h";
-  }
-
-    var Curret_Speed = 30.2;
-    Displayspeed(Curret_Speed);
-  
-
-var redraw = function(Code){
- var newCode = Code||'}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
- window.Code = newCode;
- var googleScript = document.createElement('script');
- googleScript.src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8v3v4RnTsHsfEJBjbmlV4VrDyTrbdCXg&callback=initialize";
- document.getElementsByTagName('head')[0].appendChild(googleScript);
- document.getElementsByTagName('head')[0].removeChild(googleScript);};
-
- redraw("ormiGhqncNq@iF[wBe@qDm@{Eo@{ECGEIEIGEII]QOMQMKMOQKQIOIQISESIWEUESCYAWA]?]D}@?GAKAMe@_Da@oCi@}DYsB[yB]aCCUYuB_@wC]qCa@wCa@wCYwBAKYmBe@aDWiBKy@WgBeAoH[{Bs@eFAKUmDWmD");
+    myPath.setMap(map);
+   //
+}
 /*var polygons = [
         {lat: 1.352, lng: 103.672},
         {lat: 1.332, lng: 103.682},
@@ -408,8 +401,9 @@ var redraw = function(Code){
 
 function loop (data){
     // it worked!
-    console.log(data);
-    //
+    // it worked!
+    console.log(JSON.parse(data['key'])['map']['polyline']);
+ redraw(JSON.parse(data['key'])['map']['polyline']);
 };
 
 function loopFunction() {
@@ -418,4 +412,6 @@ function loopFunction() {
     document.getElementsByTagName('head')[0].appendChild(script);
     document.getElementsByTagName('head')[0].removeChild(script);
 }
+
 setInterval(loopFunction,3000);
+//(function() {
