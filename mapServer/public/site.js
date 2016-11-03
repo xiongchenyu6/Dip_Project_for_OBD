@@ -1,7 +1,8 @@
      
    var polyline = {};
+window.Code = "";
 
-   function py2_round(value) {
+   /*function py2_round(value) {
       // Google's polyline algorithm uses the same rounding strategy as Python 2, which is different from JS for negative values
       return Math.floor(Math.abs(value) + 0.5) * Math.sign(value);
    }
@@ -90,6 +91,7 @@
    * @param {Number} precision
    * @returns {String}
    */
+   /*
   polyline.encode = function(coordinates, precision) {
       if (!coordinates.length) { return ''; }
 
@@ -120,6 +122,7 @@
    * @param {Number} precision
    * @returns {String}
    */
+   /*
   polyline.fromGeoJSON = function(geojson, precision) {
       if (geojson && geojson.type === 'Feature') {
           geojson = geojson.geometry;
@@ -129,7 +132,7 @@
       }
       return polyline.encode(flipped(geojson.coordinates), precision);
   };
-
+*/
   /**
    * Decodes to a GeoJSON LineString geometry.
    *
@@ -137,6 +140,7 @@
    * @param {Number} precision
    * @returns {Object}
    */
+   /*
   polyline.toGeoJSON = function(str, precision) {
       var coords = polyline.decode(str, precision);
       return {
@@ -149,14 +153,13 @@
       module.exports = polyline;
   }
 
+*/
 
-
-  //document.getElementById('mytxt').value = Route;
-
-
-  var map;
+ 
 
   function initialize() {
+
+  	  var map;
       var styleArray = [
       {
         featureType: 'all',
@@ -350,8 +353,10 @@
 
     ]
 
-    var code ='}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
-    var Route =polyline.decode(code);
+
+	
+   
+    var Route =polyline.decode(window.Code);
       
     var myLines=new Array();
     var source = {lat: Route[0][0],lng: Route[0][1]};
@@ -361,10 +366,7 @@
       center: source,
       zoom:18,
       styles: styleArray
-    });
-    
-
-
+    });    
 
     for(var i =0;i<Route.length;i++)
     {
@@ -390,28 +392,25 @@
       animation: google.maps.Animation.BOUNCE
     });
     myPath.setMap(map); 
-    google.maps.event.addDomListener(window, 'load', initialize);
-  } 
+  };
 
 
 
+    function Displayspeed(Speed){
+    document.getElementById('myTextarea').value = Speed + "km/h";
+  }
+
+    var Curret_Speed = 30.2;
+    Displayspeed(Curret_Speed);
+  
 
 
-  /*var polygons = [
-        {lat: 1.352, lng: 103.672},
-        {lat: 1.332, lng: 103.682},
-        {lat: 1.342, lng: 103.692}
-        ];
-   var drawpolygons = new google.maps.Polygon({
-      paths: polygons,
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.8,
-      strokeWeight: 3,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35
-    });
-  drawpolygons.setMap(map);
-   infoWindow = new google.maps.InfoWindow;
-  */
+var redraw = function(Code){
+ var newCode = Code||'}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
+ window.Code = newCode;
+ var googleScript = document.createElement('script');
+ googleScript.src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8v3v4RnTsHsfEJBjbmlV4VrDyTrbdCXg&callback=initialize";
+ document.getElementsByTagName('head')[0].appendChild(googleScript);
+ document.getElementsByTagName('head')[0].removeChild(googleScript);};
 
- 
+ redraw("ormiGhqncNq@iF[wBe@qDm@{Eo@{ECGEIEIGEII]QOMQMKMOQKQIOIQISESIWEUESCYAWA]?]D}@?GAKAMe@_Da@oCi@}DYsB[yB]aCCUYuB_@wC]qCa@wCa@wCYwBAKYmBe@aDWiBKy@WgBeAoH[{Bs@eFAKUmDWmD");
