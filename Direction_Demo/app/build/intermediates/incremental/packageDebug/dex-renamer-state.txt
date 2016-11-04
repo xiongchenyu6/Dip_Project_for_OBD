@@ -1,7 +1,0 @@
-#Fri Nov 04 15:27:09 CST 2016
-base.0=C\:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\Direction_Demo\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_12471d0d28e9a669396c8c000ad59c00dd1e6335
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=C\:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\Direction_Demo\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_6d99d7ce8367c379fc2308f7cdd192e0cbb6a1c7\\classes.dex
-base.1=C\:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\Direction_Demo\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_6d99d7ce8367c379fc2308f7cdd192e0cbb6a1c7
-file.0=C\:\\Users\\seanh\\Documents\\GitHub\\Dip_Project_for_OBD\\Direction_Demo\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_12471d0d28e9a669396c8c000ad59c00dd1e6335\\classes.dex

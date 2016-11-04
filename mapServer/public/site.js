@@ -282,6 +282,7 @@ var redraw = function(Code){
     var myLines=new Array();
     var source = {lat: Route[0][0],lng: Route[0][1]};
     var destination = {lat: Route[Route.length-1][0],lng: Route[Route.length-1][1]};
+    console.log(map);
     map.panTo(source);
     for(var i =0;i<Route.length;i++)
     {
@@ -304,7 +305,6 @@ var redraw = function(Code){
     //
 }
 
-redraw(null);
 
 function loop (data){
     // it worked!
