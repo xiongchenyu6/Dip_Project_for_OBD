@@ -195,29 +195,6 @@ var styleArray = [
 
 ]
 
-
-/*function py2_round(value) {
-// Google's polyline algorithm uses the same rounding strategy as Python 2, which is different from JS for negative values
-      return Math.floor(Math.abs(value) + 0.5) * Math.sign(value);
-   }
-
-  function encode(current, previous, factor) {
-      current = py2_round(current * factor);
-      previous = py2_round(previous * factor);
-      var coordinate = current - previous;
-      coordinate <<= 1;
-      if (current - previous < 0) {
-          coordinate = ~coordinate;
-      }
-      var output = '';
-      while (coordinate >= 0x20) {
-          output += String.fromCharCode((0x20 | (coordinate & 0x1f)) + 63);
-          coordinate >>= 5;
-      }
-      output += String.fromCharCode(coordinate + 63);
-      return output;
-  }
-
 /**
  * Decodes to a [latitude, longitude] coordinates array.
  *
@@ -229,6 +206,7 @@ var styleArray = [
  *
  * @see https://github.com/Project-OSRM/osrm-frontend/blob/master/WebContent/routing/OSRM.RoutingGeometry.js
  */
+
 polyline.decode = function(str, precision) {
     var index = 0,
         lat = 0,
@@ -279,41 +257,6 @@ polyline.decode = function(str, precision) {
 };
 
 
-/**
- * Encodes a GeoJSON LineString feature/geometry.
- *
- * @param {Object} geojson
- * @param {Number} precision
- * @returns {String}
- */
-/*
-=======
-function flipped(coords) {
-    var flipped = [];
-    for (var i = 0; i < coords.length; i++) {
-        flipped.push(coords[i].slice().reverse());
-    }
-    return flipped;
-}
-
-/**
- * Encodes a GeoJSON LineString feature/geometry.
- *
- * @param {Object} geojson
- * @param {Number} precision
- * @returns {String}
- */
-
-
-/**
- * Decodes to a GeoJSON LineString geometry.
- *
- * @param {String} str
- * @param {Number} precision
- * @returns {Object}
- */
-
-
 function initialize() {
 
     //document.getElementById('mytxt').value = Route;
@@ -322,19 +265,12 @@ function initialize() {
         zoom:18,
         styles: styleArray
     });
-
-
-
-
 };
-
-
 
 
 function Displayspeed(Speed){
     document.getElementById('myTextarea').value = Speed + "km/h";
 }
-
 var Curret_Speed = 30.2;
 Displayspeed(Curret_Speed);
 
@@ -367,23 +303,8 @@ var redraw = function(Code){
     myPath.setMap(map);
     //
 }
-/*var polygons = [
-        {lat: 1.352, lng: 103.672},
-        {lat: 1.332, lng: 103.682},
-        {lat: 1.342, lng: 103.692}
-        ];
-   var drawpolygons = new google.maps.Polygon({
-      paths: polygons,
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.8,
-      strokeWeight: 3,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35
-    });
-  drawpolygons.setMap(map);
-   infoWindow = new google.maps.InfoWindow;
-   */
 
+redraw(null);
 
 function loop (data){
     // it worked!
