@@ -22,7 +22,6 @@ app.get('/', function(req, res) {
 app.get('/data',function (req,res) {
     info=req.query;
     console.log(info);
-
     res.send('Got it');
 });
 
@@ -54,7 +53,7 @@ serialOBDReader.on('connected', function (data) {
     //this.addPoller("map");
     //this.addPoller("frp");
 
-    this.startPolling(1000);
+    this.startPolling(10000);
 });
 
 

@@ -1,7 +1,7 @@
 var polyline = {};
 window.Code = "";
 var map;
-var myRegexp = /-- (turn\s(lef|righ)t|merge|take\sexit|continue)/g;
+var myRegexp = /--.*((turn|keep)\s(lef|righ)t|merge|take\sexit|continue|roundabout)/i;
 var instruction;
 var distance;
 var markersArray = [];
@@ -285,7 +285,6 @@ var redraw = function(Code){
     var myLines=new Array();
     var source = {lat: Route[0][0],lng: Route[0][1]};
     var destination = {lat: Route[Route.length-1][0],lng: Route[Route.length-1][1]};
-    console.log(map);
     map.panTo(source);
     for(var i =0;i<Route.length;i++)
     {
@@ -318,7 +317,8 @@ function loop (data){
     distance = JSON.parse(data['key'])['map']['step_distance']
     instruction = JSON.parse(data['key'])['map']['instruction']
     if(distance<=1000){
-        var match = myRegexp.exec(myString);
+        console.log(instruction);
+        var match = myRegexp.exec(instruction);
         console.log(match[1]);
         instruction=match[1];
     }

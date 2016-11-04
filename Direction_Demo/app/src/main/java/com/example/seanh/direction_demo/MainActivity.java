@@ -208,7 +208,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         go_smsName=msgName;
         go_callerName=callerName;
 
-        loopDemo();
     }
 
 
@@ -236,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
                 //sendToServer(data_all);
-                //new sendDataToServer().execute(data_all);
+                new sendDataToServer().execute(data_all);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -278,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             JSONObject data;
             task(JSONObject data){this.data=data;}
             public void run() {
-        Uri uri = Uri.parse("http://192.168.44.97:4000/data?")
+        Uri uri = Uri.parse("http://192.168.44.253:4000/data?")
                     .buildUpon()
                     .appendQueryParameter("key",data.toString())
                     .build();
@@ -357,8 +356,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
                     try {
                         data_all = packJSon();//data_all is the final data package to the rpi
-                        //sendToServer(data_all);
-                        //new sendDataToServer().execute(data_all);
+                        sendToServer(data_all);
+//                        new sendDataToServer().execute(data_all);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
