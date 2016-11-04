@@ -37,8 +37,8 @@ import java.util.logging.Logger;
 public class MainActivity extends AppCompatActivity implements DirectionFinderListener,SmsReceiver.OnSmsReceivedListener{
 
     private ProgressDialog progressDialog;
-    String origin;
-    String end;
+    static String origin;
+    static String end;
     private SmsReceiver receiver;
 
     public String go_duration;
@@ -91,9 +91,12 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             public void onClick(View v){
                 if(origin==null || end==null) {
                     Toast.makeText(MainActivity.this, "The entered address is not valid", Toast.LENGTH_SHORT).show();
-                    return;
                 }else {
-                    startLoop();
+                   startLoop();
+                    //while (origin!=end){
+                        //loopDemo();
+                        //new asyncLoopDemo().execute();
+                   // }
                 }
 
             }
@@ -194,6 +197,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         go_callNo=callNo;
         go_smsName=msgName;
         go_callerName=callerName;
+
+        loopDemo();
     }
 
 
@@ -221,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
                 //sendToServer(data_all);
-                new sendDataToServer().execute(data_all);
+                //new sendDataToServer().execute(data_all);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -318,9 +323,88 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             return null;
         }
 
-
-
     }
 
 
+    private void loopDemo (){
+
+        if(!Thread.currentThread().isInterrupted()) {
+            class loop implements Runnable {
+
+                public void run() {
+
+                    JSONObject data_all = new JSONObject();
+
+                    Log.d("geocord origin", origin);
+                    Log.d("geocord end", end);
+
+                    try {
+                        new DirectionFinder(MainActivity.this, origin, end).execute();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        data_all = packJSon();//data_all is the final data package to the rpi
+                        //sendToServer(data_all);
+                        //new sendDataToServer().execute(data_all);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    Log.d("JSON info " + stepCounter, data_all.toString());
+                }
+
+            }
+
+
+            Thread newTread = new Thread(new loop());
+            newTread.start();
+
+            newTread.interrupt();
+            while (origin != end) {
+                try {
+                    newTread.start();
+                    newTread.sleep(800);
+                    newTread.interrupt();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }else {
+            return;
+        }
+
+    }
+
+    private class asyncLoopDemo extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            JSONObject data_all=new JSONObject();
+
+            Log.d("geocord origin", origin );
+            Log.d("geocord end", end );
+
+            try {
+                new DirectionFinder(MainActivity.this, origin, end).execute();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                data_all = packJSon();//data_all is the final data package to the rpi
+                //sendToServer(data_all);
+                //new sendDataToServer().execute(data_all);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            Log.d("JSON info " + stepCounter, data_all.toString());
+            SystemClock.sleep(1000);
+            return null;
+        }
+    }
 }
