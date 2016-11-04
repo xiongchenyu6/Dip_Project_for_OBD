@@ -207,8 +207,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         go_callNo=callNo;
         go_smsName=msgName;
         go_callerName=callerName;
-
-        loopDemo();
     }
 
 
@@ -236,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
                 //sendToServer(data_all);
-                //new sendDataToServer().execute(data_all);
+                new sendDataToServer().execute(data_all);
 
             } catch (JSONException e) {
                 e.printStackTrace();
