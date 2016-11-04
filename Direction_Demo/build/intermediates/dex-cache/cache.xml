@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_f05e72158d32271be64924e9b3e9f7a8ea6a7261\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8c6ef5bd4072f8cda2b89d8356ea7d8acd0683aa">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.6.1_2c14af343a30a0c1d470dcc09ce8d6d38dfddd49\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.6.1_5d4a54a65367f9dfba67400d7434c0ef31ed9dbd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee0ccb43f6ab276191b7f2d77c305fa9beb26db9">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.6.1_fd91790fe1f6e829ccd6299622b030885c79da2a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c4394d46152165cd3256fb711ac94f66a28fbae1">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.6.1_d59b13eaae6e804cab11729e5c498473862a21d4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.6.1_17e28d5416e1f2fd899047bd989057e42ac375f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6ff796a3173787afe2e712f3aec6f5b99796118e">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.6.1_a48ba53ac04f0ebaf0991a29d84ccb9ddf677b22\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a1c351dc10b92d638da57f3a6513f87cfbdc9f83">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.6.1_e5f254f53c155bab3194a0431d8e968d8da7bc2a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_5ba993fcfe5acc3d1c2e40fbcf37200e28b8ed2e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0e0e0681c26a1f575d3e4c542182dd59bab75fd6">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.6.1_a651d7325533ae7fec058b152429b4c9a1f69f7f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ac8365c87591065db07f7bac8551504504832cd4">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.6.1_f689336a6c11b994c644197a308c0665953ebc2c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="47bbb3ec4b31ba71e125241c090dabe70cbb4de7">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.6.1_58eba3d869df0ffe63a793230aa036eb096b8e9f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="465f40f840e583f8b7421a3aacf3fbf08c28f00a">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.6.1_a17962b1887746fc86557b0a582fc50b76b1437d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="90be14317e3f26d18438e8dbf8544500d1dfe07f">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-9.6.1_8b6eac38ed1073ec94245412d18f24dd79effc44\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.0_6a766062cc948310eeb0d446a8eb1ab00adcf0e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.0_9549e39ddd18d59e2b8acd99ca3d9d8e49037a08\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4df40545c9b875855f3dd9d4928e5d07f07c20ba">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.6.1_4948bd3c4b3477926aea544909cb19e002438ba1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.0.0_2a15abe3e3404b66503258a3bc7af8d4e7e71505\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="da3f763afd39da1c947d9442847c837e9182a09f">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.6.1_ee2c43c15df267ee60b041bef704e5cfb012f493\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ff9be0a1e75a21c372735930d8987a55b5e6065f">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.6.1_9716fe61f9daa45f0056664446d38f06225dd33d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.0.0_f69268d42b84f742278a7f67db3b97d299eb461f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="babb25794a7599069d34705038744c5760a9a88c">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.6.1_c3c6edb35fbf13933aac9b901b29c60a336a4e12\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26cd21e25741c6fd31be5c72f7b46e4a552f9f16">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6d99d7ce8367c379fc2308f7cdd192e0cbb6a1c7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0dfc12e4aacf514346ea866560c99807d032bc48">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.6.1_0f4a6ffa9141ee8f9a516d43aa2863c44eea3473\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="53a420cd4f49274db6bd43475f8006ba67ef6bbd">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.0.0_1626b659925b135985ca1d612367440c1a77487c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c828add497d2b7a3de7c047bf72050cd4b7521a1">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.6.1_c09716c5d23a262140847049794f62e0bcf4071d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1e14ebe1cda8491f152083e752ca5bf73cd37bff">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.6.1_e7bc9c0a2b266740b880338ef7e9dbefc07b934c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.6.1_c0d0b95fb842248c66fb1a9279b6142bf0cd574c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6ffe8b28ab61e5ee92ab9431a220379790c71ddf">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.6.1_2b968875f6f080afc6c1dfc56d1200a6268b99af\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0cae6511c5705869cacf199f8abb0ea84cd10157">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.6.1_14ed2deace07bcd0823ff7a715855025241bb022\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2a18547ea91d258866d132c2a763185f15b01b25">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.6.1_fbe348cc2a9f3098da31be906b8dee1bc7eaf6e6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f8db47be01cbe8cfa81e9cecce5ff1371ed1ad95">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.6.1_fe282fbc764d8123e5f4511351657ab5275ba82a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ff971ff32aff6678269fc8c1d49b24ebf70fc88e">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_12471d0d28e9a669396c8c000ad59c00dd1e6335\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f0e96478ca3147bc588aadb9ae467d85b42473cc">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.6.1_e6f04e61ea399b84dbea4cf7a28947e9ee634d15\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8bc45ce1f63d1a391fd38b32a201be5a42f9c95d">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.0.0_84795e7ca2b056c60fc4129e87669833a46b90f8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="159494eb362396d073d8c922b77e40c0da5fc5bc">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.6.1_0b6addf802043250be85321675a4d461af84ef16\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ad7706f8bb4a985656a8d2142f74021c8b0e03d8">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.6.1_150bc6f7f36e6a5a37612942be8eb1cad93756be\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="79f521967ad7f49b34748db89df02852c2b2f87b">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.6.1_0857a1c99148c18bdd809fb2b33004d6477503ce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a136366045678579300d161de97c2211c4c4f7a0">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.6.1_a1a571641f4a45917f593ba10f507f3f7a3cbe1c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d45c048bb1c55cf963899190e507065aea8e5be9">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.6.1_a324f9a607ad928213236c851d80bc78e18ba99b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cdddf21e0a8205e9955661061d1735ed10e44a7b">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.6.1_a7e7e5678cd783b51ab4757a40674e31d56aceb7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="62ff84124b89177abc0c27f3e38c9732f2d41617">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.6.1_01cd942ba09d9fdb806cf829de50cdf332dffeb3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="518adc52081d41724932b41bc132e4d50a352b86">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.6.1_abacc8a1b4d4f5a489ad4773a85051ff13fde974\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a53ac0560ab915a02c50d2e5c7b003381e6fb5e3">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.6.1_80dd59ac2575cb5ac8d2726ac403bc2416fd3a7b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f6aa7c76cbaa867e05dbad0afab1ef0e65c4e55f">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.6.1_ee9d40435295c65d27c29cdab609f74ecca600dc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_47c7ef1afb6b5641ae114e482496f3c94cdece66\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_5d868dcb53e3e84d30c564e45f396d9a551b89bb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee61ace5f3e488fc610e1c67693c49186a441f32">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.6.1_553befbdbbe476cf9a85c4f5cb147991ef7b3c25\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="80dd8bea08bc5fe10b10a3243b8279c856ccc690">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.6.1_3623f7766e58c9d39a6d5bb9248340d82933bac6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_9b48a85c935a8efb441f1df2b2e3554b7cd6fcaf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8ebae43cd06058e99e08c8b4d305b72f2b9927c6">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.6.1_8b43b9214a2619822abb43fc5a4ad9755ad451af\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="526f4b02f1771fa7607ff1b89fe2e9bd0344fee8">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.6.1_00565ef22463daa3e2225ae2f366c86bac00c695\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dfcba20b85ef3669a8ced0a8760a6df281cbd7c7">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.6.1_de4e008f1c38d3590a3319224374df97009428f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0efd1b44f47c134fb245914a1d54a55adbfc2f8d">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.6.1_1427ea68d5557af2bf225f18d19994727da69840\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.0_e265752e920ef0c79cb0a1caaa23c503478ab86f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.0.0_398bb97255822e70067970d8aac648ab9a04fa1f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1ef72e72bc0d05602c366582afa9439f58bb31d6">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.6.1_31f538e547307555360810fbdcd60d0e32f3d819\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_30fd839ab86ae91faa3b2abc74d57518f940c2f3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.0_3323fdab59f8e843e140aa5ada52df54767b89e4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cc39b4bcc9e7062891db90d5a752fa9e4986f447">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.6.1_fa1e00d2395e690cbe8b1c8a2ea30405c4635229\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a76a6983a23788b3689524d4bed763955afbd306">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.6.1_40d2ed766f149f1ccb2c8ac15a590e19e6264eaa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1810ae0df0a1b9b539ce97df54e96f2bf8f5ff94">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.6.1_d85ed5f9a4bc9fa691f10d11c1e9c48d43a6cbde\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_009aae09cc3b4646da9f8ee7c196c130fcae9613\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c0cf3d4f9d7d076f301e110b92e18ae23da12c2">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.6.1_542973827c5224ed6c078fe633152e840d30e08a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_d17cfd1eb12cba237ace551291ae80b923d5db15\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cf2c4e6607c77b0e671dc5ca252c5ea0d9c1ce0d">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.6.1_b5428b52a51b921e53e76f210598237db878297d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b75ecdd04a37d31b4a0da2729fc5c558962a529b">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.6.1_36c4e18c52e1b32fb88e5c4b016325a2656fd05e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.0.0_f74c91e5a7955fdb96f663bac72b1e923fbf6a92\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="77558e74bb2056ef38516296f13a27c4c4fc3e5c">
+        <dex dex="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.6.1_6f5b23f3640a8d711cd403569488275f7ca7a0ca\classes.dex" />
+    </item>
+
+</items>

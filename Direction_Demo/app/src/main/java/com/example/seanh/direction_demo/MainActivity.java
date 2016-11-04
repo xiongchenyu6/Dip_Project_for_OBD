@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     public String go_distance;
     public String go_instruction;
     public String go_polyline;
+    public String go_smsName;
+    public String go_callerName;
     public int go_smsNo;
     public int go_callNo;
     public int stepCounter=0;
@@ -87,7 +89,13 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         btnGo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startLoop();
+                if(origin==null || end==null) {
+                    Toast.makeText(MainActivity.this, "The entered address is not valid", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    startLoop();
+                }
+
             }
         });
 
@@ -156,6 +164,13 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
             inst=inst+"\n"+route.polyline;
 
+            //origin=route.points.get(2).toString().replaceAll("[\\[\\](){}]","");
+            //end=route.points.get(route.points.size()-1).toString().replaceAll("[\\[\\](){}]","");
+            origin=route.step_startLocation.toString().replaceAll("[lat/ng: ()]","");
+            end=route.endLocation.toString().replaceAll("[lat/ng: ()]","");
+
+
+
             ((TextView) findViewById(R.id.txtInst)).setText(inst);
 
 
@@ -173,21 +188,29 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     }
 
     @Override
-    public void onReceived(int msgNo,int callNo) {
+    public void onReceived(int msgNo,String msgName,int callNo,String callerName) {
         Toast.makeText(this, "New message No is " + msgNo+ " miss call No is " + callNo, Toast.LENGTH_SHORT).show();
         go_smsNo=msgNo;
         go_callNo=callNo;
+        go_smsName=msgName;
+        go_callerName=callerName;
     }
 
 
     private void startLoop(){
+/*
         Resources res=getResources();
         String[] lat=res.getStringArray(R.array.lat);
         String[] lng=res.getStringArray(R.array.lng);
 
-        JSONObject data_all=new JSONObject();
         end=lat[lat.length-1]+","+lng[lng.length-1];
         origin=lat[stepCounter]+","+lng[stepCounter];
+*/
+
+        Log.d("geocord origin", origin );
+        Log.d("geocord end", end );
+
+        JSONObject data_all=new JSONObject();
 
             try{
                 new DirectionFinder(this, origin, end).execute();
@@ -198,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
                 //sendToServer(data_all);
-                new sendDataToServer().execute(data_all);
+                //new sendDataToServer().execute(data_all);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -206,8 +229,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
         Log.d("JSON info "+stepCounter, data_all.toString() );
 
-            if (stepCounter<lat.length-1)
-                stepCounter++;
+           // if (stepCounter<lat.length-1)
+             //   stepCounter++;
 
     }
 
@@ -222,7 +245,9 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         data_map.put("polyline",go_polyline);
 
         data_notif.put("sms",go_smsNo);
+        data_notif.put("smsNo",go_smsName);
         data_notif.put("call",go_callNo);
+        data_notif.put("callNo",go_callerName);
 
         temp.put("map",data_map);
         temp.put("notification",data_notif);

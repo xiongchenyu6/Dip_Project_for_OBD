@@ -17,6 +17,8 @@ public class Route {
     public LatLng startLocation;
     public List<String> instructions;
     public String polyline;
+    public LatLng step_startLocation;
+    public LatLng step_endLocation;
 
     public List<LatLng> points;
 }

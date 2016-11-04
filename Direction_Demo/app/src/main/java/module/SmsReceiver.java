@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -19,12 +20,15 @@ public class SmsReceiver extends BroadcastReceiver {
         private SharedPreferences preferences;
     private int smscounter=0;
     private int callcounter=0;
+    private String smsName="";
+    private String phonecallNo="";
+
 
     static boolean ring=false;
     static boolean callReceived=false;
 
     public interface OnSmsReceivedListener {
-        void onReceived(int msgNo,int callNo);
+        void onReceived(int msgNo,String msgName,int callNo,String callerName);
     }
 
     private OnSmsReceivedListener listener = null;
@@ -41,7 +45,7 @@ public class SmsReceiver extends BroadcastReceiver {
         if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
             Bundle bundle = intent.getExtras();           //---get the SMS message passed in---
             SmsMessage[] msgs = null;
-            String from=null;
+            //String from=null;
             String msg= null;
             String str = "";
             if (bundle != null) {
@@ -55,7 +59,7 @@ public class SmsReceiver extends BroadcastReceiver {
                     for (int i=0; i<msgs.length; i++){
                         msgs[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
                         str += "SMS from " + msgs[i].getOriginatingAddress();
-                        from = msgs[i].getOriginatingAddress();
+                        smsName = msgs[i].getOriginatingAddress();
                         str += " :";
                         str += msgs[i].getMessageBody().toString();
                         msg = msgs[i].getMessageBody().toString();
@@ -78,7 +82,7 @@ public class SmsReceiver extends BroadcastReceiver {
                 ring = true;
                 // Get the Caller's Phone Number
                 Bundle bundle = intent.getExtras();
-                String callerPhoneNumber = bundle.getString("incoming_number");
+                phonecallNo = bundle.getString("incoming_number");
                 callcounter++;
             }
 
@@ -98,7 +102,7 @@ public class SmsReceiver extends BroadcastReceiver {
         }
 
         if (listener != null)
-            listener.onReceived(smscounter,callcounter/2);
+            listener.onReceived(smscounter,smsName,callcounter/2,phonecallNo);
 
 
     }
