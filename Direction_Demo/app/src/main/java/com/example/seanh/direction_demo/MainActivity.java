@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     static String origin;
     static String end;
     private SmsReceiver receiver;
+    private int distanceValue=-1;
 
     public String go_duration;
     public String go_distance;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     public String go_polyline;
     public String go_smsName;
     public String go_callerName;
+    public int go_stepDistance;
     public int go_smsNo;
     public int go_callNo;
     public int stepCounter=0;
@@ -92,7 +94,13 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
                 if(origin==null || end==null) {
                     Toast.makeText(MainActivity.this, "The entered address is not valid", Toast.LENGTH_SHORT).show();
                 }else {
-                   startLoop();
+                   if(distanceValue==-1){
+                       Toast.makeText(MainActivity.this, "Please enter valid start and end point", Toast.LENGTH_SHORT).show();
+                   }else if(distanceValue<200&&distanceValue>0){
+                       Toast.makeText(MainActivity.this, "You have arrived at destination", Toast.LENGTH_SHORT).show();
+                   }else{
+                       startLoop();
+                   }
                     //while (origin!=end){
                         //loopDemo();
                         //new asyncLoopDemo().execute();
@@ -172,13 +180,15 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             //origin=route.step_startLocation.toString().replaceAll("[lat/ng: ()]","");
             end=route.endLocation.toString().replaceAll("[lat/ng: ()]","");
 
-            Log.d("test", origin );
+            distanceValue=route.distance.value;
+            Log.d("test", String.valueOf(distanceValue) );
 
             ((TextView) findViewById(R.id.txtInst)).setText(inst);
 
 
             go_duration=route.duration.text;
             go_distance=route.distance.text;
+            go_stepDistance=route.step_distance.value;
             if (route.instructions.size()>1){
                 go_instruction=route.instructions.get(0)+"--"+route.instructions.get(1);
             }else {
@@ -246,6 +256,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
         data_map.put("duration", go_duration);
         data_map.put("distance", go_distance);
+        data_map.put("step_distance", go_stepDistance);
         data_map.put("instruction",go_instruction);
         data_map.put("polyline",go_polyline);
 

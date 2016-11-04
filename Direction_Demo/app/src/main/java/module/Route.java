@@ -19,6 +19,7 @@ public class Route {
     public String polyline;
     public LatLng step_startLocation;
     public LatLng step_endLocation;
+    public Distance step_distance;
 
     public List<LatLng> points;
 }

@@ -139,6 +139,8 @@ public class DirectionFinder {
             }
 
             route.instructions=temp;
+            route.step_distance=new Distance(jsonSteps.getJSONObject(0).getJSONObject("distance").getString("text"),
+                    jsonSteps.getJSONObject(0).getJSONObject("distance").getInt("value"));
             route.distance = new Distance(jsonDistance.getString("text"), jsonDistance.getInt("value"));
             route.duration = new Duration(jsonDuration.getString("text"), jsonDuration.getInt("value"));
             route.endAddress = jsonLeg.getString("end_address");
