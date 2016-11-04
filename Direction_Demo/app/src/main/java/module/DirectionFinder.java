@@ -38,6 +38,7 @@ public class DirectionFinder {
     public void execute() throws UnsupportedEncodingException {
         listener.onDirectionFinderStart();
         new DownloadRawData().execute(createUrl());
+        //syncDownload(createUrl());
     }
 
 
@@ -83,6 +84,30 @@ public class DirectionFinder {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void syncDownload(String link){
+        try {
+            URL url = new URL(link);
+            InputStream is = url.openConnection().getInputStream();
+            StringBuffer buffer = new StringBuffer();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                buffer.append(line + "\n");
+            }
+            parseJSon(buffer.toString());
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void parseJSon(String data) throws JSONException {
