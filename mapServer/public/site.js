@@ -1,6 +1,9 @@
 var polyline = {};
 window.Code = "";
 var map;
+var myRegexp = /-- (turn\s(lef|righ)t|merge|take\sexit|continue)/g;
+var instruction;
+var distance;
 var markersArray = [];
 var styleArray = [
     {
@@ -307,11 +310,18 @@ var redraw = function(Code){
 
 
 function loop (data){
-Displayspeed(data.vss);
+    Displayspeed(data.vss);
     // it worked!
     // it worked!
     console.log(JSON.parse(data['key'])['map']['polyline']);
     redraw(JSON.parse(data['key'])['map']['polyline']);
+    distance = JSON.parse(data['key'])['map']['step_distance']
+    instruction = JSON.parse(data['key'])['map']['instruction']
+    if(distance<=1000){
+        var match = myRegexp.exec(myString);
+        console.log(match[1]);
+        instruction=match[1];
+    }
 };
 
 function loopFunction() {
