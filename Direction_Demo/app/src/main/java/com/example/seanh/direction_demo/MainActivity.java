@@ -164,12 +164,12 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
             inst=inst+"\n"+route.polyline;
 
-            //origin=route.points.get(2).toString().replaceAll("[\\[\\](){}]","");
+            origin=route.points.get(1).toString().replaceAll("[lat/ng: ()]","");
             //end=route.points.get(route.points.size()-1).toString().replaceAll("[\\[\\](){}]","");
-            origin=route.step_startLocation.toString().replaceAll("[lat/ng: ()]","");
+            //origin=route.step_startLocation.toString().replaceAll("[lat/ng: ()]","");
             end=route.endLocation.toString().replaceAll("[lat/ng: ()]","");
 
-
+            Log.d("test", origin );
 
             ((TextView) findViewById(R.id.txtInst)).setText(inst);
 
@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
                 //sendToServer(data_all);
-                //new sendDataToServer().execute(data_all);
+                new sendDataToServer().execute(data_all);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -289,7 +289,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         Thread newTread = new Thread(new task(data));
         newTread.start();
     }
-
 
     private class sendDataToServer extends AsyncTask<JSONObject, Void, Void>{
 
