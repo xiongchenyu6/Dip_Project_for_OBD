@@ -307,6 +307,7 @@ var redraw = function(Code){
 
 
 function loop (data){
+Displayspeed(data.vss);
     // it worked!
     // it worked!
     console.log(JSON.parse(data['key'])['map']['polyline']);
@@ -320,7 +321,7 @@ function loopFunction() {
     document.getElementsByTagName('head')[0].removeChild(script);
 }
 
-setInterval(loopFunction,3000);
+setInterval(loopFunction,300);
 //(function() {
 function addMarker(location) {
     marker = new google.maps.Marker({
