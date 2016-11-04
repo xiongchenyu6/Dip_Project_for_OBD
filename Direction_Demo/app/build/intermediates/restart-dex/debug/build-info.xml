@@ -4,6 +4,7 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
+    timestamp="176184524596885"
     token="2021686985792387109" >
 
     <task
@@ -50,5 +51,6 @@
             location="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\builds\debug\175333657983108\classes.dex"
             type="RELOAD_DEX" />
     </build>
+    <build timestamp="176184524596885" />
 
 </instant-run>
