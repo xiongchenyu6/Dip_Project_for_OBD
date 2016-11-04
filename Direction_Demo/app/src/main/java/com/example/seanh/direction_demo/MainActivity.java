@@ -274,7 +274,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             JSONObject data=params[0];
 
             try {
-                Uri uri = Uri.parse("http://192.168.42.94:4000/data?")
+                Uri uri = Uri.parse("http://192.168.44.253:4000/data?")
                         .buildUpon()
                         .appendQueryParameter("key",data.toString())
                         .build();
