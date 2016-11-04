@@ -4,26 +4,20 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="175333657983108"
-    token="2021686985792387109"
-    verifier="COMPATIBLE" >
+    token="2021686985792387109" >
 
     <task
         name="javac"
-        duration="310" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="517" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="90" />
+        duration="0" />
     <task
         name="verifier"
-        duration="10" />
-
-    <artifact
-        location="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        duration="0" />
 
     <build
         timestamp="170687239723159"
@@ -53,7 +47,7 @@
         timestamp="175333657983108"
         verifier="COMPATIBLE" >
         <artifact
-            location="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\reload-dex\debug\classes.dex"
+            location="C:\Users\seanh\Documents\GitHub\Dip_Project_for_OBD\Direction_Demo\app\build\intermediates\builds\debug\175333657983108\classes.dex"
             type="RELOAD_DEX" />
     </build>
 
