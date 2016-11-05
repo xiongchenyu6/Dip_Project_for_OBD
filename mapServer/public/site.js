@@ -6,10 +6,11 @@ var instruction;
 var distance;
 var markersArray = [];
 var currentPath;
-var activecolor,deactivecolor;
+var activecolor;
+var deactivecolor;
 
 activecolor="#4E3B3B";
-deactivecolor="#D26969";
+deactivecolor="#EA2020";
 
 var styleArray = [
     {
@@ -321,11 +322,11 @@ function displayDistance(Distance,Instruction){
 	if(Distance>1000)
 	{
 		checkInstruction(Instruction);
- 		document.getElementById("myDistanceTextarea").value = "  In " + Distance/1000 + "km\r  "+Instruction;	
+ 		document.getElementById("myDistanceTextarea").value = "           In " + Distance/1000 + "km\r           "+Instruction;	
 	}
     else{
     	checkInstruction(Instruction);
-    	document.getElementById("myDistanceTextarea").value = "  In " + Distance + "m\r  "+Instruction;
+    	document.getElementById("myDistanceTextarea").value = "           In " + Distance + "m\r           "+Instruction;
     }	
 }
 
@@ -335,26 +336,26 @@ function getMsg(message){
 	{
 		document.querySelector(".fa-comment").style.color=activecolor;
 		document.getElementById("message").style.color=activecolor;
-			
+		// var textarea = document.getElementById("myInfoTextarea");
+		// 	textarea.scrollTop = textarea.scrollHeight;		
 	}
-	else {document.querySelector(".fa-comment").style.color=deactivecolor;
-	document.getElementById("message").style.color=deactivecolor;}
+	else 
+	{
+	    document.querySelector(".fa-comment").style.color=deactivecolor;
+	    document.getElementById("message").style.color=deactivecolor;
+	}
 }
-
+	
 function getCall(call){
 	if(call==1)
 	{
 		document.querySelector(".material-icons").style.color=activecolor;
 		document.getElementById("missed").style.color=activecolor;
-		document.getElementById
 	}
 	else {document.querySelector(".material-icons").style.color=deactivecolor;
 	document.getElementById("missed").style.color=deactivecolor;}
 }
 
-
-
-//function getCall()
 	
 function checkInstruction(Instruction){
 	switch(Instruction)
@@ -384,7 +385,30 @@ function checkInstruction(Instruction){
              div.style.visibility="hidden";
              });
 			 document.getElementById("turn-right").style.visibility="visible";  break;
-	//	case "u turn":     document.getElementById("turn-right").style.visibility="visible";  break;
+		case "slight right":  var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			 document.getElementById("turn-right").style.visibility="visible";  break;
+		case "Slight right":  var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			 document.getElementById("turn-right").style.visibility="visible";  break;
+	    case "slight left":  var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			 document.getElementById("turn-left").style.visibility="visible";  break;
+		case "Slight left":  var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			 document.getElementById("turn-left").style.visibility="visible";  break;
 		case "merge": var imgs= document.querySelectorAll(".instruction"); 
              [].forEach.call(imgs, function(div) {
              // do whatever
@@ -409,7 +433,19 @@ function checkInstruction(Instruction){
              div.style.visibility="hidden";
              });
 			  document.getElementById("turn-slight-left").style.visibility="visible"; break;
-        
+		case "u-turn": var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			  document.getElementById("u-turn").style.visibility="visible"; break;
+		case "U-turn": 	var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			  document.getElementById("u-turn").style.visibility="visible"; break;
+
         default:var imgs= document.querySelectorAll(".instruction"); 
              [].forEach.call(imgs, function(div) {
              // do whatever
@@ -418,9 +454,6 @@ function checkInstruction(Instruction){
 			 document.getElementById("straight").style.visibility="visible";
 	}
 }
-
-
-
 
 var redraw = function(Code){
     var newCode = Code||'}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
@@ -447,9 +480,9 @@ var redraw = function(Code){
     showOverlays();
 }
 
-
+	
 function loop (data){
-    displaySpeed(data.vss);
+    //displaySpeed(data.vss);
     // it worked!
     // it worked!
     console.log(JSON.parse(data['key'])['map']['polyline']);
@@ -486,7 +519,6 @@ function addMarker(location) {
         animation: google.maps.Animation.BOUNCE
     });
     markersArray.push(marker);
-
 }
 
 // Removes the overlays from the map, but keeps them in the array
@@ -494,9 +526,7 @@ function clearOverlays() {
     if (markersArray) {
         for (i in markersArray) {
             markersArray[i].setMap(null);
-
         }
-
     }
 }
 
@@ -507,7 +537,6 @@ function showOverlays() {
             markersArray[i].setMap(map);
 
         }
-
     }
 }
 
