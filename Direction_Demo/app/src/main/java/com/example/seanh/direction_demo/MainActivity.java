@@ -11,8 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import module.DirectionFinder;
@@ -31,6 +34,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.concurrent.RunnableFuture;
 import java.util.logging.Logger;
 
@@ -41,9 +45,11 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     static String end;
     private SmsReceiver receiver;
     private int distanceValue=-1;
+    private String ipAddress;
 
     public String go_duration;
     public String go_distance;
+    public int go_distance_value;
     public String go_instruction;
     public String go_polyline;
     public String go_smsName;
@@ -67,6 +73,27 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         Button btnNavigate=(Button) findViewById(R.id.button);
         Button btnShowMap=(Button) findViewById(R.id.button2);
         Button btnGo=(Button) findViewById(R.id.button3);
+
+        Spinner spinner=(Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.IP_address, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int pos, long id) {
+                    ipAddress=parent.getItemAtPosition(pos).toString();
+                Toast.makeText(MainActivity.this, "The current IP address is set to "+ipAddress, Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Another interface callback
+            }
+        });
+
+
 
        btnNavigate.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -188,6 +215,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
             go_duration=route.duration.text;
             go_distance=route.distance.text;
+            go_distance_value=route.distance.value;
             go_stepDistance=route.step_distance.value;
             if (route.instructions.size()>1){
                 go_instruction=route.instructions.get(0)+"--"+route.instructions.get(1);
@@ -255,6 +283,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
         data_map.put("duration", go_duration);
         data_map.put("distance", go_distance);
+        data_map.put("distance_value",go_distance_value);
         data_map.put("step_distance", go_stepDistance);
         data_map.put("instruction",go_instruction);
         data_map.put("polyline",go_polyline);
@@ -277,7 +306,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             JSONObject data;
             task(JSONObject data){this.data=data;}
             public void run() {
-        Uri uri = Uri.parse("http://192.168.44.253:4000/data?")
+        Uri uri = Uri.parse(ipAddress)
                     .buildUpon()
                     .appendQueryParameter("key",data.toString())
                     .build();
@@ -313,7 +342,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             JSONObject data=params[0];
 
             try {
-                Uri uri = Uri.parse("http://192.168.44.253:4000/data?")
+                Uri uri = Uri.parse(ipAddress)
                         .buildUpon()
                         .appendQueryParameter("key",data.toString())
                         .build();

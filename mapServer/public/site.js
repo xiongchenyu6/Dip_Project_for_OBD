@@ -1,7 +1,7 @@
 var polyline = {};
 window.Code = "";
 var map;
-var myRegexp = /--.*((turn|keep)\s(lef|righ)t|merge|take\sexit|continue|roundabout)/i;
+var myRegexp = /--.*((turn|keep|Slight)\s(lef|righ)t|merge|take\sexit|continue|roundabout|U.*turn)/i;
 var instruction;
 var distance;
 var markersArray = [];
@@ -331,7 +331,7 @@ function displayDistance(Distance,Instruction){
 
 
 function getMsg(message){
-	if(message=1)
+	if(message==1)
 	{
 		document.querySelector(".fa-comment").style.color=activecolor;
 		document.getElementById("message").style.color=activecolor;
@@ -342,7 +342,7 @@ function getMsg(message){
 }
 
 function getCall(call){
-	if(call=1)
+	if(call==1)
 	{
 		document.querySelector(".material-icons").style.color=activecolor;
 		document.getElementById("missed").style.color=activecolor;
@@ -477,7 +477,7 @@ function loopFunction() {
     document.getElementsByTagName('head')[0].removeChild(script);
 }
 
-//setInterval(loopFunction,300);
+setInterval(loopFunction,300);
 //(function() {
 function addMarker(location) {
     marker = new google.maps.Marker({
@@ -533,7 +533,9 @@ function modifyPath(way){
 }
 
 function clearPath(){
-	currentPath.setMap(null);;
+if(currentPath == null)
+return;
+	currentPath.setMap(null);
  }
 
 function showPath(){
@@ -541,6 +543,8 @@ function showPath(){
 }
 
 function deletePath(){
+if(currentPath == null)
+return;
 	currentPath.setMap(null);
     currentPath=null;
 }

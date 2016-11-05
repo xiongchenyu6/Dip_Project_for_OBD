@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Direction_Demo</string>
     <string name="title_activity_maps">Map</string>
+    <string-array name="IP_address">
+        <item>http://192.168.44.253:4000/data?</item>
+        <item>http://192.168.44.97:4000/data?</item>
+        <item>http://192.168.42.253:4000/data?</item>
+        <item>http://192.168.42.97:4000/data?</item>
+    </string-array>
 </resources>
