@@ -1,13 +1,10 @@
 
-    .bkg{
-        background-color:black;
-        color:green;   
-        height: 100%;
-    }
-
-    .h{
-       color: green;
-       font-family: bold arial;
-       font-size: 100%;
-       text-align: center;
-    }
+  .bkg{
+      background-color: black;  
+      font-family: Lucida;    
+  }
+  .h{			
+      font-size: 24pt;
+      color: lightgrey;
+      vertical-align: bottom;
+  }

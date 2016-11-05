@@ -5,6 +5,7 @@ var myRegexp = /--.*((turn|keep)\s(lef|righ)t|merge|take\sexit|continue|roundabo
 var instruction;
 var distance;
 var markersArray = [];
+var currentPath;
 var styleArray = [
     {
         featureType: 'all',
@@ -26,6 +27,37 @@ var styleArray = [
         ]
     },
     {
+        featureType: 'poi',
+        elementType: 'geometry',
+        stylers: [
+            { visibility: 'off' }
+        ]
+    },
+     {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+        {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            },
+            {
+            	visibility:"off"
+            }
+        ]
+    },
+    {
         featureType: "all",
         elementType: "labels.text.fill",
         stylers: [
@@ -35,7 +67,6 @@ var styleArray = [
             {
                 lightness: 80
             },
-
         ]
     },
     {
@@ -106,7 +137,7 @@ var styleArray = [
         elementType: "all",
         stylers: [
             {
-                color: "#08304b"
+                color: "#000000"
             }
 
         ]
@@ -264,18 +295,51 @@ function initialize() {
 
     //document.getElementById('mytxt').value = Route;
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 0, lng: -180},
+        center: {lat: 1.350, lng: 103.685},
         zoom:18,
         styles: styleArray
     });
 };
 
 
-function Displayspeed(Speed){
-    document.getElementById('myTextarea').value = Speed + "km/h";
+function displaySpeed(Speed){
+    document.getElementById('mySpeedTextarea').value = Speed + "\rkm/h";
 }
 var Curret_Speed = 30.2;
-Displayspeed(Curret_Speed);
+displaySpeed(Curret_Speed);
+
+function displayRPM(RPM){
+	document.getElementById("myRPMTextarea").value=RPM + "\rrpm";
+}
+var Current_RPM = 1500;
+displayRPM(Current_RPM);	
+
+function displayDistance(Distance,Instruction){
+	if(Distance>1000)
+	{
+ 		document.getElementById("myDistanceTextarea").value = "  In " + Distance/1000 + "km\r  "+Instruction;
+	}
+    else{
+    	document.getElementById("myDistanceTextarea").value = "  In " + Distance + "m\r  "+Instruction;
+    }	
+}
+
+function checkInstruction(Instruction){
+	switch(Instruction)
+	{
+		case "turn left": document.getElementById("u-turn").style.visibility="visible"; break;
+		case "turn right":    break;
+		case "u turn":     break;
+		case "turn slight left":     break;
+		case "turn slight right":    break;
+
+       //Else show go straight.
+	}
+}
+
+var Curret_Distance = 3500;	
+var myInstruction = "Turn Left";
+displayDistance(Curret_Distance,myInstruction);
 
 
 var redraw = function(Code){
@@ -291,20 +355,16 @@ var redraw = function(Code){
         myLines.push(new google.maps.LatLng(Route[i][0],Route[i][1]));
     }
 
-    var myPath=new google.maps.Polyline({
-        path:myLines,
-        strokeColor:"#FD0202",
-        strokeOpacity:0.8,
-        strokeWeight:10
-    });
+	clearPath();
+	deletePath();
+    modifyPath(myLines);
+    showPath();
 
     clearOverlays();
     deleteOverlays();
     addMarker(source);
     addMarker(destination);
     showOverlays();
-    myPath.setMap(map);
-    //
 }
 
 
@@ -324,6 +384,7 @@ function loop (data){
     }
 };
 
+
 function loopFunction() {
     var script = document.createElement('script');
     script.src = 'http://localhost:4000/info?callback=loop'
@@ -338,7 +399,6 @@ function addMarker(location) {
         position: location,
         map: map,
         animation: google.maps.Animation.BOUNCE
-
     });
     markersArray.push(marker);
 
@@ -374,9 +434,50 @@ function deleteOverlays() {
 
         }
         markersArray.length = 0;
-
     }
 }
-// }
-// }
-// }
+
+function modifyPath(way){
+	    var myPath=new google.maps.Polyline({
+        path:way,
+        strokeColor:"#FD0202",
+        strokeOpacity:0.8,
+        strokeWeight:10
+    });
+	    currentPath = myPath;
+}
+
+function clearPath(){
+	currentPath.setMap(null);;
+ }
+
+function showPath(){
+	currentPath.setMap(map);
+}
+
+function deletePath(){
+	currentPath.setMap(null);
+    currentPath=null;
+}
+
+(function startTime(){
+	show_d = new Array('Mon','Tues','Wed','Thurs','Fri','Sat','Sun')
+	var today = new Date()
+	var d = today.getDate();
+		d = check(d);
+	var mm = today.getMonth() + 1;
+	    mm = check(mm);
+	var y = today.getFullYear();
+	var h = today.getHours();
+		h = check(h);
+	var m = today.getMinutes();
+	    m = check(m);
+    document.getElementById("time").innerHTML = show_d[d-0] + "  " + d + "-" + mm +"-" +y + "  " + h +":" + m;
+    var t = setTimeout(startTime,500); 
+})();
+function check(i){
+	if (i < 10) {i = "0" + i};
+	return i;
+}
+
+	

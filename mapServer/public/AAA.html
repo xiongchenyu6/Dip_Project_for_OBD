@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> DIP </title>
+  <meta charset="utf-8">
+  <meta name=”viewport” content=”width=device-width, initial-scale=1, maximum-scale=1″>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">   </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <style>
+  .bkg{
+      background-color: black;  
+      font-family: Lucida;    
+  }
+  .h{
+      font-size: 24pt;
+      color: lightgrey;
+      vertical-align: bottom;
+  }
+  </style>
+ 
+</head>
+
+<body>
+<div class="container-fluid bkg">
+  <h1 align="center"; style="color: grey; font-size: 50pt; margin-top: 0px">  <b>HUD</b> <br></h1>
+  <div class="row">
+    <div class="col-xs-3" align="center" style="color: white; background-color: black">
+        <P><strong>Fuel</strong><b></P><br>
+        <div class="progress"> 
+            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+            GOOD
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-xs-6" id="map" style="height:450px ;padding: 0px;" align="center"><br><br><br>
+        <p>google map</p><br> 
+        <script>
+        function myMap() {
+        var myCenter = new google.maps.LatLng(1.3425,103.67959);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {center: myCenter, zoom: 15};
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({position:myCenter});
+            marker.setMap(map);
+        }
+      </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?callback=myMap">
+        </script>
+    </div>
+      
+    
+    <div class="col-xs-3" style="background-color: black">
+
+          <body>
+          <div class="battery" align="right" style="color: lightgrey"><span class="fa-stack fa-lg" ><i class="fa fa-battery-three-quarters fa-stack-2x"></i></span></div>
+          <div id="txt" style="color: Red; font-size: 24pt; font-family: agency fb" align="right"><br><br></div>
+          <div align="left" style="background-color: black; margin-top:50px; margin-left: 50px">
+            <a><img src="u-turn.png" border="0" alt=" photo u-turn.png" style="position: absolute;height: 150pt;width: 150pt" /></a>
+            <a><img src="up-arrow.png" border="0" alt=" photo up-arrow.png" style="position: absolute;height: 150pt;width: 150pt"/></a>
+            <a><img src="left-arrow.png" border="0" alt=" photo left-arrow.png" style="position: absolute;height: 150pt;width: 150pt"/> </a>
+            <a><img src="right-arrow.png" border="0" alt=" photo right-arrow.png" style="position: absolute;height: 150pt;width: 150pt"/></a>
+      </div>
+            <a><img src="slight-right.png" border="0" alt=" photo slight-right.png" style="position: absolute;height: 150pt;width: 150pt"/></a>
+      </div>
+            <a><img src="slight-left.png" border="0" alt=" photo slight-left.png" style="position: absolute;height: 150pt;width: 150pt"/></a>
+      </div>
+         </body>
+
+    </div>   
+          
+      <script>
+        (function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+            h = checkTime(h);
+        var m = today.getMinutes();
+            m = checkTime(m);
+        document.getElementById('txt').innerHTML = h+":"+m; 
+        var t = setTimeout(startTime, 500);
+        })();
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+        </script>
+
+   <div class="col-xs-12" style="height: 40px"></div>  
+      <div class="row" align="center" style="background-color: black">    
+        <div class="col-xs-1"><i class="fa fa-comment h"></i><br><br>MESSAGE<br><br> </div>
+        <div class="col-xs-1"><i class="material-icons h" >phone_in_talk</i><br><br>INCOMING <br><br></div>
+        <div class="col-xs-1"><i class="material-icons h">phone_missed</i><br><br>MISSED<br><br></div>
+        <div class="col-xs-1"><i class="fa fa-whatsapp h"></i><br><br>WHATSAPP<br><br></div>
+        <div class="col-xs-1"><i class="fa fa-wechat h" ></i><BR><br>WECHAT<br><br></div> 
+        <div class="col-xs-1"><i class="material-icons h">email</i><br><br>EMAIL<br><br></div>  
+      </div>
+</body>
+</body>
+
+        <br><br>
+
+   
+
+
+
+    
+</body>
+</html>

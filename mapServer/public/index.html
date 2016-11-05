@@ -3,83 +3,78 @@
   <head>
     <title> DIP </title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1">         
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">   </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="site.css">
-
   </head>
 
-
-
-  <body>
+<body>
 
   <div class="container-fluid bkg" >
-    <h1>Heads-Up Display<br></h1>
+    <h1 align="center"; style="color: grey; font-size: 50pt; margin-top: 0px;font-family: Lucida"> <b>HUD</b> <br></h1>     
+    <div class="row">           
+    <div class="col-xs-3" align="center" style="color: white; background-color: black"> 
 
-    <div class="row">
-      <div class="col-xs-2 h">
-
-         <p><a> <img src="http://i1237.photobucket.com/albums/ff466/teyxueyi/DIP/digital-clock-midnight-2_zpsua35jmjh.png" border="0" alt=" photo digital-clock-midnight-2_zpsua35jmjh.png"/></a><br>
-
-          <textarea id="myTextarea" name="Speed_Display" rows="2" cols="10" style="background-color: black;border: none; font-family:Arial, sans-serif;font-size: 30pt;"></textarea>
-         <br><br>
-
-        <P><b>FUEL<b>
-        <div class="progress">
-        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-         FULL
+        <P><strong>Fuel</strong><b></P>
+        <div class="progress"> 
+            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%; background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  background-image:linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);">
+            FULL
+            </div>
         </div>
-        </div></P><br>
-          <div class="col-xs-1"><span class="fa-stack fa-lg" ><i class="fa fa-battery-three-quarters fa-stack-2x"></i></span></div>
+        <br><br>
+        <textarea id="mySpeedTextarea" name="Speed_Display" rows="2" cols="10" style="background-color: black;border: none; font-family:agency fb;font-size: 30pt;resize: none"></textarea>
+         <br><br><br>
+        <textarea id="myRPMTextarea" name="RPM_Display" rows="2" cols="10" style="background-color: black;border: none; font-family:agency fb;font-size: 30pt; resize: none;"></textarea>
+         <br><br>
+    </div>
+
+
+  <div class="col-xs-6" id="map" style="height:450px;">
   </div>
 
 
-  <div class="col-xs-6 h" id="map" style="width:50%;height:450px;"><br><br>Map<br><br>
-          <p>google map</p><br> 
-  </div>
+    <div class="col-xs-3"  align="center" style="color: white; background-color: black">
 
-
-
-<script src="site.js" type="text/javascript"></script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8v3v4RnTsHsfEJBjbmlV4VrDyTrbdCXg&callback=initialize"async defer></script> 
-      <div class="col-xs-2 h">
-          <br><br><a><img src="http://i1237.photobucket.com/albums/ff466/teyxueyi/DIP/u-turn-6_zpsahe3kos3.png" border="0" alt=" photo u-turn-6_zpsahe3kos3.png"/></a>
-         <br><br><br>
-         <a><img src="http://i1237.photobucket.com/albums/ff466/teyxueyi/DIP/up-arrow-3_zps7gph550d.png" border="0" alt=" photo up-arrow-3_zps7gph550d.png"/></a>
-         <br><br><br>
-        <a><img src="http://i1237.photobucket.com/albums/ff466/teyxueyi/DIP/left-arrow-3_zpsxgvpy7ru.png" border="0" alt=" photo left-arrow-3_zpsxgvpy7ru.png"/> 
-        </a><br><br>
-      </div>
-         
-      <div class="col-xs-2 h" style="font-size:250%;text-align:left;">
-         <div class="row">
-          <br>50M<br>
+          <div class="battery" align="right" style="color: lightgrey"><span class="fa-stack fa-lg" ><i class="fa fa-battery-three-quarters fa-stack-2x"></i></span></div>
+          <div id="time" style="color: Red; font-size: 24pt; font-family: agency fb" align="right"><br></div>
+          <div align="left" style="background-color: black; margin-top:50px; margin-left: 50px">
+            <a><img src="u-turn.png" border="0" alt=" photo u-turn.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;" /></a>
+            <a><img src="up-arrow.png" border="0" alt=" photo up-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
+            <a><img src="left-arrow.png" border="0" alt=" photo left-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/> </a>
+            <a><img src="right-arrow.png" border="0" alt=" photo right-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
+            <a><img src="slight-right.png" border="0" alt=" photo slight-right.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
+            <a><img src="slight-left.png" border="0" alt=" photo slight-left.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
+         <br><br>
          </div>
-         <div class="row">
-          <br>100M<br>
-         </div>
-         <div class="row">
-          <br>250M<br>
-         </div>
-      </div>
 
-      <div class="col-xs-12" style="background-color:black;"> <br>
-          <div class="col-xs-2"><span class="fa-stack fa-lg"><i class="fa fa-comment fa-stack-1x"></i></span><br>MESSAGE<br></div>
-          <div class="col-xs-2"><i class="material-icons">phone_in_talk</i><br>INCOMING <br><br>  </div>
-          <div class="col-xs-2"><i class="material-icons" style="color:red;">phone_missed</i><br>MISSED<br><br> </div>
-          <div class="col-xs-2"><span class="fa-stack fa-lg" style="color:green;"><i class="fa fa-whatsapp fa-stack-1x"></i></span> <br>WHATSAPP <br><br></div>
-          <div class="col-xs-2"><span class="fa-stack fa-lg"><i class="fa fa-weixin fa-stack-1x"></i></span> <br>WECHAT<br><br> </div> 
-          <div class="col-xs-2"><i class="material-icons">email</i><br>EMAIL <br><br></div>
-          <br><br>
+         <br><br><br><br><br><br><br><br><textarea id="myDistanceTextarea" name="Distance_Display" rows="2" cols="10" style="color: white; background-color: black;border: none; font-family:agency fb;font-size: 30pt; resize: none;" ></textarea>
+    </div>
 
+
+      <div class="col-xs-12" style="height: 35px"></div>  
+      <div class="row" align="center" style="background-color: black">    
+        <div class="col-xs-6" style="background: black">
+                    <textarea id="myRPMTextarea" name="RPM_Display" rows="1" cols="40" style="background-color: black;border: none; font-family:agency fb;font-size: 30pt; resize: none;"></textarea>
+        </div>
+
+        <div class="col-xs-1"><i class="fa fa-comment h"></i><br><br>MESSAGE<br><br> </div>
+        <div class="col-xs-1"><i class="material-icons h" >phone_in_talk</i><br><br>INCOMING <br><br></div>
+        <div class="col-xs-1"><i class="material-icons h">phone_missed</i><br><br>MISSED<br><br></div>
+        <div class="col-xs-1"><i class="fa fa-whatsapp h"></i><br><br>WHATSAPP<br><br></div>
+        <div class="col-xs-1"><i class="fa fa-wechat h" ></i><br><br>WECHAT<br><br></div> 
+        <div class="col-xs-1"><i class="material-icons h">email</i><br><br>EMAIL<br><br></div>  
       </div>
 
     </div>
   </div>
+
+   <script src="site.js" type="text/javascript"></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8v3v4RnTsHsfEJBjbmlV4VrDyTrbdCXg&callback=initialize"async defer></script> 
       
-  </body>
-  </html>
+ </body>
+</html>
