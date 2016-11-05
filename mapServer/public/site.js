@@ -6,6 +6,11 @@ var instruction;
 var distance;
 var markersArray = [];
 var currentPath;
+var activecolor,deactivecolor;
+
+activecolor="#4E3B3B";
+deactivecolor="#D26969";
+
 var styleArray = [
     {
         featureType: 'all',
@@ -303,43 +308,118 @@ function initialize() {
 
 
 function displaySpeed(Speed){
-    document.getElementById('mySpeedTextarea').value = Speed + "\rkm/h";
+    document.getElementById('mySpeedTextarea').value = Speed + "\r           km/h";
 }
-var Curret_Speed = 30.2;
-displaySpeed(Curret_Speed);
+
 
 function displayRPM(RPM){
-	document.getElementById("myRPMTextarea").value=RPM + "\rrpm";
+	document.getElementById("myRPMTextarea").value=RPM + "\r             rpm";
 }
-var Current_RPM = 1500;
-displayRPM(Current_RPM);	
+	
 
 function displayDistance(Distance,Instruction){
 	if(Distance>1000)
 	{
- 		document.getElementById("myDistanceTextarea").value = "  In " + Distance/1000 + "km\r  "+Instruction;
+		checkInstruction(Instruction);
+ 		document.getElementById("myDistanceTextarea").value = "  In " + Distance/1000 + "km\r  "+Instruction;	
 	}
     else{
+    	checkInstruction(Instruction);
     	document.getElementById("myDistanceTextarea").value = "  In " + Distance + "m\r  "+Instruction;
     }	
 }
 
+
+function getMsg(message){
+	if(message=1)
+	{
+		document.querySelector(".fa-comment").style.color=activecolor;
+		document.getElementById("message").style.color=activecolor;
+			
+	}
+	else {document.querySelector(".fa-comment").style.color=deactivecolor;
+	document.getElementById("message").style.color=deactivecolor;}
+}
+
+function getCall(call){
+	if(call=1)
+	{
+		document.querySelector(".material-icons").style.color=activecolor;
+		document.getElementById("missed").style.color=activecolor;
+		document.getElementById
+	}
+	else {document.querySelector(".material-icons").style.color=deactivecolor;
+	document.getElementById("missed").style.color=deactivecolor;}
+}
+
+
+
+//function getCall()
+	
 function checkInstruction(Instruction){
 	switch(Instruction)
 	{
-		case "turn left": document.getElementById("u-turn").style.visibility="visible"; break;
-		case "turn right":    break;
-		case "u turn":     break;
-		case "turn slight left":     break;
-		case "turn slight right":    break;
-
-       //Else show go straight.
+		case "turn left": var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+             document.getElementById("turn-left").style.visibility="visible";
+		     break;
+		case "Turn left": var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			 document.getElementById("turn-left").style.visibility="visible"; break;
+		case "turn right":  var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			 document.getElementById("turn-right").style.visibility="visible";  break;
+		case "Turn right":  var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			 document.getElementById("turn-right").style.visibility="visible";  break;
+	//	case "u turn":     document.getElementById("turn-right").style.visibility="visible";  break;
+		case "merge": var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });   
+			 document.getElementById("turn-slight-right").style.visibility="visible"; break;
+		case "Merge":   var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             }); 
+			 document.getElementById("turn-slight-right").style.visibility="visible"; break;
+		case "take exit": var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });  
+			  document.getElementById("turn-slight-left").style.visibility="visible"; break;
+		case "Take exit":  var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			  document.getElementById("turn-slight-left").style.visibility="visible"; break;
+        
+        default:var imgs= document.querySelectorAll(".instruction"); 
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			 document.getElementById("straight").style.visibility="visible";
 	}
 }
 
-var Curret_Distance = 3500;	
-var myInstruction = "Turn Left";
-displayDistance(Curret_Distance,myInstruction);
+
 
 
 var redraw = function(Code){
@@ -369,18 +449,23 @@ var redraw = function(Code){
 
 
 function loop (data){
-    Displayspeed(data.vss);
+    displaySpeed(data.vss);
     // it worked!
     // it worked!
     console.log(JSON.parse(data['key'])['map']['polyline']);
     redraw(JSON.parse(data['key'])['map']['polyline']);
-    distance = JSON.parse(data['key'])['map']['step_distance']
-    instruction = JSON.parse(data['key'])['map']['instruction']
+    distance = JSON.parse(data['key'])['map']['step_distance'];
+   
+    instruction = JSON.parse(data['key'])['map']['instruction'];
     if(distance<=1000){
+
         console.log(instruction);
         var match = myRegexp.exec(instruction);
         console.log(match[1]);
         instruction=match[1];
+         displayDistance(distance,instruction);
+    }else{
+		displayDistance(distance,'continue');
     }
 };
 
@@ -392,7 +477,7 @@ function loopFunction() {
     document.getElementsByTagName('head')[0].removeChild(script);
 }
 
-setInterval(loopFunction,300);
+//setInterval(loopFunction,300);
 //(function() {
 function addMarker(location) {
     marker = new google.maps.Marker({

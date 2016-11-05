@@ -43,12 +43,12 @@
           <div class="battery" align="right" style="color: lightgrey"><span class="fa-stack fa-lg" ><i class="fa fa-battery-three-quarters fa-stack-2x"></i></span></div>
           <div id="time" style="color: Red; font-size: 24pt; font-family: agency fb" align="right"><br></div>
           <div align="left" style="background-color: black; margin-top:50px; margin-left: 50px">
-            <a><img src="u-turn.png" border="0" alt=" photo u-turn.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;" /></a>
-            <a><img src="up-arrow.png" border="0" alt=" photo up-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
-            <a><img src="left-arrow.png" border="0" alt=" photo left-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/> </a>
-            <a><img src="right-arrow.png" border="0" alt=" photo right-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
-            <a><img src="slight-right.png" border="0" alt=" photo slight-right.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
-            <a><img src="slight-left.png" border="0" alt=" photo slight-left.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
+            <a><img class="instruction" id="u-turn" src="u-turn.png" border="0" alt=" photo u-turn.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;" /></a>
+            <a><img class="instruction" id="straight" src="up-arrow.png" border="0" alt=" photo up-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
+            <a><img class="instruction" id="turn-left" src="left-arrow.png" border="0" alt=" photo left-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/> </a>
+            <a><img class="instruction" id="turn-right" src="right-arrow.png" border="0" alt=" photo right-arrow.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
+            <a><img class="instruction" id="turn-slight-right" src="slight-right.png" border="0" alt=" photo slight-right.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
+            <a><img class="instruction" id="turn-slight-left" src="slight-left.png" border="0" alt=" photo slight-left.png" style="position: absolute;height: 150pt;width: 150pt;visibility: hidden;"/></a>
          <br><br>
          </div>
 
@@ -58,13 +58,12 @@
 
       <div class="col-xs-12" style="height: 35px"></div>  
       <div class="row" align="center" style="background-color: black">    
-        <div class="col-xs-6" style="background: black">
-                    <textarea id="myRPMTextarea" name="RPM_Display" rows="1" cols="40" style="background-color: black;border: none; font-family:agency fb;font-size: 30pt; resize: none;"></textarea>
+        <div class="col-xs-7" style="background: black">
+     <textarea id="myInfoTextarea" name="Info_Display" rows="1" cols="40" style="background-color: black;border: none; font-family:agency fb;font-size: 30pt; resize: none;"></textarea>
         </div>
 
-        <div class="col-xs-1"><i class="fa fa-comment h"></i><br><br>MESSAGE<br><br> </div>
-        <div class="col-xs-1"><i class="material-icons h" >phone_in_talk</i><br><br>INCOMING <br><br></div>
-        <div class="col-xs-1"><i class="material-icons h">phone_missed</i><br><br>MISSED<br><br></div>
+        <div id="message" class="col-xs-1"><i class="fa fa-comment h"></i><br><br>MESSAGE<br><br> </div>
+        <div id="missed" class="col-xs-1"><i class="material-icons h">phone_missed</i><br><br>MISSED<br><br></div>
         <div class="col-xs-1"><i class="fa fa-whatsapp h"></i><br><br>WHATSAPP<br><br></div>
         <div class="col-xs-1"><i class="fa fa-wechat h" ></i><br><br>WECHAT<br><br></div> 
         <div class="col-xs-1"><i class="material-icons h">email</i><br><br>EMAIL<br><br></div>  
