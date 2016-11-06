@@ -316,18 +316,18 @@ function displaySpeed(Speed){
 function displayRPM(RPM){
 	document.getElementById("myRPMTextarea").value=RPM + "\r             rpm";
 }
-	
+
 
 function displayDistance(Distance,Instruction){
 	if(Distance>1000)
 	{
 		checkInstruction(Instruction);
- 		document.getElementById("myDistanceTextarea").value = "           In " + Distance/1000 + "km\r           "+Instruction;	
+ 		document.getElementById("myDistanceTextarea").value = "           In " + Distance/1000 + "km\r           "+Instruction;
 	}
     else{
     	checkInstruction(Instruction);
     	document.getElementById("myDistanceTextarea").value = "           In " + Distance + "m\r           "+Instruction;
-    }	
+    }
 }
 
 
@@ -337,15 +337,15 @@ function getMsg(message){
 		document.querySelector(".fa-comment").style.color=activecolor;
 		document.getElementById("message").style.color=activecolor;
 		// var textarea = document.getElementById("myInfoTextarea");
-		// 	textarea.scrollTop = textarea.scrollHeight;		
+		// 	textarea.scrollTop = textarea.scrollHeight;
 	}
-	else 
+	else
 	{
 	    document.querySelector(".fa-comment").style.color=deactivecolor;
 	    document.getElementById("message").style.color=deactivecolor;
 	}
 }
-	
+
 function getCall(call){
 	if(call==1)
 	{
@@ -356,97 +356,97 @@ function getCall(call){
 	document.getElementById("missed").style.color=deactivecolor;}
 }
 
-	
+
 function checkInstruction(Instruction){
 	switch(Instruction)
 	{
-		case "turn left": var imgs= document.querySelectorAll(".instruction"); 
+		case "turn left": var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
              document.getElementById("turn-left").style.visibility="visible";
 		     break;
-		case "Turn left": var imgs= document.querySelectorAll(".instruction"); 
+		case "Turn left": var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			 document.getElementById("turn-left").style.visibility="visible"; break;
-		case "turn right":  var imgs= document.querySelectorAll(".instruction"); 
+		case "turn right":  var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			 document.getElementById("turn-right").style.visibility="visible";  break;
-		case "Turn right":  var imgs= document.querySelectorAll(".instruction"); 
+		case "Turn right":  var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			 document.getElementById("turn-right").style.visibility="visible";  break;
-		case "slight right":  var imgs= document.querySelectorAll(".instruction"); 
+		case "slight right":  var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			 document.getElementById("turn-right").style.visibility="visible";  break;
-		case "Slight right":  var imgs= document.querySelectorAll(".instruction"); 
+		case "Slight right":  var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			 document.getElementById("turn-right").style.visibility="visible";  break;
-	    case "slight left":  var imgs= document.querySelectorAll(".instruction"); 
+	    case "slight left":  var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			 document.getElementById("turn-left").style.visibility="visible";  break;
-		case "Slight left":  var imgs= document.querySelectorAll(".instruction"); 
+		case "Slight left":  var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			 document.getElementById("turn-left").style.visibility="visible";  break;
-		case "merge": var imgs= document.querySelectorAll(".instruction"); 
+		case "merge": var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
-             });   
+             });
 			 document.getElementById("turn-slight-right").style.visibility="visible"; break;
-		case "Merge":   var imgs= document.querySelectorAll(".instruction"); 
+		case "Merge":   var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
-             }); 
+             });
 			 document.getElementById("turn-slight-right").style.visibility="visible"; break;
-		case "take exit": var imgs= document.querySelectorAll(".instruction"); 
-             [].forEach.call(imgs, function(div) {
-             // do whatever
-             div.style.visibility="hidden";
-             });  
-			  document.getElementById("turn-slight-left").style.visibility="visible"; break;
-		case "Take exit":  var imgs= document.querySelectorAll(".instruction"); 
+		case "take exit": var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			  document.getElementById("turn-slight-left").style.visibility="visible"; break;
-		case "u-turn": var imgs= document.querySelectorAll(".instruction"); 
+		case "Take exit":  var imgs= document.querySelectorAll(".instruction");
+             [].forEach.call(imgs, function(div) {
+             // do whatever
+             div.style.visibility="hidden";
+             });
+			  document.getElementById("turn-slight-left").style.visibility="visible"; break;
+		case "u-turn": var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			  document.getElementById("u-turn").style.visibility="visible"; break;
-		case "U-turn": 	var imgs= document.querySelectorAll(".instruction"); 
+		case "U-turn": 	var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
              });
 			  document.getElementById("u-turn").style.visibility="visible"; break;
 
-        default:var imgs= document.querySelectorAll(".instruction"); 
+        default:var imgs= document.querySelectorAll(".instruction");
              [].forEach.call(imgs, function(div) {
              // do whatever
              div.style.visibility="hidden";
@@ -480,16 +480,16 @@ var redraw = function(Code){
     showOverlays();
 }
 
-	
+
 function loop (data){
     //displaySpeed(data.vss);
     // it worked!
     // it worked!
-    console.log(JSON.parse(data['key'])['map']['polyline']);
-    redraw(JSON.parse(data['key'])['map']['polyline']);
-    distance = JSON.parse(data['key'])['map']['step_distance'];
-   
-    instruction = JSON.parse(data['key'])['map']['instruction'];
+    var dataFromServer=JSON.parse(data['key']);
+    redraw(dataFromServer['map']['polyline']);
+    distance = dataFromServer['map']['step_distance'];
+
+    instruction = dataFromServer['map']['instruction'];
     if(distance<=1000){
 
         console.log(instruction);
@@ -500,6 +500,8 @@ function loop (data){
     }else{
 		displayDistance(distance,'continue');
     }
+    getCall(dataFromServer['notify']['calls']);
+    getMsg(dataFromServer['notify']['msg']);
 };
 
 
@@ -591,11 +593,10 @@ return;
 	var m = today.getMinutes();
 	    m = check(m);
     document.getElementById("time").innerHTML = show_d[d-0] + "  " + d + "-" + mm +"-" +y + "  " + h +":" + m;
-    var t = setTimeout(startTime,500); 
+    var t = setTimeout(startTime,500);
 })();
 function check(i){
 	if (i < 10) {i = "0" + i};
 	return i;
 }
 
-	
