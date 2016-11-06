@@ -1,12 +1,26 @@
 package com.example.seanh.direction_demo;
 
+import android.*;
+import android.Manifest;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import android.os.ResultReceiver;
 import android.os.StrictMode;
 import android.os.SystemClock;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import module.DirectionFinder;
 import module.DirectionFinderListener;
+import module.GpsUpdateService;
 import module.Route;
 import android.app.ProgressDialog;
 import module.SmsReceiver;
@@ -38,14 +53,20 @@ import java.util.StringTokenizer;
 import java.util.concurrent.RunnableFuture;
 import java.util.logging.Logger;
 
-public class MainActivity extends AppCompatActivity implements DirectionFinderListener,SmsReceiver.OnSmsReceivedListener{
+public class MainActivity extends AppCompatActivity implements DirectionFinderListener,SmsReceiver.OnSmsReceivedListener,GpsUpdateService.OnLocationUpdateListener{
 
     private ProgressDialog progressDialog;
     static String origin;
     static String end;
     private SmsReceiver receiver;
+    private GpsUpdateService gpsUpdate;
     private int distanceValue=-1;
     private String ipAddress;
+
+    Messenger msgService;
+    boolean isBound;
+    private static final int MESSAGE=1;
+    private String currentLocation;
 
     public String go_duration;
     public String go_distance;
@@ -58,6 +79,60 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     public int go_smsNo;
     public int go_callNo;
     public int stepCounter=0;
+
+
+    class MyResultReceiver extends ResultReceiver
+    {
+        public MyResultReceiver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        protected void onReceiveResult(int resultCode, Bundle resultData) {
+
+            if(resultCode == 100){
+
+            }
+            else if(resultCode == 200){
+                Toast.makeText(MainActivity.this, "Current location is ", Toast.LENGTH_SHORT).show();
+            }
+            else{
+
+            }
+        }
+    }
+
+
+
+    private Messenger mMessenger = new Messenger(new Handler(){
+
+        @Override
+        public void handleMessage(Message msgFromServer){
+            switch (msgFromServer.what){
+                case MESSAGE:
+                    currentLocation= msgFromServer.obj.toString();
+                    Log.e("comingMessenger", currentLocation);
+                    Toast.makeText(MainActivity.this, "Current location is " + currentLocation, Toast.LENGTH_SHORT).show();
+                    break;
+            }
+            super.handleMessage(msgFromServer);
+        }
+    });
+
+    ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            isBound=true;
+            msgService=new Messenger(iBinder);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+            isBound=false;
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +144,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
         receiver= new SmsReceiver();
         receiver.setSmsReceiver(this);
+
+
 
         Button btnNavigate=(Button) findViewById(R.id.button);
         Button btnShowMap=(Button) findViewById(R.id.button2);
@@ -118,6 +195,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         btnGo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+
                 if(origin==null || end==null) {
                     Toast.makeText(MainActivity.this, "The entered address is not valid", Toast.LENGTH_SHORT).show();
                 }else {
@@ -127,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
                        Toast.makeText(MainActivity.this, "You have arrived at destination", Toast.LENGTH_SHORT).show();
                    }else{
                        startLoop();
+
                    }
                     //while (origin!=end){
                         //loopDemo();
@@ -134,6 +213,38 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
                    // }
                 }
 
+/*
+                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ||
+                        ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this,
+                            new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+                }else {
+                    gpsUpdate=new GpsUpdateService();
+                    gpsUpdate.setLocationUpdateListener(MainActivity.this);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Intent startGPSUpdate = new Intent(MainActivity.this, GpsUpdateService.class);
+                            startService(startGPSUpdate);
+                            Intent bindIntent = new Intent(MainActivity.this, GpsUpdateService.class);
+                            bindService(bindIntent, connection, BIND_AUTO_CREATE);
+
+                            Message msgFromClient = Message.obtain(null, MESSAGE);
+                            msgFromClient.replyTo=mMessenger;
+                            if(isBound){
+                                try {
+                                    msgService.send(msgFromClient);
+                                } catch (RemoteException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }).start();
+                }
+
+                Log.d("test", "test" );
+*/
             }
         });
 
@@ -157,6 +268,16 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         intentFilter.addAction("android.intent.action.PHONE_STATE");
         this.registerReceiver(this.receiver,intentFilter);
     }
+
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        unbindService(connection);
+        Intent stopIntent = new Intent(this, GpsUpdateService.class);
+        stopService(stopIntent);
+    }
+
 
     private void sendRequest(){
         EditText et1=(EditText) findViewById(R.id.edTxtStart);
@@ -238,6 +359,12 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
     }
 
+    @Override
+    public void onUpdate(Location location){
+        Log.d("test", "ldsfalfj" );
+    }
+
+
 
     private void startLoop(){
 /*
@@ -262,8 +389,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
             try {
                 data_all=packJSon();//data_all is the final data package to the rpi
-                //sendToServer(data_all);
-                new sendDataToServer().execute(data_all);
+                sendToServer(data_all);
+                //new sendDataToServer().execute(data_all);
 
             } catch (JSONException e) {
                 e.printStackTrace();
