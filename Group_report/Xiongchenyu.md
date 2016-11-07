@@ -5,16 +5,15 @@
 	* serial-obd
 	
 2. Display data 
-	* LED Matrices 
 	* SPI communication
-	* Show Message
-	* Invert Matrics
+	* Use GIRO to Show Message
+	* Invert LED Matrics
 	
 3. Web server to process OBD data and android data
 	* RPI settings
 		* Network settings
 		* Connect to pc 
-			* Remote login without password
+			* Remote SSH login without password
 			* Connect to PC by serial port
 				* *nix
 				* Windows
@@ -126,21 +125,34 @@ Here is the code to read data from ELM327
 
 ### 2. Display data
 ---
+#### 2.1 SPI
 Here is our LED matrics design by our groupmates,after the discussion we deside to use raspberry pi as our platform to build our project and after the research form [Raspberry webpage][RPI SPI] 
-
 ![spi](spi.png)
+Then you should enable the SPI communication on the RPI
+![](rpispi.png) 
+#### 2.2 GPIO pin-outs
 
-Connection table:
 
-RPI|MAX7219
---|---
-VCC|VCC
-GND|GND
+
+
+
+-------------
+The breakout board has two headers to allow daisy-chaining,
+Here is the connection table:
+
+ MAX7219 Output Name  | Remarks    |   RPi Pin |  RPi Function
+------ |-------------| --------- |--------------------
+VCC  |  +5V Power  |   2     |    5V0
+ GND |   Ground      |  6      |   GND
+ DIN  |  Data In     |  19      |  GPIO 10 (MOSI)
+ CS  |   Chip Select |  24     |   GPIO 8 (SPI CE0)
+CLK   | Clock       |  23      |  GPIO 11 (SPI CLK)
+
+
 
 ```python
 
 ```
-
 
 
 ### 3. Web server to process OBD data and android data
@@ -174,7 +186,11 @@ password-flags=1
 phase2-altsubject-matches=
 phase2-auth=mschapv2
 ```
-#### 3.2 Remote login without password
+### 3.2 Connect RPI to PC
+
+
+
+##### 3.2.1 Remote login without password
 
 
 
@@ -217,7 +233,23 @@ A note from one of our readers: Depending on your version of SSH you might also 
 Put the public key in `.ssh/authorized_keys2`
 Change the permissions of `.ssh to 700`
 Change the permissions of `.ssh/authorized_keys2 to 640`
+##### 3.2.2 Connect to RPI by serial port
+Another way to communicate between computer with RPI is connect them by TTL-232R-RPi Debug cable.
+![](TTL.jpg)
 
+Header Pin Number |Name |Type |Colour |Description
+-------|------|------|-----|----
+1 |GND| GND |Black| Device ground supply pin. Connect to ground pin on RPi board
+2 |TXD| Output| Orange| Transmit Asynchronous Data output. Connect to RXD input on RPi board
+3 |RXD| Input| Yellow |Receive Asynchronous Data input. Connect to TXD output on RPi board
+
+Then you can simply use gtkterm to make connection. 
+```bash
+sudo apt-get install gtkterm
+gksu gtkterm
+```
+Remember to set like this:
+![](gtkterm.png)
 #### 3.4 Team work building
 To do a good job, one must first sharpen one's tools.So we study and use a branch of tool chains to ensure our development smoothly.
 ##### 3.4.1 Github
@@ -234,6 +266,7 @@ $ xclip -sel clip < ~/.ssh/id_rsa.pub
 Then go to GitHub webpage go to settings and click *Add SSH key* paste here then you can use GitHub to control the version of the project.
 
 Some of the basic git command
+
 
 
 Usage|Git command
@@ -357,8 +390,15 @@ gulp.task('default', ['browser-sync'], function () {
 ```
 
 ### Reference
+---
 https://github.com/EricSmekens/node-serial-obd
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md
+http://hackaday.com/2013/01/06/hardware-spi-with-python-on-a-raspberry-pi/
+http://gammon.com.au/forum/?id=11516
+http://louisthiery.com/spi-python-hardware-spi-for-raspi/
+http://www.brianhensley.net/2012/07/getting-spi-working-on-raspberry-pi.html
+http://raspi.tv/2013/8-x-8-led-array-driven-by-max7219-on-the-raspberry-pi-via-python
+http://quick2wire.com/non-root-access-to-spi-on-the-pi
 
 [serial-obd]:https://github.com/EricSmekens/node-serial-obd
 
