@@ -269,13 +269,13 @@ Some of the basic git command
 
 
 
-Usage|Git command
---|--
-CREATE REPOSITORIES| git init [project-name] /  git clone [url]
-MAKE CHANGES|git commit -m "[descriptive message]"
-REVIEW HISTORY|git log
-SYNCHRONIZE UPLOAD|git push[alias][branch]
-SYNCHRONIZE DOWNLOAD|git pull
+Usage | Git command
+-- | --
+CREATE REPOSITORIES | git init [project-name] /  git clone [url]
+MAKE CHANGES | git commit -m "[descriptive message]"
+REVIEW HISTORY | git log
+SYNCHRONIZE UPLOAD | git push[alias][branch]
+SYNCHRONIZE DOWNLOAD | git pull
 
 ##### 3.4.2 Front-End Automation
 
