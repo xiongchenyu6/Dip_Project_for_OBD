@@ -127,9 +127,13 @@ Here is the code to read data from ELM327
 ---
 #### 2.1 SPI
 Here is our LED matrics design by our groupmates,after the discussion we deside to use raspberry pi as our platform to build our project and after the research form [Raspberry webpage][RPI SPI] 
+
 ![spi](spi.png)
-Then you should enable the SPI communication on the RPI
+
+Then you should enable the SPI communication on the RPI simply go to raspberry settings.
+
 ![](rpispi.png) 
+
 #### 2.2 GPIO pin-outs
 
 
