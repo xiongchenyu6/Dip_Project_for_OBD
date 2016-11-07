@@ -270,7 +270,7 @@ Some of the basic git command
 
 
 Usage | Git command
--- | --
+------- | ---------
 CREATE REPOSITORIES | git init [project-name] /  git clone [url]
 MAKE CHANGES | git commit -m "[descriptive message]"
 REVIEW HISTORY | git log
