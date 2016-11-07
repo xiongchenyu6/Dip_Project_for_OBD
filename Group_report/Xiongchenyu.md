@@ -19,12 +19,12 @@
 				* *nix
 				* Windows
 		* Blue tooth setthings
-		* Node js server
-			* Expressjs
 	* Team work building
-		* Front-End Automation
-			* Gulp
 		* Github
+		* Front-End Automation
+		    * Node js server
+			* Expressjs
+			* Gulp
 		
 4. Reference link
 
@@ -218,10 +218,148 @@ Put the public key in `.ssh/authorized_keys2`
 Change the permissions of `.ssh to 700`
 Change the permissions of `.ssh/authorized_keys2 to 640`
 
+#### 3.4 Team work building
+To do a good job, one must first sharpen one's tools.So we study and use a branch of tool chains to ensure our development smoothly.
+##### 3.4.1 Github
+GitHub is a web-based Git repository hosting service. It offers all of the distributed version control and source code management (SCM) functionality of Git as well as adding its own features. It provides access control and several collaboration features such as bug tracking, feature requests, task management, and wikis for every project.
+
+So we decide to use Github to manage our project after create account an create a new repository first we need to add our ssh-keygen to github for authentication
+```bash
+sudo apt-get install git-core
+sudo apt-get install xclip
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+$ xclip -sel clip < ~/.ssh/id_rsa.pub
+# Copies the contents of the id_rsa.pub file to your clipboard>
+```
+Then go to GitHub webpage go to settings and click *Add SSH key* paste here then you can use GitHub to control the version of the project.
+
+Some of the basic git command
+
+
+Usage|Git command
+--|--
+CREATE REPOSITORIES| git init [project-name] /  git clone [url]
+MAKE CHANGES|git commit -m "[descriptive message]"
+REVIEW HISTORY|git log
+SYNCHRONIZE UPLOAD|git push[alias][branch]
+SYNCHRONIZE DOWNLOAD|git pull
+
+##### 3.4.2 Front-End Automation
+
+Since we use nodejs language to monitoring the OBD we wanna to make our language the same so we choose the Expressjs as the framework to build our webserver.
+Here is the code to set up the server at port 5000 to offer static files routing service and dynamic to receive data from RESTFUL get from android and send jsonp back to Front-End.
+
+```javascript
+
+'use strict';
+
+var express = require('express');
+var app = express();
+var router = express.Router();
+app.set("jsonp callback", true);
+
+app.use(express.static('public'));
+
+app.get('/', function(req, res) {
+    res.sendfile('./public/index.html');
+});
+
+app.get('/data',function (req,res) {
+    info=req.query;
+    console.log(info);
+    res.send('Got it');
+});
+
+app.get('/info',function (req,res) {
+    //console.log(info);
+    info.vss = vss;
+    info.rpm=rpm;
+    res.jsonp(info);
+});
+app.listen(5000,function () {
+    console.log('Listening on port 5000');
+});
+
+```
+We also use **gulp** to make auto build and live editing.We use port 4000 as the proxy to forward the http request and monitoring the static files.Automatic refresh the browser when static file changed.
+By the way, we use **gulp-nodemon** to live editing the back-end files (app.js).
+
+```javescript
+
+'use strict';
+
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var nodemon = require('gulp-nodemon');
+
+// connected to browser-sync after restarting nodemon
+var BROWSER_SYNC_RELOAD_DELAY = 5;
+
+gulp.task('nodemon', function (cb) {
+    var called = false;
+    return nodemon({
+
+        // nodemon our expressjs server script: 'app.js',
+        // watch core server file(s) that require server restart on change
+        watch: ['app.js']
+    })
+        .on('start', function onStart() {
+            // ensure start only got called once
+            if (!called) { cb();  }
+            called = true;
+        })
+        .on('restart', function onRestart() {
+            // reload connected browsers after a slight delay
+            setTimeout(function reload() {
+                browserSync.reload({
+                    stream: false
+                });
+            }, BROWSER_SYNC_RELOAD_DELAY);
+        }); });gulp.task('browser-sync', ['nodemon'], function () {
+
+    // for more browser-sync config options: http://www.browsersync.io/docs/options/
+    browserSync({
+
+        // informs browser-sync to proxy our expressjs app which would run at the following location
+        proxy: 'http://localhost:5000',
+
+        // informs browser-sync to use the following port for the proxied app
+        // notice that the default port is 3000, which would clash with our expressjs
+        port: 4000,
+
+        // open the proxied app in chrome
+        browser: ['google-chrome']
+    });
+});
+
+gulp.task('js',  function () {
+    return gulp.src('public/**/*.js')
+    //.pipe(uglify())
+    //.pipe(gulp.dest('...'));
+});
+
+gulp.task('css', function () {
+    return gulp.src('public/**/*.css')
+        .pipe(browserSync.reload({ stream: true  }));
+})
+
+gulp.task('bs-reload', function () {
+    browserSync.reload();
+});
+
+gulp.task('default', ['browser-sync'], function () {
+    gulp.watch('public/**/*.js',   ['js', browserSync.reload]);
+    gulp.watch('public/**/*.css',  ['css']);
+    gulp.watch('public/**/*.html', ['bs-reload']);
+
+});
+
+```
 
 ### Reference
 https://github.com/EricSmekens/node-serial-obd
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md
 
 [serial-obd]:https://github.com/EricSmekens/node-serial-obd
+
 [RPI SPI]:https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md
