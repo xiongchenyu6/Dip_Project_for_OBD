@@ -16,7 +16,7 @@ import android.util.Log;
  */
 
 
-public class SmsReceiver extends BroadcastReceiver {
+public class sms_call_Receiver extends BroadcastReceiver {
         private SharedPreferences preferences;
     private int smscounter=0;
     private int callcounter=0;
