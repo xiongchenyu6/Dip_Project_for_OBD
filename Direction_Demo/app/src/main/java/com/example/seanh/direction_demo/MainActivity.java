@@ -1,13 +1,9 @@
 package com.example.seanh.direction_demo;
 
-import android.*;
-import android.Manifest;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -15,12 +11,9 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
-import android.os.RemoteException;
 import android.os.ResultReceiver;
 import android.os.StrictMode;
 import android.os.SystemClock;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,8 +30,8 @@ import module.DirectionFinderListener;
 import module.GpsUpdateService;
 import module.Route;
 import android.app.ProgressDialog;
-import module.SmsReceiver;
-import org.json.JSONArray;
+import module.sms_call_Receiver;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,18 +40,14 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
-import java.util.concurrent.RunnableFuture;
-import java.util.logging.Logger;
 
-public class MainActivity extends AppCompatActivity implements DirectionFinderListener,SmsReceiver.OnSmsReceivedListener,GpsUpdateService.OnLocationUpdateListener{
+public class MainActivity extends AppCompatActivity implements DirectionFinderListener, sms_call_Receiver.OnSmsReceivedListener,GpsUpdateService.OnLocationUpdateListener{
 
     private ProgressDialog progressDialog;
     static String origin;
     static String end;
-    private SmsReceiver receiver;
+    private sms_call_Receiver receiver;
     private GpsUpdateService gpsUpdate;
     private int distanceValue=-1;
     private String ipAddress;
@@ -142,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             StrictMode.setThreadPolicy(policy);
         }
 
-        receiver= new SmsReceiver();
+        receiver= new sms_call_Receiver();
         receiver.setSmsReceiver(this);
 
 

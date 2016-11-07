@@ -45,7 +45,7 @@
                 android:label="@string/title_activity_maps">
         </activity>
 
-        <receiver android:name="module.SmsReceiver">
+        <receiver android:name="module.sms_call_Receiver">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
                 <action android:name="android.intent.action.PHONE_STATE" />
