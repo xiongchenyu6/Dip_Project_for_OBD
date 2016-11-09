@@ -2,34 +2,34 @@
 
 ## Index
 1. Collect data from _OBD_
-	* serial-obd
-	
+   * serial-obd
+
 2. Display data 
-	* SPI communication
-	* Use GIRO to Show Message
-	* Invert LED Matrics
-	
+   * SPI communication
+   * Use GIRO to Show Message
+   * Invert LED Metrics
+
 3. Web server to process OBD data and android data
-	* RPI settings
-		* Network settings
-		* Connect to pc 
-			* Remote SSH login without password
-			* Connect to PC by serial port
-				* *nix
-				* Windows
-		* Blue tooth setthings
-	* Team work building
-		* Github
-		* Front-End Automation
-		    * Node js server
-			* Expressjs
-			* Gulp
-		
+   * RPI settings
+     * Network settings
+     * Connect to pc 
+       * Remote SSH login without password
+       * Connect to PC by serial port
+         * *nix
+         * Windows
+     * Blue tooth setthings
+   * Team work building
+     * Github
+     * Front-End Automation
+         * Node js server
+         * Expressjs
+         * Gulp
+
 4. Reference link
 
 
 
- 
+
 ### 1. Collect data from _OBD_
 ---
 ![obd](obd.png)
@@ -41,18 +41,18 @@ Another kind of command is the Hayes AT command set which is considered as the i
 The response to OBD command received from ELM327 are hexadecimal digits in pairs. The first 4 bits will repeat the command andthe rest of data is the requested data from OBD. Because of the response echo the command, the mode value in the response would be added with 40 to distinguish with a command. For example, the response to “0100” may be “41 00 BF 9F B9 90’’. The first byte’41’ represent Mode 01 and “00” represent PID 00. The rest 4   bytes in digital bits are a series of 0(not supported) and 1   (supported) to indicate whether the correspond PID is supported.
 
 
-Mode(hex)   | Description
---- | --- 
-01 | Show current data 
-02 | Show freeze frame data 
-03 | Show stored Diagnostic Trouble Codes
-04 | Clear Diagnostic Trouble Codes and stored value
-05 | Test results,oxygen sensor monitoring (non CAN only)
-06 | Test results,other component/system monitoring (Test results,oxygen sensor monitoring for CAN only)
-07 | Show pending Diagnostic Trouble Codes (detected during current or last driving cycle)
-08 | Control operation of on-board component/system
-09 | Request vehicle information
-0A | Permanent Diagnostic Trouble Codes (DTCs)(Cleared DTCs)
+| Mode(hex) | Description                              |
+| --------- | ---------------------------------------- |
+| 01        | Show current data                        |
+| 02        | Show freeze frame data                   |
+| 03        | Show stored Diagnostic Trouble Codes     |
+| 04        | Clear Diagnostic Trouble Codes and stored value |
+| 05        | Test results,oxygen sensor monitoring (non CAN only) |
+| 06        | Test results,other component/system monitoring (Test results,oxygen sensor monitoring for CAN only) |
+| 07        | Show pending Diagnostic Trouble Codes (detected during current or last driving cycle) |
+| 08        | Control operation of on-board component/system |
+| 09        | Request vehicle information              |
+| 0A        | Permanent Diagnostic Trouble Codes (DTCs)(Cleared DTCs) |
 
 Based on top theory we choose  to use [serial-obd] ,a open source nodejs library to communicate.Here is the code block we use to connect to ELM327.
 
@@ -122,7 +122,7 @@ Here is the code to read data from ELM327
         }
  });
 ```
-
+The code above just flip left to right of the pixel metrics and you need to flip the image upside down since the library have the `metrics.invert()` function. 
 ### 2. Display data
 ---
 #### 2.1 SPI
@@ -144,18 +144,33 @@ Then you should enable the SPI communication on the RPI simply go to raspberry s
 The breakout board has two headers to allow daisy-chaining,
 Here is the connection table:
 
- MAX7219 Output Name  | Remarks    |   RPi Pin |  RPi Function
------- |-------------| --------- |--------------------
-VCC  |  +5V Power  |   2     |    5V0
- GND |   Ground      |  6      |   GND
- DIN  |  Data In     |  19      |  GPIO 10 (MOSI)
- CS  |   Chip Select |  24     |   GPIO 8 (SPI CE0)
-CLK   | Clock       |  23      |  GPIO 11 (SPI CLK)
+| MAX7219 Output Name | Remarks     | RPi Pin | RPi Function      |
+| ------------------- | ----------- | ------- | ----------------- |
+| VCC                 | +5V Power   | 2       | 5V0               |
+| GND                 | Ground      | 6       | GND               |
+| DIN                 | Data In     | 19      | GPIO 10 (MOSI)    |
+| CS                  | Chip Select | 24      | GPIO 8 (SPI CE0)  |
+| CLK                 | Clock       | 23      | GPIO 11 (SPI CLK) |
 
+#### 2.3 LED Metrics
 
+---
+
+![](matrics.jpg)
+
+We use open source python library to display the LED metrics,but their code don't have the flip function,Here is our codes to flip the images. 
 
 ```python
 
+def flip(lines):
+       for line in lines:
+               length = len(line)/2
+               for i in range(0,length):
+                       tmp = line[i]
+                       line[i]= line[-(i+1)]
+                       line[-(i+1)] = tmp
+       return lines
+DEFAULT_FONT = flip( CP437_FONT)
 ```
 
 
@@ -241,11 +256,11 @@ Change the permissions of `.ssh/authorized_keys2 to 640`
 Another way to communicate between computer with RPI is connect them by TTL-232R-RPi Debug cable.
 ![](TTL.jpg)
 
-Header Pin Number |Name |Type |Colour |Description
--------|------|------|-----|----
-1 |GND| GND |Black| Device ground supply pin. Connect to ground pin on RPi board
-2 |TXD| Output| Orange| Transmit Asynchronous Data output. Connect to RXD input on RPi board
-3 |RXD| Input| Yellow |Receive Asynchronous Data input. Connect to TXD output on RPi board
+| Header Pin Number | Name | Type   | Colour | Description                              |
+| ----------------- | ---- | ------ | ------ | ---------------------------------------- |
+| 1                 | GND  | GND    | Black  | Device ground supply pin. Connect to ground pin on RPi board |
+| 2                 | TXD  | Output | Orange | Transmit Asynchronous Data output. Connect to RXD input on RPi board |
+| 3                 | RXD  | Input  | Yellow | Receive Asynchronous Data input. Connect to TXD output on RPi board |
 
 Then you can simply use gtkterm to make connection. 
 ```bash
@@ -273,13 +288,13 @@ Some of the basic git command
 
 
 
-Usage | Git command
-------- | ---------
-CREATE REPOSITORIES | git init [project-name] /  git clone [url]
-MAKE CHANGES | git commit -m "[descriptive message]"
-REVIEW HISTORY | git log
-SYNCHRONIZE UPLOAD | git push[alias][branch]
-SYNCHRONIZE DOWNLOAD | git pull
+| Usage                | Git command                              |
+| -------------------- | ---------------------------------------- |
+| CREATE REPOSITORIES  | git init [project-name] /  git clone [url] |
+| MAKE CHANGES         | git commit -m "[descriptive message]"    |
+| REVIEW HISTORY       | git log                                  |
+| SYNCHRONIZE UPLOAD   | git push[alias][branch]                  |
+| SYNCHRONIZE DOWNLOAD | git pull                                 |
 
 ##### 3.4.2 Front-End Automation
 
