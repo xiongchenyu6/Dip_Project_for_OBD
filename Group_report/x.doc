@@ -1,0 +1,385 @@
+<h1 id="dip-report">DIP REPORT</h1>
+<h2 id="index">Index</h2>
+<ol style="list-style-type: decimal">
+<li>Collect data from <em>OBD</em>
+<ul>
+<li>serial-obd</li>
+</ul></li>
+<li>Display data
+<ul>
+<li>LED Matrices</li>
+<li>SPI communication</li>
+<li>Show Message</li>
+<li>Invert Matrics</li>
+</ul></li>
+<li>Web server to process OBD data and android data
+<ul>
+<li>RPI settings
+<ul>
+<li>Network settings</li>
+<li>Connect to pc
+<ul>
+<li>Remote login without password</li>
+<li>Connect to PC by serial port
+<ul>
+<li>*nix</li>
+<li>Windows</li>
+</ul></li>
+</ul></li>
+<li>Blue tooth setthings</li>
+</ul></li>
+<li>Team work building
+<ul>
+<li>Github</li>
+<li>Front-End Automation
+<ul>
+<li>Node js server</li>
+<li>Expressjs</li>
+<li>Gulp</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Reference link</li>
+</ol>
+<h2 id="collect-data-from-obd">### 1. Collect data from <em>OBD</em></h2>
+<div class="figure">
+<img src="obd.png" alt="obd" />
+<p class="caption">obd</p>
+</div>
+<p>We use OBD simulator to simulate the engines status and tansfer data from ELM327 microcontroller(the controller for the OBD simulator) to USB.To communicate with ELM327 to computer through serial connection ,we need to set the baud rate to <strong>38400</strong>,<strong>8</strong> data bits,<strong>no parity</strong> bits and <strong>1</strong> stop bit. And we need to use command <strong>ls -l ttyUSB*</strong> to check the correct mount location.There are two command sets supported by ELM327, one is the PID command set which is used to communicate with a vehicle or the OBD-­‐‑II simulator,(for example, the OBD command‘0100’ requests the informationof availability of PIDs **[01 -­‐‑20] in Mode 1, in which ’01’ indicates Mode 01 and ’00’ means PID 00).</p>
+<p>Another kind of command is the Hayes AT command set which is considered as the internal commands,(for example, AT command‘atz’ resets the ELM327 chip and all setting are returned to their default values.) Because ELM327 is not case-­‐‑sensitiveand will ignore the spacingso the commands ‘AT Z’, ‘atz’, and ‘AtZ’ are the same to an ELM327</p>
+<p>The response to OBD command received from ELM327 are hexadecimal digits in pairs. The first 4 bits will repeat the command andthe rest of data is the requested data from OBD. Because of the response echo the command, the mode value in the response would be added with 40 to distinguish with a command. For example, the response to “0100” may be “41 00 BF 9F B9 90’’. The first byte’41’ represent Mode 01 and “00” represent PID 00. The rest 4 bytes in digital bits are a series of 0(not supported) and 1 (supported) to indicate whether the correspond PID is supported.</p>
+<table style="width:11%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mode(hex)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>01</td>
+<td>Show current data</td>
+</tr>
+<tr class="even">
+<td>02</td>
+<td>Show freeze frame data</td>
+</tr>
+<tr class="odd">
+<td>03</td>
+<td>Show stored Diagnostic Trouble Codes</td>
+</tr>
+<tr class="even">
+<td>04</td>
+<td>Clear Diagnostic Trouble Codes and stored value</td>
+</tr>
+<tr class="odd">
+<td>05</td>
+<td>Test results,oxygen sensor monitoring (non CAN only)</td>
+</tr>
+<tr class="even">
+<td>06</td>
+<td>Test results,other component/system monitoring (Test results,oxygen sensor monitoring for CAN only)</td>
+</tr>
+<tr class="odd">
+<td>07</td>
+<td>Show pending Diagnostic Trouble Codes (detected during current or last driving cycle)</td>
+</tr>
+<tr class="even">
+<td>08</td>
+<td>Control operation of on-board component/system</td>
+</tr>
+<tr class="odd">
+<td>09</td>
+<td>Request vehicle information</td>
+</tr>
+<tr class="even">
+<td>0A</td>
+<td>Permanent Diagnostic Trouble Codes (DTCs)(Cleared DTCs)</td>
+</tr>
+</tbody>
+</table>
+<p>Based on top theory we choose to use <a href="https://github.com/EricSmekens/node-serial-obd">serial-obd</a> ,a open source nodejs library to communicate.Here is the code block we use to connect to ELM327.</p>
+<pre class="javascrpt"><code>this.serial.on(&#39;open&#39;, function () {
+        self.connected = true;
+
+        self.write(&#39;ATZ&#39;);
+        //Turns off echo.
+        self.write(&#39;ATE0&#39;);
+        //Turns off extra line feed and carriage return
+        self.write(&#39;ATL0&#39;);
+        //This disables spaces in in output, which is faster!
+        self.write(&#39;ATS0&#39;);
+        //Turns off headers and checksum to be sent.
+        self.write(&#39;ATH0&#39;);
+        //Turn adaptive timing to 2. This is an aggressive learn curve for adjusting the timeout. Will make huge difference on slow systems.
+        self.write(&#39;ATAT2&#39;);
+        //Set timeout to 10 * 4 = 40msec, allows +20 queries per second. This is the maximum wait-time. ATAT will decide if it should wait shorter or not.
+        self.write(&#39;ATST0A&#39;);
+        //Set the protocol to automatic.
+        self.write(&#39;ATSP0&#39;);
+
+        //Event connected
+        self.emit(&#39;connected&#39;);
+});
+</code></pre>
+<p>Here is the code to read data from ELM327</p>
+<pre class="javescript"><code> this.serial.on(&#39;data&#39;, function (data) {
+        var currentString, arrayOfCommands;
+        currentString = self.receivedData + data.toString(&#39;utf8&#39;); // making sure it&#39;s a utf8 string
+
+        arrayOfCommands = currentString.split(&#39;&gt;&#39;);
+
+        var forString;
+        if (arrayOfCommands.length &lt; 2) {
+            self.receivedData = arrayOfCommands[0];
+        } else {
+            for (var commandNumber = 0; commandNumber &lt; arrayOfCommands.length; commandNumber++) {
+                forString = arrayOfCommands[commandNumber];
+                if (forString === &#39;&#39;) {
+                    continue;
+                }
+
+                var multipleMessages = forString.split(&#39;\r&#39;);
+                for (var messageNumber = 0; messageNumber &lt; multipleMessages.length; messageNumber++) {
+                    var messageString = multipleMessages[messageNumber];
+                    if (messageString === &#39;&#39;) {
+                        continue;
+                    }
+
+                    self.emit(&#39;debug&#39;, &#39;in    &#39; + messageString);
+
+                    var reply;
+                    reply = parseOBDCommand(messageString);
+                    self.emit(&#39;dataReceived&#39;, reply);
+
+                    if (self.awaitingReply == true) {
+                        
+                    }
+                    self.receivedData = &#39;&#39;;
+                }
+            }
+        }
+ });</code></pre>
+<h2 id="display-data">### 2. Display data</h2>
+<p>Here is our LED matrics design by our groupmates,after the discussion we deside to use raspberry pi as our platform to build our project and after the research form <a href="https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md">Raspberry webpage</a></p>
+<div class="figure">
+<img src="spi.png" alt="spi" />
+<p class="caption">spi</p>
+</div>
+<p>Connection table:</p>
+<table>
+<thead>
+<tr class="header">
+<th>RPI</th>
+<th>MAX7219</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VCC</td>
+<td>VCC</td>
+</tr>
+<tr class="even">
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<h2 id="web-server-to-process-obd-data-and-android-data">### 3. Web server to process OBD data and android data</h2>
+<h4 id="network-settings">3.1 Network settings</h4>
+<p>This topic we are going to talk about how to setup RPI in NTU,RPI use Linux system but our school wifi(NTUSECURE) is WPA2 Enterprise which inner authentication is MSCHAPv2 powered by microsoft. So we can not connect to our school wifi with just simple click so what we should to is to go to the config folfer ** cd /etc/NetworkManager/system-connections ** and modify the config file ** sudo vim NTUSCURE ** add this line to it and save.Connect to wifi again.</p>
+<pre><code>[wifi]
+hidden=true
+mac-address=40:E2:30:0D:6A:CB
+mac-address-blacklist=
+mac-address-randomization=0
+mode=infrastructure
+seen-bssids=
+ssid=NTUSECURE
+system-ca-certs=false
+
+[wifi-security]
+group=
+key-mgmt=wpa-eap
+pairwise=
+proto=
+
+[802-1x]
+altsubject-matches=
+eap=peap;
+identity=student\\CXIONG001
+password-flags=1
+phase2-altsubject-matches=
+phase2-auth=mschapv2</code></pre>
+<h4 id="remote-login-without-password">3.2 Remote login without password</h4>
+<p>To use Linux and OpenSSH to automate your tasks. Therefore you need an automatic login from host A / user a to Host B / user b. You don't want to enter any passwords, because you want to call ssh from a within a shell script.</p>
+<p>First log in on A as user a and generate a pair of authentication keys. Do not enter a passphrase:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">a@A</span>:~<span class="op">&gt;</span> ssh-keygen -t rsa
+<span class="ex">Generating</span> public/private rsa key pair.
+<span class="ex">Enter</span> file in which to save the key (/home/a/.ssh/id_rsa)<span class="bu">:</span> 
+<span class="ex">Created</span> directory <span class="st">&#39;/home/a/.ssh&#39;</span>.
+<span class="ex">Enter</span> passphrase (empty for no passphrase)<span class="bu">:</span> 
+<span class="ex">Enter</span> same passphrase again: 
+<span class="ex">Your</span> identification has been saved in /home/a/.ssh/id_rsa.
+<span class="ex">Your</span> public key has been saved in /home/a/.ssh/id_rsa.pub.
+<span class="ex">The</span> key fingerprint is:
+<span class="ex">3e</span>:4f:05:79:3a:9f:96:7c:3b:ad:e9:58:37:bc:37:e4 a@A
+<span class="ex">Now</span> use ssh to create a directory ~/.ssh as user b on B. (The directory may already exist, which is fine)<span class="bu">:</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">a@A</span>:~<span class="op">&gt;</span> ssh b@B mkdir -p .ssh
+<span class="ex">b@B</span><span class="st">&#39;s password: </span></code></pre></div>
+<p>Finally append a's new public key to b@B:.ssh/authorized_keys and enter b's password one last time:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">a@A</span>:~<span class="op">&gt;</span> cat .ssh/id_rsa.pub <span class="kw">|</span> <span class="fu">ssh</span> b@B <span class="st">&#39;cat &gt;&gt; .ssh/authorized_keys&#39;</span>
+<span class="ex">b@B</span><span class="st">&#39;s password:</span></code></pre></div>
+<p>From now on you can log into B as b from A as a without password:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">a@A</span>:~<span class="op">&gt;</span> ssh b@B</code></pre></div>
+<p>A note from one of our readers: Depending on your version of SSH you might also have to do the following changes:</p>
+<p>Put the public key in <code>.ssh/authorized_keys2</code> Change the permissions of <code>.ssh to 700</code> Change the permissions of <code>.ssh/authorized_keys2 to 640</code></p>
+<h4 id="team-work-building">3.4 Team work building</h4>
+<p>To do a good job, one must first sharpen one's tools.So we study and use a branch of tool chains to ensure our development smoothly. ##### 3.4.1 Github GitHub is a web-based Git repository hosting service. It offers all of the distributed version control and source code management (SCM) functionality of Git as well as adding its own features. It provides access control and several collaboration features such as bug tracking, feature requests, task management, and wikis for every project.</p>
+<p>So we decide to use Github to manage our project after create account an create a new repository first we need to add our ssh-keygen to github for authentication</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install git-core
+<span class="fu">sudo</span> apt-get install xclip
+<span class="fu">ssh-keygen</span> -t rsa -b 4096 -C <span class="st">&quot;your_email@example.com&quot;</span>
+$ <span class="ex">xclip</span> -sel clip <span class="op">&lt;</span> ~/.ssh/id_rsa.pub
+<span class="co"># Copies the contents of the id_rsa.pub file to your clipboard&gt;</span></code></pre></div>
+<p>Then go to GitHub webpage go to settings and click <em>Add SSH key</em> paste here then you can use GitHub to control the version of the project.</p>
+<p>Some of the basic git command</p>
+<table>
+<thead>
+<tr class="header">
+<th>Usage</th>
+<th>Git command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CREATE REPOSITORIES</td>
+<td>git init [project-name] / git clone [url]</td>
+</tr>
+<tr class="even">
+<td>MAKE CHANGES</td>
+<td>git commit -m &quot;[descriptive message]&quot;</td>
+</tr>
+<tr class="odd">
+<td>REVIEW HISTORY</td>
+<td>git log</td>
+</tr>
+<tr class="even">
+<td>SYNCHRONIZE UPLOAD</td>
+<td>git push[alias][branch]</td>
+</tr>
+<tr class="odd">
+<td>SYNCHRONIZE DOWNLOAD</td>
+<td>git pull</td>
+</tr>
+</tbody>
+</table>
+<h5 id="front-end-automation">3.4.2 Front-End Automation</h5>
+<p>Since we use nodejs language to monitoring the OBD we wanna to make our language the same so we choose the Expressjs as the framework to build our webserver. Here is the code to set up the server at port 5000 to offer static files routing service and dynamic to receive data from RESTFUL get from android and send jsonp back to Front-End.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">
+<span class="st">&#39;use strict&#39;</span><span class="op">;</span>
+
+<span class="kw">var</span> express <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;express&#39;</span>)<span class="op">;</span>
+<span class="kw">var</span> app <span class="op">=</span> <span class="at">express</span>()<span class="op">;</span>
+<span class="kw">var</span> router <span class="op">=</span> <span class="va">express</span>.<span class="at">Router</span>()<span class="op">;</span>
+<span class="va">app</span>.<span class="at">set</span>(<span class="st">&quot;jsonp callback&quot;</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span>
+
+<span class="va">app</span>.<span class="at">use</span>(<span class="va">express</span>.<span class="at">static</span>(<span class="st">&#39;public&#39;</span>))<span class="op">;</span>
+
+<span class="va">app</span>.<span class="at">get</span>(<span class="st">&#39;/&#39;</span><span class="op">,</span> <span class="kw">function</span>(req<span class="op">,</span> res) <span class="op">{</span>
+    <span class="va">res</span>.<span class="at">sendfile</span>(<span class="st">&#39;./public/index.html&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span>
+
+<span class="va">app</span>.<span class="at">get</span>(<span class="st">&#39;/data&#39;</span><span class="op">,</span><span class="kw">function</span> (req<span class="op">,</span>res) <span class="op">{</span>
+    info<span class="op">=</span><span class="va">req</span>.<span class="at">query</span><span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>(info)<span class="op">;</span>
+    <span class="va">res</span>.<span class="at">send</span>(<span class="st">&#39;Got it&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span>
+
+<span class="va">app</span>.<span class="at">get</span>(<span class="st">&#39;/info&#39;</span><span class="op">,</span><span class="kw">function</span> (req<span class="op">,</span>res) <span class="op">{</span>
+    <span class="co">//console.log(info);</span>
+    <span class="va">info</span>.<span class="at">vss</span> <span class="op">=</span> vss<span class="op">;</span>
+    <span class="va">info</span>.<span class="at">rpm</span><span class="op">=</span>rpm<span class="op">;</span>
+    <span class="va">res</span>.<span class="at">jsonp</span>(info)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span>
+<span class="va">app</span>.<span class="at">listen</span>(<span class="dv">5000</span><span class="op">,</span><span class="kw">function</span> () <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Listening on port 5000&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<p>We also use <strong>gulp</strong> to make auto build and live editing.We use port 4000 as the proxy to forward the http request and monitoring the static files.Automatic refresh the browser when static file changed. By the way, we use <strong>gulp-nodemon</strong> to live editing the back-end files (app.js).</p>
+<pre class="javescript"><code>
+&#39;use strict&#39;;
+
+var gulp = require(&#39;gulp&#39;);
+var browserSync = require(&#39;browser-sync&#39;);
+var nodemon = require(&#39;gulp-nodemon&#39;);
+
+// connected to browser-sync after restarting nodemon
+var BROWSER_SYNC_RELOAD_DELAY = 5;
+
+gulp.task(&#39;nodemon&#39;, function (cb) {
+    var called = false;
+    return nodemon({
+
+        // nodemon our expressjs server script: &#39;app.js&#39;,
+        // watch core server file(s) that require server restart on change
+        watch: [&#39;app.js&#39;]
+    })
+        .on(&#39;start&#39;, function onStart() {
+            // ensure start only got called once
+            if (!called) { cb();  }
+            called = true;
+        })
+        .on(&#39;restart&#39;, function onRestart() {
+            // reload connected browsers after a slight delay
+            setTimeout(function reload() {
+                browserSync.reload({
+                    stream: false
+                });
+            }, BROWSER_SYNC_RELOAD_DELAY);
+        }); });gulp.task(&#39;browser-sync&#39;, [&#39;nodemon&#39;], function () {
+
+    // for more browser-sync config options: http://www.browsersync.io/docs/options/
+    browserSync({
+
+        // informs browser-sync to proxy our expressjs app which would run at the following location
+        proxy: &#39;http://localhost:5000&#39;,
+
+        // informs browser-sync to use the following port for the proxied app
+        // notice that the default port is 3000, which would clash with our expressjs
+        port: 4000,
+
+        // open the proxied app in chrome
+        browser: [&#39;google-chrome&#39;]
+    });
+});
+
+gulp.task(&#39;js&#39;,  function () {
+    return gulp.src(&#39;public/**/*.js&#39;)
+    //.pipe(uglify())
+    //.pipe(gulp.dest(&#39;...&#39;));
+});
+
+gulp.task(&#39;css&#39;, function () {
+    return gulp.src(&#39;public/**/*.css&#39;)
+        .pipe(browserSync.reload({ stream: true  }));
+})
+
+gulp.task(&#39;bs-reload&#39;, function () {
+    browserSync.reload();
+});
+
+gulp.task(&#39;default&#39;, [&#39;browser-sync&#39;], function () {
+    gulp.watch(&#39;public/**/*.js&#39;,   [&#39;js&#39;, browserSync.reload]);
+    gulp.watch(&#39;public/**/*.css&#39;,  [&#39;css&#39;]);
+    gulp.watch(&#39;public/**/*.html&#39;, [&#39;bs-reload&#39;]);
+
+});
+</code></pre>
+<h3 id="reference">Reference</h3>
+<p>https://github.com/EricSmekens/node-serial-obd https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md</p>

@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         Button btnNavigate=(Button) findViewById(R.id.button);
         Button btnShowMap=(Button) findViewById(R.id.button2);
         Button btnGo=(Button) findViewById(R.id.button3);
+        Button btnChangeIPAddress=(Button) findViewById(R.id.btnChange);
 
         Spinner spinner=(Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -160,6 +161,14 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         });
 
 
+        btnChangeIPAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText etIP=(EditText) findViewById(R.id.edTxtIPAddress);
+                ipAddress="http://"+etIP.getText()+":4000/data?";
+                Toast.makeText(MainActivity.this, "The IP address is changed to "+ ipAddress, Toast.LENGTH_SHORT).show();
+            }
+        });
 
        btnNavigate.setOnClickListener(new View.OnClickListener() {
            @Override

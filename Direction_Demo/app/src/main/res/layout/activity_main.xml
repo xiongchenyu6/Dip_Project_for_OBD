@@ -80,6 +80,37 @@
             android:layout_above="@+id/tvDistance"
             android:layout_toEndOf="@+id/button" />
 
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="2dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/edTxtIPAddress"
+            android:layout_below="@+id/spinner"
+            android:layout_alignBottom="@+id/tvDistance"
+            android:layout_alignStart="@+id/spinner"
+            android:layout_toStartOf="@+id/button2"
+            android:hint="Enter IP address here"
+            android:textSize="12sp" />
+
+        <Button
+            android:text="Change"
+            android:paddingTop="7dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:id="@+id/btnChange"
+            android:layout_below="@+id/spinner"
+            android:layout_alignLeft="@id/edTxtIPAddress"
+            android:layout_alignStart="@+id/button2"
+            android:layout_alignBottom="@+id/edTxtIPAddress"
+            android:textSize="10sp" />
+
     </RelativeLayout>
 
     <ScrollView
