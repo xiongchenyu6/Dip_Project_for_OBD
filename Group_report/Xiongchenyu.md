@@ -1,23 +1,22 @@
 # DIP REPORT
 
-## Index
+## Content
 1. Collect data from _OBD_
-   * serial-obd
+    * serial-obd
 
 2. Display data 
-   * SPI communication
-   * Use GIRO to Show Message
-   * Invert LED Metrics
+    * SPI communication
+    * Use GIRO to Show Message
+    * Invert LED Metrics
 
 3. Web server to process OBD data and android data
-   * RPI settings
+    * RPI settings
      * Network settings
      * Connect to pc 
        * Remote SSH login without password
        * Connect to PC by serial port
          * *nix
          * Windows
-     * Blue tooth setthings
    * Team work building
      * Github
      * Front-End Automation
@@ -32,11 +31,11 @@
 
 ### 1. Collect data from _OBD_
 ---
-![obd](obd.png)
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/obd.png) 
 
-We use OBD simulator to simulate the engines status and tansfer data from ELM327 microcontroller(the controller for the OBD simulator) to USB.To communicate with ELM327 to computer through serial connection ,we need to set the baud rate to **38400**,**8** data bits,**no parity** bits and **1** stop bit. And we need to use command **ls -l ttyUSB\*** to check the correct mount location.There are two command sets supported by ELM327, one is the PID command set which is used to communicate with a vehicle or the OBD-­‐‑II simulator,(for example, the OBD command‘0100’ requests the informationof availability of PIDs **[01 -­‐‑20] in Mode 1, in which ’01’ indicates Mode 01 and ’00’ means PID 00). 
+We use OBD simulator to simulate the engines status and tansfer data from ELM327 microcontroller(the controller for the OBD simulator) to USB.To communicate with ELM327 to computer through serial connection ,we need to set the baud rate to **38400**,**8** data bits,**no parity** bits and **1** stop bit. And we need to use command **ls -l ttyUSB\*** to check the correct mount location.There are two command sets supported by ELM327, one is the PID command set which is used to communicate with a vehicle or the OBD-­‐‑II simulator,(for example, the OBD command‘0100’ requests the informationof availability of PIDs *[01 -­‐‑20]* in Mode 1, in which ’01’ indicates Mode 01 and ’00’ means PID 00). 
 
-Another kind of command is the Hayes AT command set which is considered as the internal commands,(for example, AT command‘atz’ resets the ELM327 chip and all setting are returned to their default values.) Because ELM327 is not case-­‐‑sensitiveand will ignore the spacingso the commands ‘AT Z’, ‘atz’, and ‘AtZ’ are the same to an ELM327
+Another kind of command is the Hayes AT command set which is considered as the internal commands,(for example, AT command‘atz’ resets the ELM327 chip and all setting are returned to their default values.) Because ELM327 is not case-­‐‑sensitiveand will ignore the spacingso the commands ‘AT Z’, ‘atz’, and ‘AtZ’ are the same to an ELM327.
 
 The response to OBD command received from ELM327 are hexadecimal digits in pairs. The first 4 bits will repeat the command andthe rest of data is the requested data from OBD. Because of the response echo the command, the mode value in the response would be added with 40 to distinguish with a command. For example, the response to “0100” may be “41 00 BF 9F B9 90’’. The first byte’41’ represent Mode 01 and “00” represent PID 00. The rest 4   bytes in digital bits are a series of 0(not supported) and 1   (supported) to indicate whether the correspond PID is supported.
 
@@ -122,17 +121,17 @@ Here is the code to read data from ELM327
         }
  });
 ```
-The code above just flip left to right of the pixel metrics and you need to flip the image upside down since the library have the `metrics.invert()` function. 
+
 ### 2. Display data
 ---
 #### 2.1 SPI
 Here is our LED matrics design by our groupmates,after the discussion we deside to use raspberry pi as our platform to build our project and after the research form [Raspberry webpage][RPI SPI] 
 
-![spi](spi.png)
+![spi](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/spi.png)
 
 Then you should enable the SPI communication on the RPI simply go to raspberry settings.
 
-![](rpispi.png) 
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/rpispi.png) 
 
 #### 2.2 GPIO pin-outs
 
@@ -156,7 +155,7 @@ Here is the connection table:
 
 ---
 
-![](matrics.jpg)
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/matrics.jpg)
 
 We use open source python library to display the LED metrics,but their code don't have the flip function,Here is our codes to flip the images. 
 
@@ -172,13 +171,12 @@ def flip(lines):
        return lines
 DEFAULT_FONT = flip( CP437_FONT)
 ```
-
+The code above just flip left to right of the pixel metrics and you need to flip the image upside down since the library have the `metrics.invert()` function. 
 
 ### 3. Web server to process OBD data and android data
 ---
 #### 3.1 Network settings
-This topic we are going to talk about how to setup RPI in NTU,RPI use Linux system but our school wifi(NTUSECURE) is WPA2 Enterprise which inner authentication is MSCHAPv2 powered by microsoft. So we can not connect to our school wifi with just simple click so what we should to is to go to the config folfer ** cd /etc/NetworkManager/system-connections
-** and modify the config file ** sudo vim NTUSCURE ** add this line to it and save.Connect to wifi again.
+This topic we are going to talk about how to setup RPI in NTU,RPI use Linux system but our school wifi(NTUSECURE) is WPA2 Enterprise which inner authentication is MSCHAPv2 powered by microsoft. So we can not connect to our school wifi with just simple click so what we should to is to go to the config folfer ** cd /etc/NetworkManager/system-connections** and modify the config file ** sudo vim NTUSCURE ** add this line to it and save.Connect to wifi again.
 
 ```
 [wifi]
@@ -254,7 +252,7 @@ Change the permissions of `.ssh to 700`
 Change the permissions of `.ssh/authorized_keys2 to 640`
 ##### 3.2.2 Connect to RPI by serial port
 Another way to communicate between computer with RPI is connect them by TTL-232R-RPi Debug cable.
-![](TTL.jpg)
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/TTL.jpg)
 
 | Header Pin Number | Name | Type   | Colour | Description                              |
 | ----------------- | ---- | ------ | ------ | ---------------------------------------- |
@@ -268,7 +266,7 @@ sudo apt-get install gtkterm
 gksu gtkterm
 ```
 Remember to set like this:
-![](gtkterm.png)
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/gtkterm.png)
 #### 3.4 Team work building
 To do a good job, one must first sharpen one's tools.So we study and use a branch of tool chains to ensure our development smoothly.
 ##### 3.4.1 Github
