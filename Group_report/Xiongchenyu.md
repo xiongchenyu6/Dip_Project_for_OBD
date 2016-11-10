@@ -1,42 +1,47 @@
 # DIP REPORT
 
-## Index
+## Content
 1. Collect data from _OBD_
-   * serial-obd
+    * serial-obd
 
 2. Display data 
-   * SPI communication
-   * Use GIRO to Show Message
-   * Invert LED Metrics
+    * **SPI** communication
+    * Use **GIRO** to Show Message
+    * Invert **LED Metrics**
 
 3. Web server to process OBD data and android data
-   * RPI settings
+    * RPI settings
      * Network settings
      * Connect to pc 
-       * Remote SSH login without password
-       * Connect to PC by serial port
+       * Remote **SSH** login without password
+       * Connect to PC by **serial** port
          * *nix
          * Windows
-     * Blue tooth setthings
+   
    * Team work building
      * Github
      * Front-End Automation
          * Node js server
          * Expressjs
          * Gulp
+         
+4. Application Outline
+	* **Andoird** Read from phone to web server
+	* **OBD** Pollind data to web server
+	* **Client** Polling data from web server
 
-4. Reference link
+5. Reference link
 
 
 
 
 ### 1. Collect data from _OBD_
 ---
-![obd](obd.png)
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/obd.png) 
 
-We use OBD simulator to simulate the engines status and tansfer data from ELM327 microcontroller(the controller for the OBD simulator) to USB.To communicate with ELM327 to computer through serial connection ,we need to set the baud rate to **38400**,**8** data bits,**no parity** bits and **1** stop bit. And we need to use command **ls -l ttyUSB\*** to check the correct mount location.There are two command sets supported by ELM327, one is the PID command set which is used to communicate with a vehicle or the OBD-­‐‑II simulator,(for example, the OBD command‘0100’ requests the informationof availability of PIDs **[01 -­‐‑20] in Mode 1, in which ’01’ indicates Mode 01 and ’00’ means PID 00). 
+We use OBD simulator to simulate the engines status and tansfer data from ELM327 microcontroller(the controller for the OBD simulator) to USB.To communicate with ELM327 to computer through serial connection ,we need to set the baud rate to **38400**,**8** data bits,**no parity** bits and **1** stop bit. And we need to use command **ls -l ttyUSB\*** to check the correct mount location.There are two command sets supported by ELM327, one is the PID command set which is used to communicate with a vehicle or the OBD-­‐‑II simulator,(for example, the OBD command‘0100’ requests the informationof availability of PIDs *[01 -­‐‑20]* in Mode 1, in which ’01’ indicates Mode 01 and ’00’ means PID 00). 
 
-Another kind of command is the Hayes AT command set which is considered as the internal commands,(for example, AT command‘atz’ resets the ELM327 chip and all setting are returned to their default values.) Because ELM327 is not case-­‐‑sensitiveand will ignore the spacingso the commands ‘AT Z’, ‘atz’, and ‘AtZ’ are the same to an ELM327
+Another kind of command is the Hayes AT command set which is considered as the internal commands,(for example, AT command‘atz’ resets the ELM327 chip and all setting are returned to their default values.) Because ELM327 is not case-­‐‑sensitiveand will ignore the spacingso the commands ‘AT Z’, ‘atz’, and ‘AtZ’ are the same to an ELM327.
 
 The response to OBD command received from ELM327 are hexadecimal digits in pairs. The first 4 bits will repeat the command andthe rest of data is the requested data from OBD. Because of the response echo the command, the mode value in the response would be added with 40 to distinguish with a command. For example, the response to “0100” may be “41 00 BF 9F B9 90’’. The first byte’41’ represent Mode 01 and “00” represent PID 00. The rest 4   bytes in digital bits are a series of 0(not supported) and 1   (supported) to indicate whether the correspond PID is supported.
 
@@ -122,17 +127,17 @@ Here is the code to read data from ELM327
         }
  });
 ```
-The code above just flip left to right of the pixel metrics and you need to flip the image upside down since the library have the `metrics.invert()` function. 
+
 ### 2. Display data
 ---
 #### 2.1 SPI
 Here is our LED matrics design by our groupmates,after the discussion we deside to use raspberry pi as our platform to build our project and after the research form [Raspberry webpage][RPI SPI] 
 
-![spi](spi.png)
+![spi](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/spi.png)
 
 Then you should enable the SPI communication on the RPI simply go to raspberry settings.
 
-![](rpispi.png) 
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/rpispi.png) 
 
 #### 2.2 GPIO pin-outs
 
@@ -156,7 +161,7 @@ Here is the connection table:
 
 ---
 
-![](matrics.jpg)
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/matrics.jpg)
 
 We use open source python library to display the LED metrics,but their code don't have the flip function,Here is our codes to flip the images. 
 
@@ -172,13 +177,12 @@ def flip(lines):
        return lines
 DEFAULT_FONT = flip( CP437_FONT)
 ```
-
+The code above just flip left to right of the pixel metrics and you need to flip the image upside down since the library have the `metrics.invert()` function. 
 
 ### 3. Web server to process OBD data and android data
 ---
 #### 3.1 Network settings
-This topic we are going to talk about how to setup RPI in NTU,RPI use Linux system but our school wifi(NTUSECURE) is WPA2 Enterprise which inner authentication is MSCHAPv2 powered by microsoft. So we can not connect to our school wifi with just simple click so what we should to is to go to the config folfer ** cd /etc/NetworkManager/system-connections
-** and modify the config file ** sudo vim NTUSCURE ** add this line to it and save.Connect to wifi again.
+This topic we are going to talk about how to setup RPI in NTU,RPI use Linux system but our school wifi(NTUSECURE) is WPA2 Enterprise which inner authentication is MSCHAPv2 powered by microsoft. So we can not connect to our school wifi with just simple click so what we should to is to go to the config folfer ** cd /etc/NetworkManager/system-connections** and modify the config file ** sudo vim NTUSCURE ** add this line to it and save.Connect to wifi again.
 
 ```
 [wifi]
@@ -254,7 +258,7 @@ Change the permissions of `.ssh to 700`
 Change the permissions of `.ssh/authorized_keys2 to 640`
 ##### 3.2.2 Connect to RPI by serial port
 Another way to communicate between computer with RPI is connect them by TTL-232R-RPi Debug cable.
-![](TTL.jpg)
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/TTL.jpg)
 
 | Header Pin Number | Name | Type   | Colour | Description                              |
 | ----------------- | ---- | ------ | ------ | ---------------------------------------- |
@@ -268,7 +272,7 @@ sudo apt-get install gtkterm
 gksu gtkterm
 ```
 Remember to set like this:
-![](gtkterm.png)
+![](/home/xiongchenyu/IdeaProjects/Dip_Project_for_OBD/Group_report/gtkterm.png)
 #### 3.4 Team work building
 To do a good job, one must first sharpen one's tools.So we study and use a branch of tool chains to ensure our development smoothly.
 ##### 3.4.1 Github
@@ -407,7 +411,147 @@ gulp.task('default', ['browser-sync'], function () {
 });
 
 ```
+### 4. Application Outline
+---
 
+#### 4.1 **Andoird** Read from phone to web server
+We use a restul web server to receice the data the sever side Expressjs is like 
+``` javascript
+app.get('/data',function (req,res) {
+    info=req.query;
+    console.log(info);
+    res.send('Got it');
+});
+```
+So we need to send http request,so the code we use to send json data from android phone
+```java
+  private void sendToServer(JSONObject data){
+
+        class task implements Runnable{
+            JSONObject data;
+            task(JSONObject data){this.data=data;}
+            public void run() {
+        Uri uri = Uri.parse(ipAddress)
+                    .buildUpon()
+                    .appendQueryParameter("key",data.toString())
+                    .build();
+        URL url = null;
+        try {
+            url = new URL(uri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        HttpURLConnection urlConnection = null;
+        try {
+            urlConnection = (HttpURLConnection) url.openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try{
+            int code = urlConnection.getResponseCode();
+            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+        }catch (Exception e){
+            urlConnection.disconnect();
+        }
+            }
+        }
+        Thread newTread = new Thread(new task(data));
+        newTread.start();
+    }
+
+```
+
+#### 4.2 **OBD** Pollind data to web server
+The code below is use to read data from OBD to server
+```javascript
+serialOBDReader.on('dataReceived', function (data) {
+    console.log(data);
+    if(data['name']='vss'&&isNaN(data['value'])==false){vss = data['value'];}
+    if(data['name']='rpm'&&isNaN(data['value'])==false){rpm = data['value'];}
+    console.log(vss);
+    dataReceivedMarker = data;
+});
+
+serialOBDReader.on('connected', function (data) {
+    //this.requestValueByName("vss"); //vss = vehicle speed sensor
+
+    this.addPoller("vss");
+    this.addPoller("rpm");
+    //this.addPoller("temp");
+    //this.addPoller("load_pct");
+    //this.addPoller("map");
+    //this.addPoller("frp");
+
+    this.startPolling(10000);
+});
+
+
+serialOBDReader.connect();
+
+```
+
+#### 4.3**Client** Polling data from web server
+Dynamic load data from web sever:
+```javascript 
+
+function loopFunction() {
+    var script = document.createElement('script');
+    script.src = 'http://localhost:4000/info?callback=loop'
+    document.getElementsByTagName('head')[0].appendChild(script);
+    document.getElementsByTagName('head')[0].removeChild(script);
+}
+```
+Below is the main function at client to redraw the map and reload data in front-end
+```javascript
+var redraw = function(Code){
+    var newCode = Code||'}tgG_pzwRA@A?A?A@A?A?A?A?AAA?A??AA?A??AAAA??AA??AAA?A?AAA?A?A?A?A?A@A?A@A?A@A@A@A@?@A@?@A@?@?@?@?@?@?@@@?@@@??@@?@@`A}@n@i@lAaAx@_@PGNIn@YnBm@dBa@|AU^ID?ZEb@C\\@J?rA@P@`DB|DBnEHp@Bh@AFAjAG';
+    window.Code = newCode;
+    var Route =polyline.decode(window.Code);
+    var myLines=new Array();
+    var source = {lat: Route[0][0],lng: Route[0][1]};
+    var destination = {lat: Route[Route.length-1][0],lng: Route[Route.length-1][1]};
+    map.panTo(source);
+    for(var i =0;i<Route.length;i++)
+    {
+        myLines.push(new google.maps.LatLng(Route[i][0],Route[i][1]));
+    }
+
+	clearPath();
+	deletePath();
+    modifyPath(myLines);
+    showPath();
+
+    clearOverlays();
+    deleteOverlays();
+    addMarker(source);
+    addMarker(destination);
+    showOverlays();
+}
+
+
+function loop (data){
+    //displaySpeed(data.vss);
+    // it worked!
+    // it worked!
+    var dataFromServer=JSON.parse(data['key']);
+    redraw(dataFromServer['map']['polyline']);
+    distance = dataFromServer['map']['step_distance'];
+
+    instruction = dataFromServer['map']['instruction'];
+    if(distance<=1000){
+
+        console.log(instruction);
+        var match = myRegexp.exec(instruction);
+        console.log(match[1]);
+        instruction=match[1];
+         displayDistance(distance,instruction);
+    }else{
+		displayDistance(distance,'continue');
+    }
+    getCall(dataFromServer['notify']['calls']);
+    getMsg(dataFromServer['notify']['msg']);
+};
+```
 ### Reference
 ---
 https://github.com/EricSmekens/node-serial-obd
