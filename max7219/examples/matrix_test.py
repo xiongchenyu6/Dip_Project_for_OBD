@@ -5,8 +5,9 @@ import time
 from max7219.font import proportional, SINCLAIR_FONT, TINY_FONT, CP437_FONT
 from random import randrange
 
-device = led.matrix(cascaded=1)
+device = led.matrix(cascaded=16,vertical=True)
 
+device.orientation(180)
 device.show_message("MAX7219 LED Matrix Demo", font=proportional(CP437_FONT))
 
 

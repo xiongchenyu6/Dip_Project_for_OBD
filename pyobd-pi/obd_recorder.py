@@ -7,12 +7,18 @@ import obd_sensors
 from datetime import datetime
 import time
 import getpass
-
-
+import max7219.led as led
+import time
+from max7219.font import proportional, SINCLAIR_FONT, TINY_FONT, CP437_FONT
+from random import randrange
 from obd_utils import scanSerial
 
+
 class OBD_Recorder():
+
     def __init__(self, path, log_items):
+        self.device = led.matrix(cascaded=16,vertical=True)
+        self.device.orientation(180)
         self.port = None
         self.sensorlist = []
         localtime = time.localtime(time.time())
@@ -63,15 +69,41 @@ class OBD_Recorder():
             current_time = str(localtime.hour)+":"+str(localtime.minute)+":"+str(localtime.second)+"."+str(localtime.microsecond)
             log_string = current_time
             results = {}
+
+            speed = 0
+            rpm = 0
             for index in self.sensorlist:
                 (name, value, unit) = self.port.sensor(index)
                 log_string = log_string + ","+str(value)
                 results[obd_sensors.SENSORS[index].shortname] = value;
 
+	    speed = results["speed"]
+	    self.device.letter(11,(speed%10)+48,redraw=False)
+	    speed = speed/10
+	    self.device.letter(10,(speed%10)+48,redraw=False)
+	    speed = speed/10
+	    self.device.letter(9,(speed%10)+48,redraw=False)
+	    self.device.letter(15,104,redraw=False)
+	    self.device.letter(14,47,redraw=False)
+	    self.device.letter(13,109,redraw=False)
+	    self.device.letter(12,75,redraw=False)
+
+	    self.device.letter(7,109,redraw=False)
+	    self.device.letter(6,112,redraw=False)
+	    self.device.letter(5,114,redraw=False)
+	    rpm = results["rpm"]
+	    self.device.letter(3,(rpm%10)+48,redraw=False)
+	    rpm = rpm/10
+	    self.device.letter(2,(rpm%10)+48,redraw=False)
+	    rpm = rpm/10
+	    self.device.letter(1,(rpm%10)+48,redraw=False)
+	    rpm = rpm/10
+	    self.device.letter(0,(rpm%10)+48,redraw=False)
+
             gear = self.calculate_gear(results["rpm"], results["speed"])
             log_string = log_string #+ "," + str(gear)
             self.log_file.write(log_string+"\n")
-
+            self.device.flush()
             
     def calculate_gear(self, rpm, speed):
         if speed == "" or speed == 0:

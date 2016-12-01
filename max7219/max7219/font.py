@@ -1354,4 +1354,13 @@ TINY_FONT = [
 ]  # end of TINY_FONT
 
 
-DEFAULT_FONT = CP437_FONT
+
+def flip(lines):
+	for line in lines:
+		length = len(line)/2
+		for i in range(0,length):
+			tmp = line[i]
+			line[i]= line[-(i+1)]
+			line[-(i+1)] = tmp
+	return lines
+DEFAULT_FONT = flip( CP437_FONT)

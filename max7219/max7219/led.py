@@ -159,6 +159,14 @@ class device(object):
         if redraw:
             self.flush()
 
+    def flip(self, redraw=True):
+	size = len(self._buffer)
+	for i in range(0,size):
+		tmp=self._buffer[i]
+		self._buffer[i] = self._buffer[-(i+1)]
+		self._buffer[-(i+1)]= tmp
+
+
     def rotate_left(self, redraw=True):
         """
         Scrolls the buffer one column to the left. The data that scrolls off
@@ -222,14 +230,10 @@ class sevensegment(device):
     numbers can be either integers or floating point (with the number of
     decimal points configurable).
     """
-    _UNDEFINED = 0x08
     _RADIX = {8: 'o', 10: 'f', 16: 'x'}
-    # Some letters cannot be represented by 7 segments, so dictionay lookup
-    # will default to _UNDEFINED (an underscore) instead.
     _DIGITS = {
         ' ': 0x00,
         '-': 0x01,
-        '_': 0x08,
         '0': 0x7e,
         '1': 0x30,
         '2': 0x6d,
@@ -240,60 +244,12 @@ class sevensegment(device):
         '7': 0x70,
         '8': 0x7f,
         '9': 0x7b,
-        'a': 0x7d,
+        'a': 0x77,
         'b': 0x1f,
-        'c': 0x0d,
+        'c': 0x4e,
         'd': 0x3d,
-        'e': 0x6f,
-        'f': 0x47,
-        'g': 0x7b,
-        'h': 0x17,
-        'i': 0x10,
-        'j': 0x18,
-        # 'k': cant represent
-        'l': 0x06,
-        # 'm': cant represent
-        'n': 0x15,
-        'o': 0x1d,
-        'p': 0x67,
-        'q': 0x73,
-        'r': 0x05,
-        's': 0x5b,
-        't': 0x0f,
-        'u': 0x1c,
-        'v': 0x1c,
-        # 'w': cant represent
-        # 'x': cant represent
-        'y': 0x3b,
-        'z': 0x6d,
-        'A': 0x77,
-        'B': 0x7f,
-        'C': 0x4e,
-        'D': 0x7e,
-        'E': 0x4f,
-        'F': 0x47,
-        'G': 0x5e,
-        'H': 0x37,
-        'I': 0x30,
-        'J': 0x38,
-        # 'K': cant represent
-        'L': 0x0e,
-        # 'M': cant represent
-        'N': 0x76,
-        'O': 0x7e,
-        'P': 0x67,
-        'Q': 0x73,
-        'R': 0x46,
-        'S': 0x5b,
-        'T': 0x0f,
-        'U': 0x3e,
-        'V': 0x3e,
-        # 'W': cant represent
-        # 'X': cant represent
-        'Y': 0x3b,
-        'Z': 0x6d,
-        ',': 0x80,
-        '.': 0x80
+        'e': 0x4f,
+        'f': 0x47
     }
 
     def letter(self, deviceId, position, char, dot=False, redraw=True):
@@ -303,7 +259,7 @@ class sevensegment(device):
         at the given deviceId / position.
         """
         assert dot in [0, 1, False, True]
-        value = self._DIGITS.get(str(char), self._UNDEFINED) | (dot << 7)
+        value = self._DIGITS[str(char)] | (dot << 7)
         self.set_byte(deviceId, position, value, redraw)
 
     def write_number(self, deviceId, value, base=10, decimalPlaces=0,
@@ -352,32 +308,6 @@ class sevensegment(device):
             position -= 1
 
         self.flush()
-
-    def write_text(self, deviceId, text):
-        """
-        Outputs the text (as near as possible) on the specific device. If
-        text is larger than 8 characters, then an OverflowError is raised.
-        """
-        assert 0 <= deviceId < self._cascaded, "Invalid deviceId: {0}".format(deviceId)
-        if len(text) > 8:
-            raise OverflowError('{0} too large for display'.format(text))
-        for pos, char in enumerate(text.ljust(8)[::-1]):
-            self.letter(deviceId, constants.MAX7219_REG_DIGIT0 + pos, char, redraw=False)
-
-        self.flush()
-
-    def show_message(self, text, delay=0.4):
-        """
-        Transitions the text message across the devices from left-to-right
-        """
-        # Add some spaces on (same number as cascaded devices) so that the
-        # message scrolls off to the left completely.
-        text += ' ' * self._cascaded * 8
-        for value in text:
-            time.sleep(delay)
-            self.scroll_right(redraw=False)
-            self._buffer[0] = self._DIGITS.get(value, self._UNDEFINED)
-            self.flush()
 
 
 class matrix(device):
@@ -428,37 +358,28 @@ class matrix(device):
         if redraw:
             self.flush()
 
-    def show_message(self, text, font=None, delay=0.05, always_scroll=False):
+    def show_message(self, text, font=None, delay=0.05):
         """
-        Shows a message on the device. If it's longer then the total width
-        (or always_scroll=True), it transitions the text message across the
-        devices from right-to-left.
+        Transitions the text message across the devices from left-to-right
         """
+        # Add some spaces on (same number as cascaded devices) so that the
+        # message scrolls off to the left completely.
+
         if not font:
             font = DEFAULT_FONT
 
-        display_length = self.NUM_DIGITS * self._cascaded
-        src = [c for ascii_code in text for c in font[ord(ascii_code)]]
-        scroll = always_scroll or len(src) > display_length
-        if scroll:
-            # Add some spaces on (same number as cascaded devices) so that the
-            # message scrolls off to the left completely.
-            src += [c for ascii_code in ' ' * self._cascaded
-                    for c in font[ord(ascii_code)]]
-        else:
-            # How much margin we need on the left so it's centered
-            margin = int((display_length - len(src))/2)
-            # Reset the buffer so no traces of the previous message are left
-            self._buffer = [0] * display_length
-        for pos, value in enumerate(src):
-            if scroll:
-                time.sleep(delay)
-                self.scroll_left(redraw=False)
-                self._buffer[-1] = value
-                self.flush()
-            else:
-                self._buffer[margin+pos] = value
-        if not scroll:
+        text += ' ' * self._cascaded
+        src = (value for asciiCode in text for value in font[ord(asciiCode)])
+
+        for value in src:
+            time.sleep(delay)
+            self.scroll_left(redraw=False)
+            self._buffer[-1] = value
+	    size = len(self._buffer)
+	    for i in range(0,size):
+		tmp=self._buffer[i]
+		self._buffer[i] = self._buffer[-(i+1)]
+		self._buffer[-(i+1)]= tmp
             self.flush()
 
     def pixel(self, x, y, value, redraw=True):
