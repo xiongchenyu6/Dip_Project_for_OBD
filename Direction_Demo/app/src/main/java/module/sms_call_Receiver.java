@@ -52,6 +52,7 @@ public class sms_call_Receiver extends BroadcastReceiver {
                 //---retrieve the SMS message received---
                 try {
 
+                    Log.d("1111", "sms receive");
                     smscounter++;
                     Object[] pdus = (Object[]) bundle.get("pdus");
                     msgs = new SmsMessage[pdus.length];
@@ -84,6 +85,7 @@ public class sms_call_Receiver extends BroadcastReceiver {
                 Bundle bundle = intent.getExtras();
                 phonecallNo = bundle.getString("incoming_number");
                 callcounter++;
+                Log.d("2222", "call receive");
             }
 
             // If incoming call is received

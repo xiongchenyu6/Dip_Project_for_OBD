@@ -42,7 +42,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements DirectionFinderListener, sms_call_Receiver.OnSmsReceivedListener,GpsUpdateService.OnLocationUpdateListener{
+public class MainActivity extends AppCompatActivity implements DirectionFinderListener, sms_call_Receiver.OnSmsReceivedListener{
 
     private ProgressDialog progressDialog;
     static String origin;
@@ -70,66 +70,10 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     public int stepCounter=0;
 
 
-    class MyResultReceiver extends ResultReceiver
-    {
-        public MyResultReceiver(Handler handler) {
-            super(handler);
-        }
-
-        @Override
-        protected void onReceiveResult(int resultCode, Bundle resultData) {
-
-            if(resultCode == 100){
-
-            }
-            else if(resultCode == 200){
-                Toast.makeText(MainActivity.this, "Current location is ", Toast.LENGTH_SHORT).show();
-            }
-            else{
-
-            }
-        }
-    }
-
-
-
-    private Messenger mMessenger = new Messenger(new Handler(){
-
-        @Override
-        public void handleMessage(Message msgFromServer){
-            switch (msgFromServer.what){
-                case MESSAGE:
-                    currentLocation= msgFromServer.obj.toString();
-                    Log.e("comingMessenger", currentLocation);
-                    Toast.makeText(MainActivity.this, "Current location is " + currentLocation, Toast.LENGTH_SHORT).show();
-                    break;
-            }
-            super.handleMessage(msgFromServer);
-        }
-    });
-
-    ServiceConnection connection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            isBound=true;
-            msgService=new Messenger(iBinder);
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName componentName) {
-            isBound=false;
-        }
-    };
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
 
         receiver= new sms_call_Receiver();
         receiver.setSmsReceiver(this);
@@ -205,44 +149,11 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
                        startLoop();
 
                    }
-                    //while (origin!=end){
-                        //loopDemo();
-                        //new asyncLoopDemo().execute();
-                   // }
+
                 }
 
-/*
-                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ||
-                        ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(MainActivity.this,
-                            new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-                }else {
-                    gpsUpdate=new GpsUpdateService();
-                    gpsUpdate.setLocationUpdateListener(MainActivity.this);
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
+              // Log.d("test", "test" );
 
-                            Intent startGPSUpdate = new Intent(MainActivity.this, GpsUpdateService.class);
-                            startService(startGPSUpdate);
-                            Intent bindIntent = new Intent(MainActivity.this, GpsUpdateService.class);
-                            bindService(bindIntent, connection, BIND_AUTO_CREATE);
-
-                            Message msgFromClient = Message.obtain(null, MESSAGE);
-                            msgFromClient.replyTo=mMessenger;
-                            if(isBound){
-                                try {
-                                    msgService.send(msgFromClient);
-                                } catch (RemoteException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }).start();
-                }
-
-                Log.d("test", "test" );
-*/
             }
         });
 
@@ -271,9 +182,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     protected void onDestroy()
     {
         super.onDestroy();
-        unbindService(connection);
-        Intent stopIntent = new Intent(this, GpsUpdateService.class);
-        stopService(stopIntent);
     }
 
 
@@ -357,7 +265,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
     }
 
-    @Override
+    //@Override
     public void onUpdate(Location location){
         Log.d("test", "ldsfalfj" );
     }
@@ -490,85 +398,4 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
     }
 
 
-    private void loopDemo (){
-
-        if(!Thread.currentThread().isInterrupted()) {
-            class loop implements Runnable {
-
-                public void run() {
-
-                    JSONObject data_all = new JSONObject();
-
-                    Log.d("geocord origin", origin);
-                    Log.d("geocord end", end);
-
-                    try {
-                        new DirectionFinder(MainActivity.this, origin, end).execute();
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-
-                    try {
-                        data_all = packJSon();//data_all is the final data package to the rpi
-                        sendToServer(data_all);
-//                        new sendDataToServer().execute(data_all);
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                    Log.d("JSON info " + stepCounter, data_all.toString());
-                }
-
-            }
-
-
-            Thread newTread = new Thread(new loop());
-            newTread.start();
-
-            newTread.interrupt();
-            while (origin != end) {
-                try {
-                    newTread.start();
-                    newTread.sleep(800);
-                    newTread.interrupt();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }else {
-            return;
-        }
-
-    }
-
-    private class asyncLoopDemo extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            JSONObject data_all=new JSONObject();
-
-            Log.d("geocord origin", origin );
-            Log.d("geocord end", end );
-
-            try {
-                new DirectionFinder(MainActivity.this, origin, end).execute();
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                data_all = packJSon();//data_all is the final data package to the rpi
-                //sendToServer(data_all);
-                //new sendDataToServer().execute(data_all);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            Log.d("JSON info " + stepCounter, data_all.toString());
-            SystemClock.sleep(1000);
-            return null;
-        }
-    }
 }

@@ -26,8 +26,8 @@ import android.widget.Toast;
 
 import com.example.seanh.direction_demo.MainActivity;
 
-public class GpsUpdateService extends Service {
-
+public class GpsUpdateService {
+/*
     private static final String TAG = "GPSUpdateService";
     private LocationManager mLocationManager = null;
     private static final int LOCATION_INTERVAL = 1000;
@@ -209,4 +209,5 @@ public class GpsUpdateService extends Service {
             mLocationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
         }
     }
+    */
 }
