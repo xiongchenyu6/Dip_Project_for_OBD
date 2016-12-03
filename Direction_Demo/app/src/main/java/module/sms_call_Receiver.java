@@ -3,9 +3,7 @@ package module;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -17,18 +15,16 @@ import android.util.Log;
 
 
 public class sms_call_Receiver extends BroadcastReceiver {
-        private SharedPreferences preferences;
-    private int smscounter=0;
-    private int callcounter=0;
-    private String smsName="";
-    private String phonecallNo="";
+    private int smscounter = 0;
+    private int callcounter = 0;
+    private String smsName = "";
+    private String phonecallNo = "";
 
-
-    static boolean ring=false;
-    static boolean callReceived=false;
+    static boolean ring = false;
+    static boolean callReceived = false;
 
     public interface OnSmsReceivedListener {
-        void onReceived(int msgNo,String msgName,int callNo,String callerName);
+        void onReceived(int msgNo, String msgName, int callNo, String callerName);
     }
 
     private OnSmsReceivedListener listener = null;
@@ -39,26 +35,24 @@ public class sms_call_Receiver extends BroadcastReceiver {
 
 
     @Override
-        public void onReceive(Context context, Intent intent) {
+    public void onReceive(Context context, Intent intent) {
         // TODO Auto-generated method stub
 
         if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
             Bundle bundle = intent.getExtras();           //---get the SMS message passed in---
             SmsMessage[] msgs = null;
             //String from=null;
-            String msg= null;
+            String msg = null;
             String str = "";
             if (bundle != null) {
                 //---retrieve the SMS message received---
                 try {
-
-                    Log.d("1111", "sms receive");
                     smscounter++;
                     Object[] pdus = (Object[]) bundle.get("pdus");
                     msgs = new SmsMessage[pdus.length];
 
-                    for (int i=0; i<msgs.length; i++){
-                        msgs[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
+                    for (int i = 0; i < msgs.length; i++) {
+                        msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
                         str += "SMS from " + msgs[i].getOriginatingAddress();
                         smsName = msgs[i].getOriginatingAddress();
                         str += " :";
@@ -66,8 +60,6 @@ public class sms_call_Receiver extends BroadcastReceiver {
                         msg = msgs[i].getMessageBody().toString();
                         str += "\n";
                     }
-
-
                 } catch (Exception e) {
                     Log.d("Exception caught", e.getMessage());
                 }
@@ -76,8 +68,7 @@ public class sms_call_Receiver extends BroadcastReceiver {
 
         String state = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
 
-        if (state!=null) {
-
+        if (state != null) {
             // If phone state "Rininging"
             if (state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
                 ring = true;
@@ -85,15 +76,11 @@ public class sms_call_Receiver extends BroadcastReceiver {
                 Bundle bundle = intent.getExtras();
                 phonecallNo = bundle.getString("incoming_number");
                 callcounter++;
-                Log.d("2222", "call receive");
             }
-
             // If incoming call is received
             if (state.equals(TelephonyManager.EXTRA_STATE_OFFHOOK)) {
                 callReceived = true;
             }
-
-
             // If phone is Idle
             if (state.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
                 // If phone was ringing(ring=true) and not received(callReceived=false) , then it is a missed call
@@ -103,11 +90,11 @@ public class sms_call_Receiver extends BroadcastReceiver {
             }
         }
 
-        if (listener != null)
-            listener.onReceived(smscounter,smsName,callcounter/2,phonecallNo);
-
-
-    }
+        if (listener != null) {
+            listener.onReceived(smscounter, smsName, callcounter / 2, phonecallNo);
+        }
 
     }
+
+}
 

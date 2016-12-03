@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Instructions"
-                    android:id="@+id/txtInst"/>
+                    android:id="@+id/tvInstruction"/>
         </RelativeLayout>
     </ScrollView>
 

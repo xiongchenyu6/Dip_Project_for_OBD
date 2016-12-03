@@ -36,7 +36,6 @@ public class DirectionFinder {
     }
 
     public void execute() throws UnsupportedEncodingException {
-        listener.onDirectionFinderStart();
         new DownloadRawData().execute(createUrl());
         //syncDownload(createUrl());
     }

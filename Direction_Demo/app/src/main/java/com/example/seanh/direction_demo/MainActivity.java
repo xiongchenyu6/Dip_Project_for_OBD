@@ -1,19 +1,10 @@
 package com.example.seanh.direction_demo;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.ServiceConnection;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.ResultReceiver;
-import android.os.StrictMode;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,9 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import module.DirectionFinder;
 import module.DirectionFinderListener;
-import module.GpsUpdateService;
 import module.Route;
-import android.app.ProgressDialog;
 import module.sms_call_Receiver;
 
 import org.json.JSONException;
@@ -44,18 +33,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements DirectionFinderListener, sms_call_Receiver.OnSmsReceivedListener{
 
-    private ProgressDialog progressDialog;
     static String origin;
     static String end;
     private sms_call_Receiver receiver;
-    private GpsUpdateService gpsUpdate;
     private int distanceValue=-1;
     private String ipAddress;
-
-    Messenger msgService;
-    boolean isBound;
-    private static final int MESSAGE=1;
-    private String currentLocation;
 
     public String go_duration;
     public String go_distance;
@@ -77,8 +59,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
         receiver= new sms_call_Receiver();
         receiver.setSmsReceiver(this);
-
-
 
         Button btnNavigate=(Button) findViewById(R.id.button);
         Button btnShowMap=(Button) findViewById(R.id.button2);
@@ -124,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         btnShowMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 EditText et1=(EditText) findViewById(R.id.edTxtStart);
                 EditText et2=(EditText) findViewById(R.id.edTxtEnd);
                 Intent intent = new Intent(MainActivity.this, MapsActivity.class);
@@ -137,7 +116,6 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         btnGo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-
                 if(origin==null || end==null) {
                     Toast.makeText(MainActivity.this, "The entered address is not valid", Toast.LENGTH_SHORT).show();
                 }else {
@@ -147,13 +125,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
                        Toast.makeText(MainActivity.this, "You have arrived at destination", Toast.LENGTH_SHORT).show();
                    }else{
                        startLoop();
-
                    }
-
                 }
-
-              // Log.d("test", "test" );
-
             }
         });
 
@@ -206,40 +179,31 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
         }
     }
 
-
-    @Override
-    public void onDirectionFinderStart() {
-        //progressDialog = ProgressDialog.show(this, "Please wait.",
-                //"Finding direction..!", true);
-    }
-
+//DirectionFinderListener Interface
     @Override
     public void onDirectionFinderSuccess(List<Route> routes) {
-        //progressDialog.dismiss();
-        String inst="";
+        String instructionText="";
 
         for (Route route : routes) {
             ((TextView) findViewById(R.id.tvDuration)).setText(route.duration.text);
             ((TextView) findViewById(R.id.tvDistance)).setText(route.distance.text);
 
             for(int i=0;i<route.instructions.size();i++){
-                inst=inst+route.instructions.get(i)+"--";
+                instructionText=instructionText+route.instructions.get(i)+"--";
 
             }
 
-            inst=inst+"\n"+route.polyline;
+            instructionText=instructionText+"\n"+route.polyline;
+            ((TextView) findViewById(R.id.tvInstruction)).setText(instructionText);
 
+            //GPS simulation
             origin=route.points.get(1).toString().replaceAll("[lat/ng: ()]","");
-            //end=route.points.get(route.points.size()-1).toString().replaceAll("[\\[\\](){}]","");
-            //origin=route.step_startLocation.toString().replaceAll("[lat/ng: ()]","");
             end=route.endLocation.toString().replaceAll("[lat/ng: ()]","");
 
+            //condition of <200m
             distanceValue=route.distance.value;
-            Log.d("test", String.valueOf(distanceValue) );
 
-            ((TextView) findViewById(R.id.txtInst)).setText(inst);
-
-
+            //data packaging
             go_duration=route.duration.text;
             go_distance=route.distance.text;
             go_distance_value=route.distance.value;
@@ -249,12 +213,11 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             }else {
                 go_instruction=route.instructions.get(0);
             }
-
             go_polyline=route.polyline;
-
         }
     }
 
+    //SMS_Call_Receiver Listener
     @Override
     public void onReceived(int msgNo,String msgName,int callNo,String callerName) {
         Toast.makeText(this, "New message No is " + msgNo+ " miss call No is " + callNo, Toast.LENGTH_SHORT).show();
@@ -265,25 +228,7 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
     }
 
-    //@Override
-    public void onUpdate(Location location){
-        Log.d("test", "ldsfalfj" );
-    }
-
-
-
     private void startLoop(){
-/*
-        Resources res=getResources();
-        String[] lat=res.getStringArray(R.array.lat);
-        String[] lng=res.getStringArray(R.array.lng);
-
-        end=lat[lat.length-1]+","+lng[lng.length-1];
-        origin=lat[stepCounter]+","+lng[stepCounter];
-*/
-
-        Log.d("geocord origin", origin );
-        Log.d("geocord end", end );
 
         JSONObject data_all=new JSONObject();
 
@@ -297,18 +242,15 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
                 data_all=packJSon();//data_all is the final data package to the rpi
                 sendToServer(data_all);
                 //new sendDataToServer().execute(data_all);
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
         Log.d("JSON info "+stepCounter, data_all.toString() );
 
-           // if (stepCounter<lat.length-1)
-             //   stepCounter++;
-
     }
 
+    //JSON packaging
     private JSONObject packJSon() throws JSONException{
         JSONObject data_map=new JSONObject();
         JSONObject data_notif=new JSONObject();
@@ -333,40 +275,44 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
 
     }
 
+    //Class Runnable implement method
     private void sendToServer(JSONObject data){
 
-        class task implements Runnable{
+        class task implements Runnable {
             JSONObject data;
-            task(JSONObject data){this.data=data;}
+            task(JSONObject data) {
+                this.data = data;
+            }
             public void run() {
-        Uri uri = Uri.parse(ipAddress)
-                    .buildUpon()
-                    .appendQueryParameter("key",data.toString())
-                    .build();
-        URL url = null;
-        try {
-            url = new URL(uri.toString());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        HttpURLConnection urlConnection = null;
-        try {
-            urlConnection = (HttpURLConnection) url.openConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try{
-            int code = urlConnection.getResponseCode();
-            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-        }catch (Exception e){
-            urlConnection.disconnect();
-        }
+                Uri uri = Uri.parse(ipAddress)
+                        .buildUpon()
+                        .appendQueryParameter("key", data.toString())
+                        .build();
+                URL url = null;
+                try {
+                    url = new URL(uri.toString());
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                HttpURLConnection urlConnection = null;
+                try {
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    int code = urlConnection.getResponseCode();
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                } catch (Exception e) {
+                    urlConnection.disconnect();
+                }
             }
         }
         Thread newTread = new Thread(new task(data));
         newTread.start();
     }
 
+    //Async Method to implement data sending
     private class sendDataToServer extends AsyncTask<JSONObject, Void, Void>{
 
         @Override
@@ -394,8 +340,8 @@ public class MainActivity extends AppCompatActivity implements DirectionFinderLi
             }
             return null;
         }
-
     }
+
 
 
 }

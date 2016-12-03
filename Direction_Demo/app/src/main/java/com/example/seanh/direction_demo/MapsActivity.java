@@ -66,13 +66,6 @@ public class MapsActivity extends FragmentActivity implements DirectionFinderLis
         }
     }
 
-
-    @Override
-    public void onDirectionFinderStart() {
-        progressDialog = ProgressDialog.show(this, "Please wait.",
-                "Finding direction..!", true);
-    }
-
     @Override
     public void onDirectionFinderSuccess(List<Route> routes) {
         uniRoutes=routes;
