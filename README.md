@@ -2,12 +2,12 @@
 
 
 
-Overall Setup:
+**Overall Setup:**
 
 1. Install Raspbian OS
-Firstly you should download the image of the raspbian OS from [Raspberry webpage][RPI]
-If you use windows system you should download **Win32 Disk Imager** to burn the image into the SD card.
-![](image/diskManager.png)
+   Firstly you should download the image of the raspbian OS from [Raspberry webpage][RPI]
+   If you use windows system you should download **Win32 Disk Imager** to burn the image into the SD card.
+   ![](image/diskManager.png)
 
 2. Connect RPI to monitor via HDMI cable and enable all ports and interfaces
 
